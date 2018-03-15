@@ -4,36 +4,48 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
+    public bool rotateBack = true;
+    public bool rotateForward = true;
+    public bool rotateLeft = true;
+    public bool rotateRight = true;
+
+    public bool canMove = true;
+
     private float speed;
+
     private int way;
-	// Use this for initialization
+
 	void Start () {
         speed = 8;
 	}
 	
-	// Update is called once per frame
 	void Update () {
-        transform.Translate(Vector3.forward / speed);
 
-        if(Input.GetKeyDown(KeyCode.W) && way == 3)
+        if(canMove)
+        {
+            transform.Translate(Vector3.forward / speed);
+        }
+            
+
+        if(Input.GetKeyDown(KeyCode.W) && rotateForward && way == 3)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
             way = 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && way != 3)
+        if (Input.GetKeyDown(KeyCode.S) && rotateBack && way != 3)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
             way = 3;
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && rotateLeft)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
             way = 4;
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && rotateRight)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
             way = 2;
