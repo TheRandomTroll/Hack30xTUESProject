@@ -41,9 +41,11 @@ public class TriggerEvents : MonoBehaviour
         if (collider.tag == "Point")
         {
             pointsScript.points++;
+            Destroy(collider.gameObject);
 
         }
     }
+
     private void OnTriggerExit(Collider collider)
     {
         if (this.name == "detectorFront")
