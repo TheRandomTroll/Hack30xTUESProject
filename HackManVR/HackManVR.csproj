@@ -299,6 +299,7 @@
   <ItemGroup>
     <Compile Include="Assets\BlueprintMover.cs" />
     <Compile Include="Assets\CameraVRRay.cs" />
+    <Compile Include="Assets\ChangeCamera.cs" />
     <Compile Include="Assets\ConnectionPoints.cs" />
     <Compile Include="Assets\FollowPlayer.cs" />
     <Compile Include="Assets\GetCurrentPressedKey.cs" />
