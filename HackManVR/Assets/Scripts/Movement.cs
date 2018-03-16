@@ -41,25 +41,26 @@ public class Movement : MonoBehaviour {
             }
 
 
-            if (Input.GetKeyDown(KeyCode.W) && rotateForward && way == 3)
+            if (Input.GetButtonDown("Forward") && rotateForward && way == 3)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
                 way = 1;
             }
 
-            if (Input.GetKeyDown(KeyCode.S) && rotateBack && way != 3)
+            if (Input.GetButtonDown("Backward") && rotateBack && way != 3)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
                 way = 3;
             }
 
-            if (Input.GetKeyDown(KeyCode.A) && rotateLeft)
+            if (Input.GetButtonDown("Left") && rotateLeft)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
                 way = 4;
+
             }
 
-            if (Input.GetKeyDown(KeyCode.D) && rotateRight)
+            if (Input.GetButtonDown("Right") && rotateRight)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
                 way = 2;
