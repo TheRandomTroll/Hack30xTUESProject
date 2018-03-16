@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraVRRay : MonoBehaviour {
 
@@ -19,6 +20,14 @@ public class CameraVRRay : MonoBehaviour {
         {
             HasTriggered isTriggered = hit.transform.GetComponent<HasTriggered>();
             if (!isTriggered) return;
+            if(hit.transform.gameObject.name == "Start")
+            {
+                
+            }
+            if (Input.GetKey(KeyCode.W))
+            {
+                SceneManager.LoadScene(1);
+            }
             isTriggered.Trigger();
             Debug.Log("Hit " + hit.point);
             point.transform.position = hit.point;

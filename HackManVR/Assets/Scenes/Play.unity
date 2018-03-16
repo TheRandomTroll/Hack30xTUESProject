@@ -879,8 +879,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddb167cad52c4c4282706d7d96fc2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
-  pointsScript: {fileID: 0}
+  movementScript: {fileID: 1272407000}
+  pointsScript: {fileID: 552377236}
 --- !u!1 &898132513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,8 +1200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddb167cad52c4c4282706d7d96fc2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
-  pointsScript: {fileID: 0}
+  movementScript: {fileID: 1272407000}
+  pointsScript: {fileID: 552377236}
 --- !u!1 &1017642916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,8 +1427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddb167cad52c4c4282706d7d96fc2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
-  pointsScript: {fileID: 0}
+  movementScript: {fileID: 1272407000}
+  pointsScript: {fileID: 552377236}
 --- !u!1001 &1177245124
 Prefab:
   m_ObjectHideFlags: 0
@@ -1883,10 +1883,10 @@ MonoBehaviour:
   rotateLeft: 1
   rotateRight: 1
   canMove: 1
-  playerBlinky: {fileID: 0}
-  playerPinky: {fileID: 0}
-  Base: {fileID: 0}
-  marker: {fileID: 0}
+  playerBlinky: {fileID: 1272406999}
+  playerPinky: {fileID: 1706715448}
+  Base: {fileID: 1759290764}
+  marker: {fileID: 1759290764}
   navAgent: {fileID: 0}
 --- !u!54 &1272407001
 Rigidbody:
@@ -2120,8 +2120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddb167cad52c4c4282706d7d96fc2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
-  pointsScript: {fileID: 0}
+  movementScript: {fileID: 1272407000}
+  pointsScript: {fileID: 552377236}
 --- !u!1 &1463366904
 GameObject:
   m_ObjectHideFlags: 0

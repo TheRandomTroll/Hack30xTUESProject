@@ -17,7 +17,7 @@ public class GetCurrentPressedKey : MonoBehaviour {
         System.Array values = System.Enum.GetValues(typeof(KeyCode));
         foreach (KeyCode code in values)
         {
-            if (Input.GetKeyDown(code)) { Debug.Log(System.Enum.GetName(typeof(KeyCode), code)); }
+            //if (Input.GetKeyDown(code)) { Debug.Log(System.Enum.GetName(typeof(KeyCode), code)); }
         }
     }
 }
