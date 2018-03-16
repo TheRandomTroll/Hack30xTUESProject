@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Start Menu.unity
+    guid: dabbbdaff1df44a48a23f7e97db0b52e
+  - enabled: 1
+    path: Assets/Scenes/Play.unity
+    guid: 3b815928269cdd34e96b9cd1bf2e8a51
+  - enabled: 1
+    path: Assets/Scenes/Play - Misho.unity
+    guid: c710e533cc73c7a418a32c8f8be4bfef
