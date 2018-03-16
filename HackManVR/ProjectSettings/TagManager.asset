@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Point
+  - Ghost
   layers:
   - Default
   - TransparentFX
