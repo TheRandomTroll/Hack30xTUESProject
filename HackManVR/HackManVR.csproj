@@ -417,6 +417,7 @@
     <Compile Include="Assets\Scripts\Random\Random\BasicRandom.cs" />
     <Compile Include="Assets\Scripts\Random\Random\Random.cs" />
     <Compile Include="Assets\Scripts\Random\Random\RandomLibrary.cs" />
+    <Compile Include="Assets\Scripts\Random\RandomLibrary.cs" />
     <Compile Include="Assets\Scripts\UserCreation\BlueprintBuilder.cs" />
     <Compile Include="Assets\Scripts\UserCreation\CameraRotator.cs" />
     <Compile Include="Assets\Scripts\UserCreation\Spectator.cs" />
