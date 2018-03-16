@@ -298,6 +298,7 @@
     <Compile Include="Assets\CameraVRRay.cs" />
     <Compile Include="Assets\ChangeCamera.cs" />
     <Compile Include="Assets\FollowPlayer.cs" />
+    <Compile Include="Assets\GetCurrentPressedKey.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoSceneManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\HelloVR\HeadsetDemoManager.cs" />
