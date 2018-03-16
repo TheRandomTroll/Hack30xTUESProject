@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Start Menu.unity
     guid: dabbbdaff1df44a48a23f7e97db0b52e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Start Menu VR.unity
     guid: f235795a4765b4f4d9ac29cffc1f4ad0
   - enabled: 1
