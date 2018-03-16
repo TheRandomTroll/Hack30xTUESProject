@@ -408,7 +408,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play Misho
+  m_Text: Start Misho
 --- !u!222 &795400001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -616,7 +616,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit Game
+  m_Text: 'Quit
+
+'
 --- !u!222 &1214943955
 CanvasRenderer:
   m_ObjectHideFlags: 0
