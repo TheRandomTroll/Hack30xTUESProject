@@ -261,7 +261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: -1
-  sceneName: Play
+  sceneName: StartMenuVR
+  alternativeInput: Backward
 --- !u!1 &540468588
 GameObject:
   m_ObjectHideFlags: 0

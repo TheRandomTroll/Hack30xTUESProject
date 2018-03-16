@@ -29,25 +29,6 @@ public class HasTriggered : MonoBehaviour {
         {
             isTriggered = false;
         }
-
-        if (GetTrigger() && Input.GetButtonDown("Backward"))
-        {
-            if(gameObject.name == "Start")
-            {
-                SceneManager.LoadScene(1);
-            }
-
-            if (gameObject.name == "OPTION 1")
-            {
-                
-            }
-
-            if (gameObject.name == "OPTION 2")
-            {
-                
-            }
-
-        }
     }
 
 

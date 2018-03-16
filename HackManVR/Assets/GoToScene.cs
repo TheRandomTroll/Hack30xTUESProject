@@ -15,8 +15,12 @@ public class GoToScene : MonoBehaviour {
     private HasTriggered trigger;
 
 
+
     // TODO: Change for console.
-    KeyCode leftClick = KeyCode.Mouse0;
+    KeyCode main = KeyCode.Mouse0;
+
+    [SerializeField]
+    string alternativeInput = "Backward";
 
 
     void Start()
@@ -26,7 +30,7 @@ public class GoToScene : MonoBehaviour {
 
 
 	void Update () {
-        if(trigger.GetTrigger() && Input.GetKey(leftClick))
+        if(trigger.GetTrigger() && (Input.GetKey(main) || Input.GetButtonDown(alternativeInput)))
         {
             if(sceneIndex > 0)
             {
@@ -49,6 +53,4 @@ public class GoToScene : MonoBehaviour {
     {
         SceneManager.LoadScene(name);
     }
-
-
 }
