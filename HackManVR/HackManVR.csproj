@@ -404,6 +404,8 @@
     <Compile Include="Assets\PointsScript.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\UserCreation\CameraRotator.cs" />
+    <Compile Include="Assets\Spectator.cs" />
     <Compile Include="Assets\TriggerEvents.cs" />
   </ItemGroup>
   <ItemGroup>
