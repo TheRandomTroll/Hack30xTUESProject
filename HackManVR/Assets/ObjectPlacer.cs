@@ -40,37 +40,54 @@ public class ObjectPlacer : MonoBehaviour {
                     Mathf.RoundToInt(hit.transform.position.x),
                     Mathf.RoundToInt(hit.transform.position.z));
 
-            if(position != lastGridPosition)
+            if (hit.transform.gameObject.tag == "BuildPoint")
             {
-                Destroy(instantiatedShadow);
-                instantiatedShadow = Instantiate(transparentMarker);
-                instantiatedShadow.transform.position = new Vector3(
-                    position.x,
-                    transparentMarker.transform.position.y,
-                    position.y
-                );
-                instantiatedShadow.transform.localScale = new Vector3(
-                    transform.localScale.x * 0.6f,
-                    transform.localScale.y * 0.6f,
-                    transform.localScale.z * 0.6f
-                );
-            }
-            lastGridPosition = position;
+                if (position != lastGridPosition)
+                {
+                    Destroy(instantiatedShadow);
+                    instantiatedShadow = Instantiate(transparentMarker);
+                    instantiatedShadow.transform.position = new Vector3(
+                        position.x,
+                        transparentMarker.transform.position.y,
+                        position.y
+                    );
+                    instantiatedShadow.transform.localScale = new Vector3(
+                        transform.localScale.x * 0.6f,
+                        transform.localScale.y * 0.6f,
+                        transform.localScale.z * 0.6f
+                    );
+                }
+                lastGridPosition = position;
 
-            // TODO: Change getkey to controller btn.
-            if (Input.GetKey(KeyCode.Mouse0))
+                // TODO: Change getkey to controller btn.
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    if (!worldGrid.GridContainsAt(position))
+                    {
+                        GameObject gameObj = Instantiate(currentSelectedObject);
+                        gameObj.transform.position = hit.transform.position;
+                        worldGrid.AddToGrid(position, gameObj);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Grid contains something at " + position);
+                    }
+
+                }
+            }
+
+            if(hit.transform.gameObject.tag == "ItemFrame")
             {
-                if (!worldGrid.GridContainsAt(position))
+                if (Input.GetKey(KeyCode.Mouse0))
                 {
-                    GameObject gameObj = Instantiate(currentSelectedObject);
-                    gameObj.transform.position = hit.transform.position;
-                    worldGrid.AddToGrid(position, gameObject);
+                    ItemSelection itemSelect = hit.transform.GetComponent<ItemSelection>();
+                    foreach (ItemSelection itemSel in FindObjectsOfType<ItemSelection>())
+                    {
+                        itemSel.Deactivate();
+                    }
+                    itemSelect.SetAsActive();
+                    ChangeCurrentSelectedObject(itemSelect.GetPrefab());
                 }
-                else
-                {
-                    Debug.LogWarning("Grid contains something at " + position);
-                }
-                
             }
         }
 	}
@@ -82,8 +99,8 @@ public class ObjectPlacer : MonoBehaviour {
         currentSelectedObject = gameObj;
 
         MeshRenderer renderer = transparentMarker.GetComponent<MeshRenderer>();
-        Color color = renderer.sharedMaterial.color;
-        
+        Color color = renderer.material.color;
+        // TODO: Use transparent shader for marker.
         color.a = 20;
         color.b /= 1.2f;
         color.r /= 1.2f;
