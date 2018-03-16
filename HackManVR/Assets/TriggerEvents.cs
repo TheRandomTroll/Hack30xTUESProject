@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI
+using UnityEngine.UI;
 
 public class TriggerEvents : MonoBehaviour
 {
 
     public Movement movementScript;
-    public Text pointsScript;
+    public PointsScript pointsScript;
 
 
     private void OnTriggerEnter(Collider collider)
@@ -38,13 +38,12 @@ public class TriggerEvents : MonoBehaviour
             }
         }
 
-        if(collider.tag == "Point")
+        if (collider.tag == "Point")
         {
-            points.
+            pointsScript.points++;
+
         }
-
     }
-
     private void OnTriggerExit(Collider collider)
     {
         if (this.name == "detectorFront")

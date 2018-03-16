@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Play.unity
+- path: D:/Georgi/ELSYS/Unity/HackManVR1/Assets/scenes/Playing.unity
   isLoaded: 1
   isActive: 1
