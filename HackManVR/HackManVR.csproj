@@ -400,6 +400,11 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrVRHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+    <Compile Include="Assets\GoToScene.cs" />
+    <Compile Include="Assets\GridOutline.cs" />
+    <Compile Include="Assets\ItemSelection.cs" />
+    <Compile Include="Assets\KeepOffset.cs" />
+    <Compile Include="Assets\ObjectPlacer.cs" />
     <Compile Include="Assets\Scripts\CameraStatic.cs" />
     <Compile Include="Assets\Scripts\CameraVRRay.cs" />
     <Compile Include="Assets\Scripts\ChangeCamera.cs" />
@@ -408,6 +413,8 @@
     <Compile Include="Assets\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\HasTriggered.cs" />
     <Compile Include="Assets\Scripts\KeyValuePair.cs" />
+    <Compile Include="Assets\Scripts\LevelBuilder\CameraRotator.cs" />
+    <Compile Include="Assets\Scripts\LevelBuilder\Spectator.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\LookAtPlayer.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
@@ -417,7 +424,10 @@
     <Compile Include="Assets\Scripts\Random\Random\Random.cs" />
     <Compile Include="Assets\Scripts\Random\RandomLibrary.cs" />
     <Compile Include="Assets\Scripts\TriggerEvents.cs" />
+    <Compile Include="Assets\Scripts\Waypoint.cs" />
     <Compile Include="Assets\Scripts\WorldManager.cs" />
+    <Compile Include="Assets\UserCreatorGrid.cs" />
+    <Compile Include="Assets\WorldGrid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GoogleVR\Demos\Shaders\HelloVR\HelloVRUnlitGrayscaleToColor.shader" />
