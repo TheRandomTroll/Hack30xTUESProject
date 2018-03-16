@@ -18,6 +18,7 @@ public class CameraVRRay : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, 50f))
         {
             HasTriggered isTriggered = hit.transform.GetComponent<HasTriggered>();
+            if (!isTriggered) return;
             isTriggered.Trigger();
             Debug.Log("Hit " + hit.point);
             point.transform.position = hit.point;
