@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Movement : MonoBehaviour {
 
@@ -15,19 +16,30 @@ public class Movement : MonoBehaviour {
 
     private int way;
 
-	void Start () {
-        speed = 8;
-	}
-	
-	void Update () {
 
-        if(canMove)
+    public Transform playerBlinky;
+    public Transform playerPinky;
+    public Transform Base;
+
+    public Transform marker;
+
+    public NavMeshAgent navAgent;
+
+    void Start () {
+        speed = 8;
+        navAgent = GetComponent<NavMeshAgent>();
+    }
+
+    void Update()
+    {
+
+        if (canMove)
         {
             transform.Translate(Vector3.forward / speed);
         }
-            
 
-        if(Input.GetKeyDown(KeyCode.W) && rotateForward && way == 3)
+
+        if (Input.GetKeyDown(KeyCode.W) && rotateForward && way == 3)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
             way = 1;
@@ -50,5 +62,58 @@ public class Movement : MonoBehaviour {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
             way = 2;
         }
-    }
+
+
+
+        if (tag == "Ghost")
+        {
+            if (name == "Blinky")
+            {
+                if (Time.timeSinceLevelLoad > 3)
+                {
+                    navAgent.SetDestination(playerBlinky.position);
+                }
+            }
+
+            if (name == "Pinky")
+            {
+                if (Time.timeSinceLevelLoad > 10)
+                {
+                    navAgent.SetDestination(playerPinky.position);
+                }
+
+            }
+
+            if (name == "Inky")
+            {
+                if (Time.timeSinceLevelLoad > 15)
+                {
+                    if (Vector3.Distance(transform.position, playerBlinky.position) < 3)
+                    {
+                        navAgent.SetDestination(Base.position);
+                    }
+                    else
+                    {
+                        navAgent.SetDestination(playerBlinky.position);
+                    }
+                }
+            }
+
+            if (name == "Clyde")
+            {
+                if (Time.timeSinceLevelLoad > 25)
+                {
+                    if (Vector3.Distance(transform.position, playerBlinky.position) < 3)
+                    {
+                        navAgent.SetDestination(marker.position);
+                    }
+                    else
+                    {
+                        navAgent.SetDestination(playerBlinky.position);
+                    }
+                }
+            }
+        }
+
+    }    
 }
