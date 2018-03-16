@@ -207,7 +207,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 59212664}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 16.94, y: 21.61, z: 12.18}
+  m_LocalPosition: {x: 23, y: 21.61, z: 12.18}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 359752879}
   - component: {fileID: 359752878}
   - component: {fileID: 359752882}
+  - component: {fileID: 359752883}
   m_Layer: 0
   m_Name: OPTION 1
   m_TagString: Untagged
@@ -388,7 +389,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359752877}
-  m_Text: OPTION1
+  m_Text: Random
   m_OffsetZ: 0
   m_CharacterSize: 40
   m_LineSpacing: 1
@@ -443,7 +444,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359752877}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -24.87, y: 21.61, z: -15.63}
+  m_LocalPosition: {x: -23, y: 21.61, z: -15.63}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
@@ -462,6 +463,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTriggered: 0
   startTriggerTimer: 0.1
+--- !u!114 &359752883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359752877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fdc608681dea84d8699d618eeab285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneIndex: -1
+  sceneName: RandomLevel
+  alternativeInput: Backward
 --- !u!1001 &387643827
 Prefab:
   m_ObjectHideFlags: 0
