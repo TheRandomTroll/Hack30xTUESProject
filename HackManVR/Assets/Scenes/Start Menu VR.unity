@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 261636884}
   - component: {fileID: 261636883}
   - component: {fileID: 261636887}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -493,6 +493,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 573318178, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 555767533, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 2}
   m_IsPrefabParent: 0
@@ -741,7 +749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 570593696}
   - component: {fileID: 570593697}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTriggered: 0
-  startTriggerTimer: 0.1
+  startTriggerTimer: 0.5
 --- !u!114 &1287771066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,6 +1216,10 @@ Prefab:
     - target: {fileID: 4096542561336514, guid: b4fcab02d55a5b34b829175c6a3595ff, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962556253234000, guid: b4fcab02d55a5b34b829175c6a3595ff, type: 2}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4fcab02d55a5b34b829175c6a3595ff, type: 2}

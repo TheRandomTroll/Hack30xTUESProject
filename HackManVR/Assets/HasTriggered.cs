@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class HasTriggered : MonoBehaviour {
 
@@ -27,6 +28,25 @@ public class HasTriggered : MonoBehaviour {
         else
         {
             isTriggered = false;
+        }
+
+        if (GetTrigger() && Input.GetButtonDown("Backward"))
+        {
+            if(gameObject.name == "Start")
+            {
+                SceneManager.LoadScene(1);
+            }
+
+            if (gameObject.name == "OPTION 1")
+            {
+                
+            }
+
+            if (gameObject.name == "OPTION 2")
+            {
+                
+            }
+
         }
     }
 
