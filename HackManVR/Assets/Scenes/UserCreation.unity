@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -276,8 +276,14 @@ Prefab:
     - target: {fileID: 114650810590817344, guid: 5223b35e3fd30534985d1e6146cc961b,
         type: 2}
       propertyPath: activeColor.a
-      value: 0
+      value: 0.647
       objectReference: {fileID: 0}
+    - target: {fileID: 114650810590817344, guid: 5223b35e3fd30534985d1e6146cc961b,
+        type: 2}
+      propertyPath: selectedPrefab
+      value: 
+      objectReference: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5223b35e3fd30534985d1e6146cc961b, type: 2}
   m_IsPrefabParent: 0
@@ -425,7 +431,7 @@ Prefab:
         type: 2}
       propertyPath: selectedPrefab
       value: 
-      objectReference: {fileID: 1651707645861232, guid: 0bcba8d099ce0b44095d0616d1178c8c,
+      objectReference: {fileID: 1651707645861232, guid: 664d697ed4806554395e5d697056e90a,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5223b35e3fd30534985d1e6146cc961b, type: 2}
@@ -444,7 +450,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1096862773}
   - component: {fileID: 1096862772}
-  - component: {fileID: 1096862774}
   - component: {fileID: 1096862771}
   - component: {fileID: 1096862770}
   - component: {fileID: 1096862775}
@@ -520,7 +525,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1096862774
+--- !u!114 &1096862775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -533,22 +538,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseX: 0
   mouseY: 0
-  sensitivity: 2
-  smoothness: 100
+  sensitivity: 1
+  smoothness: 50
   inputActive: 1
   mouseLocked: 1
   invertedY: 0
---- !u!114 &1096862775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1096862769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6b661ca42ba0f149a178ccfed38c5f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1096862776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,7 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e689adb3d022e47ab09a6749face8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSelectedObject: {fileID: 1651707645861232, guid: 0bcba8d099ce0b44095d0616d1178c8c,
+  currentSelectedObject: {fileID: 1651707645861232, guid: 664d697ed4806554395e5d697056e90a,
     type: 2}
   rayDistance: 30
   transparentMarker: {fileID: 0}
