@@ -20,6 +20,15 @@ public class ObjectPlacer : MonoBehaviour {
     [SerializeField]
     Vector2Int lastGridPosition;
 
+    [SerializeField]
+    GameObject gridOutline;
+
+
+    // TODO: Change for controller.
+    private KeyCode leftClick = KeyCode.Mouse0;
+    private KeyCode rightClick = KeyCode.Mouse1;
+
+
     private void Start()
     {
         worldGrid = FindObjectOfType<WorldGrid>();
@@ -44,44 +53,22 @@ public class ObjectPlacer : MonoBehaviour {
             {
                 if (position != lastGridPosition)
                 {
-                    if (instantiatedShadow)
-                    {
-                        Destroy(instantiatedShadow);
-                    }
-                    instantiatedShadow = Instantiate(transparentMarker);
-                    instantiatedShadow.transform.position = new Vector3(
-                        position.x,
-                        transparentMarker.transform.position.y,
-                        position.y
-                    );
-
-                    instantiatedShadow.transform.localScale = new Vector3(
-                        transform.localScale.x * 0.6f,
-                        transform.localScale.y * 0.6f,
-                        transform.localScale.z * 0.6f
-                    );
-
-                    MeshRenderer renderer = instantiatedShadow.GetComponent<MeshRenderer>();
-                    Color color = renderer.material.color;
-                    
-                    // TODO: Use transparent shader for marker.
-                    color.a = 50;
-                    color.b *= 1.2f;
-                    color.r *= 1.2f;
-                    color.g *= 1.2f;
-                    renderer.material.color = color;
+                    InstantiateObjectShadow(position);
                 }
                 lastGridPosition = position;
 
                 // TODO: Change getkey to controller btn.
-                if (Input.GetKey(KeyCode.Mouse0))
+                if (Input.GetKey(leftClick))
                 {
                     if (!worldGrid.GridContainsAt(position))
                     {
                         GameObject gameObj = Instantiate(currentSelectedObject);
-                        gameObj.transform.position = hit.transform.position;
+                        Vector3 gameObjPos = hit.transform.position;
+                        gameObjPos.y = gameObj.transform.position.y;
+                        gameObj.transform.position = gameObjPos;
                         worldGrid.AddToGrid(position, gameObj);
                         Destroy(instantiatedShadow);
+                        Destroy(hit.transform.gameObject);
                     }
                     else
                     {
@@ -90,15 +77,60 @@ public class ObjectPlacer : MonoBehaviour {
                 }
             }
 
-            if(hit.transform.gameObject.tag == "ItemFrame")
+            else if(hit.transform.gameObject.tag == "ItemFrame")
             {
-                if (Input.GetKey(KeyCode.Mouse0))
+                if (Input.GetKey(leftClick))
                 {
                     GetActiveItemFramePrefab(hit);
                 }
             }
+            else if(hit.transform.GetComponent<Waypoint>())
+            {
+                if (Input.GetKey(rightClick))
+                {
+                    Vector2Int removePos = new Vector2Int(
+                        Mathf.RoundToInt(hit.transform.position.x),
+                        Mathf.RoundToInt(hit.transform.position.z));
+
+                    worldGrid.RemoveAt(removePos);
+                    Destroy(hit.transform.gameObject);
+                    GameObject grid = Instantiate(gridOutline);
+                    grid.transform.position = new Vector3(removePos.x, grid.transform.position.y, removePos.y);
+                }
+            }
         }
 	}
+
+    private void InstantiateObjectShadow(Vector2Int position)
+    {
+        if (instantiatedShadow)
+        {
+            Destroy(instantiatedShadow);
+        }
+        instantiatedShadow = Instantiate(transparentMarker);
+        instantiatedShadow.transform.position = new Vector3(
+            position.x,
+            transparentMarker.transform.position.y,
+            position.y
+        );
+
+        instantiatedShadow.transform.localScale = new Vector3(
+            transform.localScale.x * 0.6f,
+            transform.localScale.y * 0.6f,
+            transform.localScale.z * 0.6f
+        );
+
+        MeshRenderer renderer = instantiatedShadow.GetComponent<MeshRenderer>();
+        Color color = renderer.material.color;
+
+        // TODO: Use transparent shader for marker.
+        color.a = 50;
+        color.b *= 1.2f;
+        color.r *= 1.2f;
+        color.g *= 1.2f;
+        renderer.material.color = color;
+    }
+
 
     private void GetActiveItemFramePrefab(RaycastHit hit)
     {

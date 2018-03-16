@@ -560,6 +560,8 @@ MonoBehaviour:
   transparentMarker: {fileID: 0}
   instantiatedShadow: {fileID: 0}
   lastGridPosition: {x: 0, y: 0}
+  gridOutline: {fileID: 1330917204518788, guid: 736391fab282449458c64c65b5f6125e,
+    type: 2}
 --- !u!114 &1096862777
 MonoBehaviour:
   m_ObjectHideFlags: 0

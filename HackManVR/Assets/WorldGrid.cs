@@ -21,4 +21,11 @@ public class WorldGrid : MonoBehaviour {
     {
         return worldGrid.ContainsKey(position);
     }
+
+
+    public void RemoveAt(Vector2Int position)
+    {
+        worldGrid.Remove(position);
+        Debug.Log("Removed " + position);
+    }
 }
