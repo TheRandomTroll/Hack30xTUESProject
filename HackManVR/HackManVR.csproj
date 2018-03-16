@@ -297,12 +297,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BlueprintMover.cs" />
-    <Compile Include="Assets\CameraVRRay.cs" />
-    <Compile Include="Assets\ChangeCamera.cs" />
-    <Compile Include="Assets\ConnectionPoints.cs" />
-    <Compile Include="Assets\FollowPlayer.cs" />
-    <Compile Include="Assets\GetCurrentPressedKey.cs" />
+    <Compile Include="Assets\CameraStatic.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoSceneManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\HelloVR\HeadsetDemoManager.cs" />
@@ -406,24 +401,23 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrVRHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
-    <Compile Include="Assets\HasTriggered.cs" />
-    <Compile Include="Assets\KeyValuePair.cs" />
-    <Compile Include="Assets\LookAtPlayer.cs" />
-    <Compile Include="Assets\PlayerCamera.cs" />
-    <Compile Include="Assets\PointsScript.cs" />
+    <Compile Include="Assets\Scripts\CameraVRRay.cs" />
+    <Compile Include="Assets\Scripts\ChangeCamera.cs" />
+    <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\GetCurrentPressedKey.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
+    <Compile Include="Assets\Scripts\HasTriggered.cs" />
+    <Compile Include="Assets\Scripts\KeyValuePair.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\LookAtPlayer.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\PlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\PointsScript.cs" />
     <Compile Include="Assets\Scripts\Random\Random\BasicRandom.cs" />
     <Compile Include="Assets\Scripts\Random\Random\Random.cs" />
-    <Compile Include="Assets\Scripts\Random\Random\RandomLibrary.cs" />
     <Compile Include="Assets\Scripts\Random\RandomLibrary.cs" />
-    <Compile Include="Assets\Scripts\UserCreation\BlueprintBuilder.cs" />
-    <Compile Include="Assets\Scripts\UserCreation\CameraRotator.cs" />
-    <Compile Include="Assets\Scripts\UserCreation\Spectator.cs" />
-    <Compile Include="Assets\Scripts\UserCreation\StaticFunnctions.cs" />
-    <Compile Include="Assets\TriggerEvents.cs" />
-    <Compile Include="Assets\WorldManager.cs" />
+    <Compile Include="Assets\Scripts\TriggerEvents.cs" />
+    <Compile Include="Assets\Scripts\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GoogleVR\Demos\Shaders\HelloVR\HelloVRUnlitGrayscaleToColor.shader" />
