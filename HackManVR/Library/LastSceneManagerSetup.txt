@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/UserCreation.unity
-  isLoaded: 1
-  isActive: 1
