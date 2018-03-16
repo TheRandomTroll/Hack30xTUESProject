@@ -44,18 +44,32 @@ public class ObjectPlacer : MonoBehaviour {
             {
                 if (position != lastGridPosition)
                 {
-                    Destroy(instantiatedShadow);
+                    if (instantiatedShadow)
+                    {
+                        Destroy(instantiatedShadow);
+                    }
                     instantiatedShadow = Instantiate(transparentMarker);
                     instantiatedShadow.transform.position = new Vector3(
                         position.x,
                         transparentMarker.transform.position.y,
                         position.y
                     );
+
                     instantiatedShadow.transform.localScale = new Vector3(
                         transform.localScale.x * 0.6f,
                         transform.localScale.y * 0.6f,
                         transform.localScale.z * 0.6f
                     );
+
+                    MeshRenderer renderer = instantiatedShadow.GetComponent<MeshRenderer>();
+                    Color color = renderer.material.color;
+                    
+                    // TODO: Use transparent shader for marker.
+                    color.a = 50;
+                    color.b *= 1.2f;
+                    color.r *= 1.2f;
+                    color.g *= 1.2f;
+                    renderer.material.color = color;
                 }
                 lastGridPosition = position;
 
@@ -67,12 +81,12 @@ public class ObjectPlacer : MonoBehaviour {
                         GameObject gameObj = Instantiate(currentSelectedObject);
                         gameObj.transform.position = hit.transform.position;
                         worldGrid.AddToGrid(position, gameObj);
+                        Destroy(instantiatedShadow);
                     }
                     else
                     {
                         Debug.LogWarning("Grid contains something at " + position);
                     }
-
                 }
             }
 
@@ -80,31 +94,27 @@ public class ObjectPlacer : MonoBehaviour {
             {
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
-                    ItemSelection itemSelect = hit.transform.GetComponent<ItemSelection>();
-                    foreach (ItemSelection itemSel in FindObjectsOfType<ItemSelection>())
-                    {
-                        itemSel.Deactivate();
-                    }
-                    itemSelect.SetAsActive();
-                    ChangeCurrentSelectedObject(itemSelect.GetPrefab());
+                    GetActiveItemFramePrefab(hit);
                 }
             }
         }
 	}
+
+    private void GetActiveItemFramePrefab(RaycastHit hit)
+    {
+        ItemSelection itemSelect = hit.transform.GetComponent<ItemSelection>();
+        foreach (ItemSelection itemSel in FindObjectsOfType<ItemSelection>())
+        {
+            itemSel.Deactivate();
+        }
+        itemSelect.SetAsActive();
+        ChangeCurrentSelectedObject(itemSelect.GetPrefab());
+    }
 
 
     public void ChangeCurrentSelectedObject(GameObject gameObj)
     {
         transparentMarker = gameObj;
         currentSelectedObject = gameObj;
-
-        MeshRenderer renderer = transparentMarker.GetComponent<MeshRenderer>();
-        Color color = renderer.material.color;
-        // TODO: Use transparent shader for marker.
-        color.a = 20;
-        color.b /= 1.2f;
-        color.r /= 1.2f;
-        color.g /= 1.2f;
-        renderer.material.color = color;
     }
 }
