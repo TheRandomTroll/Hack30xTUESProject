@@ -45,7 +45,7 @@ public class RandomLibrary : MonoBehaviour {
         mapArray[1, y] = (int)Spawn.Null;
         mapArray[48, y] = (int)Spawn.Null;
     }
-    public void GenCross()
+    public void GenCross(int x, int y)
     {
         for(int i = 0; i < RNG(4); i++)
         {
@@ -79,5 +79,26 @@ public class RandomLibrary : MonoBehaviour {
         mapArray[x + 4 , y - 1] = (int)Spawn.Cube;
         for (int i = 0; i < 5; i++)
             mapArray[x+i , y - 2] = (int)Spawn.Cube;
+    }
+
+    public void GenCube(int x, int y)
+    {
+        mapArray[x, y] = (int)Spawn.Cube;
+    }
+
+    public void GenRodX(int x, int y)
+    {
+        for (int i = 0; i < RNG(3); i++)
+            mapArray[x + i, y] = (int)Spawn.Cube;
+        for(int i = 0; i < RNG(3); i++)
+            mapArray[x - i, y] = (int)Spawn.Cube;
+    }
+
+    public void GenRodY(int x, int y)
+    {
+        for (int i = 0; i < RNG(3); i++)
+            mapArray[x, y - i] = (int)Spawn.Cube;
+        for (int i = 0; i < RNG(3); i++)
+            mapArray[x, y + i] = (int)Spawn.Cube;
     }
 }
