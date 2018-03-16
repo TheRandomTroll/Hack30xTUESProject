@@ -33,36 +33,38 @@ public class Movement : MonoBehaviour {
     void Update()
     {
 
-        if (canMove)
+        if (tag == "Player")
         {
-            transform.Translate(Vector3.forward / speed);
+            if (canMove)
+            {
+                transform.Translate(Vector3.forward / speed);
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.W) && rotateForward && way == 3)
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+                way = 1;
+            }
+
+            if (Input.GetKeyDown(KeyCode.S) && rotateBack && way != 3)
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
+                way = 3;
+            }
+
+            if (Input.GetKeyDown(KeyCode.A) && rotateLeft)
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
+                way = 4;
+            }
+
+            if (Input.GetKeyDown(KeyCode.D) && rotateRight)
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
+                way = 2;
+            }
         }
-
-
-        if (Input.GetKeyDown(KeyCode.W) && rotateForward && way == 3)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
-            way = 1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.S) && rotateBack && way != 3)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
-            way = 3;
-        }
-
-        if (Input.GetKeyDown(KeyCode.A) && rotateLeft)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
-            way = 4;
-        }
-
-        if (Input.GetKeyDown(KeyCode.D) && rotateRight)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
-            way = 2;
-        }
-
 
 
         if (tag == "Ghost")
