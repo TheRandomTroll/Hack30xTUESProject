@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI
 
 public class TriggerEvents : MonoBehaviour
 {
 
     public Movement movementScript;
+    public Text pointsScript;
+
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -34,6 +37,12 @@ public class TriggerEvents : MonoBehaviour
                 movementScript.rotateRight = false;
             }
         }
+
+        if(collider.tag == "Point")
+        {
+            points.
+        }
+
     }
 
     private void OnTriggerExit(Collider collider)
