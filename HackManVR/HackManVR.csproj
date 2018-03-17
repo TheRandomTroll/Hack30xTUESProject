@@ -428,9 +428,8 @@
     <Compile Include="Assets\Scripts\Random\RandomLibrary.cs" />
     <Compile Include="Assets\Scripts\RandomNew.cs" />
     <Compile Include="Assets\Scripts\TestRMS.cs" />
-    <Compile Include="Assets\Scripts\TriggerEventsBigPoint.cs" />
-    <Compile Include="Assets\Scripts\TriggerEventsGhost.cs" />
-    <Compile Include="Assets\Scripts\TriggerEventsPacMan.cs" />
+    <Compile Include="Assets\Scripts\TriggerEvents - Copy.cs" />
+    <Compile Include="Assets\Scripts\TriggerEvents.cs" />
     <Compile Include="Assets\Scripts\Waypoint.cs" />
     <Compile Include="Assets\Scripts\WorldManager.cs" />
     <Compile Include="Assets\UserCreatorGrid.cs" />
