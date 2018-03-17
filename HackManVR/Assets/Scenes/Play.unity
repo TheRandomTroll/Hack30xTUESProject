@@ -268,7 +268,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 160652544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04219e3562d75a24f94a0f93516b4611, type: 3}
+  m_Script: {fileID: 11500000, guid: cfaf192636dbd7a409a7c87fa7c409c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptBlinky: {fileID: 1840862471}
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 519068794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e948f78c5487e4c93d51471326a8b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8107d22857bdc264a848d2c1d8d16716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptPacMan: {fileID: 1272407000}
@@ -1141,9 +1141,8 @@ GameObject:
   - component: {fileID: 757241331}
   - component: {fileID: 757241335}
   - component: {fileID: 757241334}
-  - component: {fileID: 757241336}
-  - component: {fileID: 757241333}
   - component: {fileID: 757241332}
+  - component: {fileID: 757241333}
   m_Layer: 0
   m_Name: detectorFront
   m_TagString: Player
@@ -1172,7 +1171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 757241330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38afe61b9db4d1841969954c946c375f, type: 3}
+  m_Script: {fileID: 11500000, guid: 696131cb41aa48c479eb920f10db73a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptBlinky: {fileID: 1840862471}
@@ -1237,22 +1236,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757241330}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &757241336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 757241330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddb167cad52c4c4282706d7d96fc2f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
-  pointsScript: {fileID: 552377236}
-  player: {fileID: 1272406999}
-  portal1: {fileID: 2094148179}
-  portal2: {fileID: 1788409604}
 --- !u!1 &930490453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,7 +1373,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1009121444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e948f78c5487e4c93d51471326a8b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8107d22857bdc264a848d2c1d8d16716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptPacMan: {fileID: 1272407000}
@@ -1529,7 +1512,6 @@ GameObject:
   - component: {fileID: 1011345147}
   - component: {fileID: 1011345149}
   - component: {fileID: 1011345146}
-  - component: {fileID: 1011345150}
   m_Layer: 0
   m_Name: detectorLeft
   m_TagString: Player
@@ -1611,23 +1593,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1011345144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddb167cad52c4c4282706d7d96fc2f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
-  pointsScript: {fileID: 552377236}
-  player: {fileID: 1272406999}
-  portal1: {fileID: 2094148179}
-  portal2: {fileID: 1788409604}
---- !u!114 &1011345150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1011345144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38afe61b9db4d1841969954c946c375f, type: 3}
+  m_Script: {fileID: 11500000, guid: 696131cb41aa48c479eb920f10db73a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptBlinky: {fileID: 1840862471}
@@ -1651,7 +1617,6 @@ GameObject:
   - component: {fileID: 1025744215}
   - component: {fileID: 1025744217}
   - component: {fileID: 1025744214}
-  - component: {fileID: 1025744218}
   m_Layer: 0
   m_Name: detectorRight
   m_TagString: Player
@@ -1733,23 +1698,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1025744212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddb167cad52c4c4282706d7d96fc2f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
-  pointsScript: {fileID: 552377236}
-  player: {fileID: 1272406999}
-  portal1: {fileID: 2094148179}
-  portal2: {fileID: 1788409604}
---- !u!114 &1025744218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1025744212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38afe61b9db4d1841969954c946c375f, type: 3}
+  m_Script: {fileID: 11500000, guid: 696131cb41aa48c479eb920f10db73a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptBlinky: {fileID: 1840862471}
@@ -2108,7 +2057,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1291300646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04219e3562d75a24f94a0f93516b4611, type: 3}
+  m_Script: {fileID: 11500000, guid: cfaf192636dbd7a409a7c87fa7c409c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptBlinky: {fileID: 1840862471}
@@ -2127,7 +2076,6 @@ GameObject:
   - component: {fileID: 1397411275}
   - component: {fileID: 1397411277}
   - component: {fileID: 1397411274}
-  - component: {fileID: 1397411278}
   m_Layer: 0
   m_Name: detectorBack
   m_TagString: Player
@@ -2209,23 +2157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1397411272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddb167cad52c4c4282706d7d96fc2f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
-  pointsScript: {fileID: 552377236}
-  player: {fileID: 1272406999}
-  portal1: {fileID: 2094148179}
-  portal2: {fileID: 1788409604}
---- !u!114 &1397411278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1397411272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38afe61b9db4d1841969954c946c375f, type: 3}
+  m_Script: {fileID: 11500000, guid: 696131cb41aa48c479eb920f10db73a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptBlinky: {fileID: 1840862471}
@@ -2663,7 +2595,6 @@ GameObject:
   - component: {fileID: 1706715451}
   - component: {fileID: 1706715450}
   - component: {fileID: 1706715449}
-  - component: {fileID: 1706715453}
   m_Layer: 0
   m_Name: detectorPinky
   m_TagString: Untagged
@@ -2729,11 +2660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddb167cad52c4c4282706d7d96fc2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
-  pointsScript: {fileID: 0}
-  player: {fileID: 1272406999}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
 --- !u!65 &1706715451
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2753,26 +2679,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1706715447}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1706715453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1706715447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38afe61b9db4d1841969954c946c375f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementScriptBlinky: {fileID: 1840862471}
-  movementScriptPinky: {fileID: 2044498026}
-  movementScriptInky: {fileID: 1009121452}
-  movementScriptClyde: {fileID: 519068803}
-  movementScriptPacMan: {fileID: 1272407000}
-  pointsScript: {fileID: 0}
-  player: {fileID: 0}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
 --- !u!1 &1771724951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,7 +2879,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1840862463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e948f78c5487e4c93d51471326a8b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8107d22857bdc264a848d2c1d8d16716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptPacMan: {fileID: 1272407000}
@@ -3284,7 +3190,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1955613083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04219e3562d75a24f94a0f93516b4611, type: 3}
+  m_Script: {fileID: 11500000, guid: cfaf192636dbd7a409a7c87fa7c409c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptBlinky: {fileID: 1840862471}
@@ -3384,7 +3290,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1993598899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04219e3562d75a24f94a0f93516b4611, type: 3}
+  m_Script: {fileID: 11500000, guid: cfaf192636dbd7a409a7c87fa7c409c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptBlinky: {fileID: 1840862471}
@@ -3462,8 +3368,8 @@ GameObject:
   - component: {fileID: 2044498026}
   - component: {fileID: 2044498021}
   - component: {fileID: 2044498020}
-  - component: {fileID: 2044498025}
   - component: {fileID: 2044498027}
+  - component: {fileID: 2044498025}
   m_Layer: 0
   m_Name: Pinky
   m_TagString: Ghost
@@ -3567,7 +3473,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2044498019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e948f78c5487e4c93d51471326a8b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8107d22857bdc264a848d2c1d8d16716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptPacMan: {fileID: 1272407000}
