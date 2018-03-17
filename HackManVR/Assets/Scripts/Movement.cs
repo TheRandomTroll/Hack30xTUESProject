@@ -49,8 +49,6 @@ public class Movement : MonoBehaviour {
 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
 
-                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z); 
-                way = 1;
             }
 
             if (Input.GetButtonDown("Backward") && rotateBack && way != 3)
@@ -58,16 +56,13 @@ public class Movement : MonoBehaviour {
 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
 
-                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
 
                 way = 3;
             }
 
             if (Input.GetButtonDown("Left") && rotateLeft)
             {
-                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
-
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
 
                 
 
@@ -79,7 +74,6 @@ public class Movement : MonoBehaviour {
             { 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
 
-                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z); 
 
                 way = 2;
             }

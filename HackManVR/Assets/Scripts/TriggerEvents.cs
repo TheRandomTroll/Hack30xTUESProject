@@ -44,12 +44,12 @@ public class TriggerEvents : MonoBehaviour
 
         if (this.tag == "Player" && collider.tag == "Point")
         {
-            pointsScript.points++;
+            pointsScript.points += 20; 
             Destroy(collider.gameObject);
 
         }
 
-        if (collider.tag == "Ghost")
+        if (this.tag == "Player" && collider.tag == "Ghost")
         {
             Debug.Log("Game Over");
             StartCoroutine(Restart());
