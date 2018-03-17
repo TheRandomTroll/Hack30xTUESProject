@@ -21,10 +21,9 @@ GameObject:
   - component: {fileID: 4362856751708248}
   - component: {fileID: 33661020989108956}
   - component: {fileID: 23255613926765114}
-  - component: {fileID: 95782471855168948}
   m_Layer: 0
   m_Name: LED
-  m_TagString: Untagged
+  m_TagString: Cherry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,20 +83,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188012686662354}
   m_Mesh: {fileID: 4300002, guid: 67394073f4c6464449a4346844df4a1a, type: 3}
---- !u!95 &95782471855168948
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188012686662354}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 67394073f4c6464449a4346844df4a1a, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
