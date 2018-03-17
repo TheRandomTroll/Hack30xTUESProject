@@ -10,6 +10,7 @@ TagManager:
   - BuildPoint
   - ItemFrame
   - Portal
+  - BigPoint
   layers:
   - Default
   - TransparentFX

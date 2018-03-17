@@ -10,6 +10,10 @@ public class Movement : MonoBehaviour {
     public bool rotateLeft = true;
     public bool rotateRight = true;
 
+
+    public bool [] bigPointMarkersChecker = new bool[4];
+    public Transform[] bigPointMarker = new Transform[4];
+
     public bool canMove = true;
 
     private float speed;
@@ -28,9 +32,13 @@ public class Movement : MonoBehaviour {
     public Transform firstPrsCamera;
     public Vector3 rotation;
 
+    public bool bigPointEaten = false;
+
     void Start () {
         speed = 8;
         navAgent = GetComponent<NavMeshAgent>();
+
+
     }
 
     void Update()
@@ -43,12 +51,10 @@ public class Movement : MonoBehaviour {
                 transform.Translate(Vector3.forward / speed);
             }
 
-
             if (Input.GetButtonDown("Forward") && rotateForward && way == 3)
             {
 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
-
             }
 
             if (Input.GetButtonDown("Backward") && rotateBack && way != 3)
@@ -56,15 +62,12 @@ public class Movement : MonoBehaviour {
 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
 
-
                 way = 3;
             }
 
             if (Input.GetButtonDown("Left") && rotateLeft)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
-
-
 
                 way = 4;
 
@@ -74,11 +77,8 @@ public class Movement : MonoBehaviour {
             { 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
 
-
                 way = 2;
-            }
-
-            
+            }      
         }
 
 
@@ -89,16 +89,44 @@ public class Movement : MonoBehaviour {
                 if (Time.timeSinceLevelLoad > 3)
                 {
                     navAgent.SetDestination(playerBlinky.position);
+                    StartCoroutine(TimerBigPoint());
+                }
+
+                else if (Time.timeSinceLevelLoad > 3 && bigPointEaten)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (bigPointMarkersChecker[i] == true)
+                        {
+                            if (i > 4)
+                                i = 0;
+                            navAgent.SetDestination(bigPointMarker[i + 1].position);
+                            StartCoroutine(TimerBigPoint());
+                        }
+                    }
+
                 }
             }
 
             if (this.name == "Pinky")
             {
-                if (Time.timeSinceLevelLoad > 10)
+                if (Time.timeSinceLevelLoad > 10 && !bigPointEaten)
                 {
                     navAgent.SetDestination(playerPinky.position);
                 }
-
+                else if(Time.timeSinceLevelLoad > 10 && bigPointEaten)
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        if(bigPointMarkersChecker[i] == true)
+                        {
+                            if (i > 4)
+                                i = 0;
+                            navAgent.SetDestination(bigPointMarker[i].position);
+                            StartCoroutine(TimerBigPoint());
+                        }
+                    }     
+                }
             }
 
             if (this.name == "Inky")
@@ -112,6 +140,20 @@ public class Movement : MonoBehaviour {
                     else
                     {
                         navAgent.SetDestination(playerBlinky.position);
+                    }
+                }
+
+                else if (Time.timeSinceLevelLoad > 15 && bigPointEaten)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (bigPointMarkersChecker[i] == true)
+                        {
+                            if (i > 4)
+                                i = 0;
+                            navAgent.SetDestination(bigPointMarker[i].position);
+                            StartCoroutine(TimerBigPoint());
+                        }
                     }
                 }
             }
@@ -129,8 +171,28 @@ public class Movement : MonoBehaviour {
                         navAgent.SetDestination(playerBlinky.position);
                     }
                 }
+
+                else if (Time.timeSinceLevelLoad > 25 && bigPointEaten)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (bigPointMarkersChecker[i] == true)
+                        {
+                            if (i > 4)
+                                i = 0;
+                            navAgent.SetDestination(bigPointMarker[i].position);
+                            StartCoroutine(TimerBigPoint());
+                        }
+                    }
+                }
             }
         }
 
-    }    
+    }   
+    
+     private IEnumerator TimerBigPoint()
+    {
+        yield return new WaitForSeconds(10);
+        bigPointEaten = false;
+    }
 }

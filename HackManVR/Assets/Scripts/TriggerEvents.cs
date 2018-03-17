@@ -69,6 +69,26 @@ public class TriggerEvents : MonoBehaviour
                 player.position = portal1.position;
             }
         }
+
+        if(collider.tag == "BigPoint")
+        {
+            movementScript.bigPointEaten = true;
+        }
+
+        if(collider.tag == "Player")
+        {
+            if (name == "Marker 1")
+                movementScript.bigPointMarkersChecker[0] = true;
+
+            if (name == "Marker 2")
+                movementScript.bigPointMarkersChecker[0] = true;
+
+            if (name == "Marker 3")
+                movementScript.bigPointMarkersChecker[0] = true;
+
+            if (name == "Marker 4")
+                movementScript.bigPointMarkersChecker[0] = true;
+        }
     }
 
     private void OnTriggerExit(Collider collider)
@@ -96,18 +116,7 @@ public class TriggerEvents : MonoBehaviour
             }
         }
 
-        //if (collider.tag == "Portal")
-        //{
-        //    if (collider.name == "PORTAL1")
-        //    {
-        //        portal2.GetComponent<Collider>().enabled = true;
-        //    }
-
-        //    else if (collider.name == "PORTAL2")
-        //    {
-        //        portal1.GetComponent<Collider>().enabled = true;
-        //    }
-        //}
+        
     }
 
     private IEnumerator Restart()
