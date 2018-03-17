@@ -1,11 +1,17 @@
 fileFormatVersion: 2
 guid: 34b22753c8202644a8cb003c7167c738
-timeCreated: 1521243147
+timeCreated: 1521327540
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - wall: {instanceID: 0}
+  - ground: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56, type: 2}
+  - cherry: {fileID: 1188012686662354, guid: f9fd6f7173f8624429d8b359bc0a0128, type: 2}
+  - portal: {instanceID: 0}
+  - pacman: {instanceID: 0}
+  - point: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

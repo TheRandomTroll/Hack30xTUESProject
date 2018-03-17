@@ -12,6 +12,9 @@ public class ItemSelection : MonoBehaviour {
     [SerializeField]
     private Color activeColor;
 
+    [SerializeField]
+
+
     private Color normalColor = Color.white;
 
     private void Start()

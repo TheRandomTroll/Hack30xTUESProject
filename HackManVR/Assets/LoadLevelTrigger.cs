@@ -29,7 +29,11 @@ public class LoadLevelTrigger : MonoBehaviour {
         if (trigger.GetTrigger() && (Input.GetKeyDown(main) || Input.GetButtonDown(alternativeInput))) {
             SaveLevel.Load(getNumber.GetIndex());
             LevelInfo chosenLevel = SaveLevel.loadedLevel;
-            Debug.Log("Loading: " + chosenLevel.levelName);
+            if(chosenLevel == null)
+            {
+                Debug.LogError("Couldnt load level at save position: " + getNumber.GetIndex());
+                return;
+            }
 
             Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
 

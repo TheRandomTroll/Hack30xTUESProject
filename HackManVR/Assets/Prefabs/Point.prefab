@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23380833640045950}
   - component: {fileID: 95843666944148026}
   m_Layer: 0
-  m_Name: powerup-TU
+  m_Name: Point
   m_TagString: Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
