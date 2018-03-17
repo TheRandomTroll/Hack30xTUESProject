@@ -58,17 +58,18 @@ public class Movement : MonoBehaviour {
 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
 
-                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z); ;
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
 
                 way = 3;
             }
 
             if (Input.GetButtonDown("Left") && rotateLeft)
             {
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
 
-                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z); ;
+                
 
                 way = 4;
 
@@ -78,16 +79,18 @@ public class Movement : MonoBehaviour {
             { 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
 
-                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z); ;
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z); 
 
                 way = 2;
             }
+
+            
         }
 
 
-        if (tag == "Ghost")
+        if (this.tag == "Ghost")
         {
-            if (name == "Blinky")
+            if (this.name == "Blinky")
             {
                 if (Time.timeSinceLevelLoad > 3)
                 {
@@ -95,7 +98,7 @@ public class Movement : MonoBehaviour {
                 }
             }
 
-            if (name == "Pinky")
+            if (this.name == "Pinky")
             {
                 if (Time.timeSinceLevelLoad > 10)
                 {
@@ -104,7 +107,7 @@ public class Movement : MonoBehaviour {
 
             }
 
-            if (name == "Inky")
+            if (this.name == "Inky")
             {
                 if (Time.timeSinceLevelLoad > 15)
                 {
@@ -119,7 +122,7 @@ public class Movement : MonoBehaviour {
                 }
             }
 
-            if (name == "Clyde")
+            if (this.name == "Clyde")
             {
                 if (Time.timeSinceLevelLoad > 25)
                 {
