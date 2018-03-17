@@ -16,33 +16,39 @@ public class TriggerEvents : MonoBehaviour
 
         if (collider.tag == "Obstacle")
         {
-            if (this.name == "detectorFront")
+            if (name == "detectorFront")
             {
                 movementScript.canMove = false;
             }
 
-            if (this.name == "detectorBack")
+            if (name == "detectorBack")
             {
                 movementScript.rotateBack = false;
             }
 
-            if (this.name == "detectorLeft")
+            if (name == "detectorLeft")
             {
 
                 movementScript.rotateLeft = false;
             }
 
-            if (this.name == "detectorRight")
+            if (name == "detectorRight")
             {
                 movementScript.rotateRight = false;
             }
         }
 
-        if (collider.tag == "Point")
+        if (this.tag == "Player" && collider.tag == "Point")
         {
             pointsScript.points++;
             Destroy(collider.gameObject);
 
+        }
+
+        if (collider.tag == "Ghost")
+        {
+            Debug.Log("Game Over");
+            StartCoroutine(Restart());
         }
     }
 
@@ -67,5 +73,11 @@ public class TriggerEvents : MonoBehaviour
         {
             movementScript.rotateRight = true;
         }
+    }
+
+    private IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

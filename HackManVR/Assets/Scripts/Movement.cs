@@ -25,6 +25,9 @@ public class Movement : MonoBehaviour {
 
     public NavMeshAgent navAgent;
 
+    public Transform firstPrsCamera;
+    public Vector3 rotation;
+
     void Start () {
         speed = 8;
         navAgent = GetComponent<NavMeshAgent>();
@@ -43,26 +46,40 @@ public class Movement : MonoBehaviour {
 
             if (Input.GetButtonDown("Forward") && rotateForward && way == 3)
             {
+
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z); 
                 way = 1;
             }
 
             if (Input.GetButtonDown("Backward") && rotateBack && way != 3)
             {
+
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
+
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z); ;
+
                 way = 3;
             }
 
             if (Input.GetButtonDown("Left") && rotateLeft)
             {
+
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
+
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z); ;
+
                 way = 4;
 
             }
 
             if (Input.GetButtonDown("Right") && rotateRight)
-            {
+            { 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
+
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z); ;
+
                 way = 2;
             }
         }
