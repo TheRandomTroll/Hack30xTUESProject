@@ -14,6 +14,6 @@ public class PointsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetComponent<Text>().text = points.ToString();
+        GetComponent<Text>().text = "Score:" + "\n" + points.ToString();
 	}
 }

@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: fd49fbeba8d2ddb4ab16b65c52a64900
-timeCreated: 1521271683
+guid: 769ebe7c19e5bfe41a345afba00148af
+timeCreated: 1521280278
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: blinky_body
-    2100002: blinky_eyes
-    2100004: blinky_eyeballs
+    2100000: pinky-body
+    2100002: pinky-eyes
+    2100004: pinky-eyeballs
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cylinder
