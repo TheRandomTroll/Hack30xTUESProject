@@ -9,6 +9,7 @@ TagManager:
   - Ghost
   - BuildPoint
   - ItemFrame
+  - Portal
   layers:
   - Default
   - TransparentFX

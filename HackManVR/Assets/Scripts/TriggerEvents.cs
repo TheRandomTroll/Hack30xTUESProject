@@ -9,6 +9,10 @@ public class TriggerEvents : MonoBehaviour
 
     public Movement movementScript;
     public PointsScript pointsScript;
+    public Transform player;
+    public Transform portal1;
+    public Transform portal2;
+
 
 
     private void OnTriggerEnter(Collider collider)
@@ -50,29 +54,60 @@ public class TriggerEvents : MonoBehaviour
             Debug.Log("Game Over");
             StartCoroutine(Restart());
         }
+
+        if(collider.tag == "Portal")
+        {
+            if(collider.name == "PORTAL1")
+            {
+                portal2.GetComponent<Collider>().enabled = false;
+                player.position = portal2.position;
+            }
+
+            else if (collider.name == "PORTAL2")
+            {
+                portal1.GetComponent<Collider>().enabled = false;
+                player.position = portal1.position;
+            }
+        }
     }
 
     private void OnTriggerExit(Collider collider)
     {
-        if (this.name == "detectorFront")
+        if (collider.tag == "Obstacle")
         {
-            movementScript.canMove = true;
+            if (this.name == "detectorFront")
+            {
+                movementScript.canMove = true;
+            }
+
+            if (this.name == "detectorBack")
+            {
+                movementScript.rotateBack = true;
+            }
+
+            if (this.name == "detectorLeft")
+            {
+                movementScript.rotateLeft = true;
+            }
+
+            if (this.name == "detectorRight")
+            {
+                movementScript.rotateRight = true;
+            }
         }
 
-        if (this.name == "detectorBack")
-        {
-            movementScript.rotateBack = true;
-        }
+        //if (collider.tag == "Portal")
+        //{
+        //    if (collider.name == "PORTAL1")
+        //    {
+        //        portal2.GetComponent<Collider>().enabled = true;
+        //    }
 
-        if (this.name == "detectorLeft")
-        {
-            movementScript.rotateLeft = true;
-        }
-
-        if (this.name == "detectorRight")
-        {
-            movementScript.rotateRight = true;
-        }
+        //    else if (collider.name == "PORTAL2")
+        //    {
+        //        portal1.GetComponent<Collider>().enabled = true;
+        //    }
+        //}
     }
 
     private IEnumerator Restart()
