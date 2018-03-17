@@ -21,6 +21,7 @@ public class GenerateLevel : MonoBehaviour {
         foreach (Vector2Int position in levelDict.Keys)
         {
             MapTypes.Spawn value = levelDict[position];
+            Debug.Log("Generating: " + value);
             if (value == MapTypes.Spawn.Cube) // Wall
             {
                 InstantiateObject(position, wall);
@@ -65,6 +66,6 @@ public class GenerateLevel : MonoBehaviour {
         if (!toInstantiate) return;
         GameObject gameObj = Instantiate(toInstantiate);
         gameObj.transform.position = new Vector3(position.x, gameObj.transform.position.y, position.y);
-        Debug.Log("Instantiating " + gameObj.name + " at " + gameObj.transform.position);
+
     }
 }

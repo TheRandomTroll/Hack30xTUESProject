@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4135167337873090}
   - component: {fileID: 114130246782673038}
   m_Layer: 0
-  m_Name: WorldGrid
+  m_Name: LevelEditorManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
