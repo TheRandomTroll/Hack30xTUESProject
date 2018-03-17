@@ -6,17 +6,17 @@ using UnityEngine;
 using System.Linq;
 
 public class SaveLevel {
-    
-    public static List<LevelInfo> levels = new List<LevelInfo>();
-    public static int levelCount = 0;
-    
-    public static void SerializeLevel(WorldGrid worldGrid)
+
+    public static LevelInfo loadedLevel;
+
+
+    public static void SerializeLevel(WorldGrid worldGrid, int levelIndex)
     {
         Dictionary<Vector2Int, GameObject> grid = worldGrid.GetGrid();
 
         List<GameObject> gameObjects = grid.Values.ToList();
         LevelInfo levelInfo = new LevelInfo(
-            "Level " + levelCount,
+            "Level " + levelIndex,
             gameObjects
             );
 
@@ -26,25 +26,22 @@ public class SaveLevel {
         }
         
 
-        Debug.LogWarning("Saving " + levelInfo.levelName);
-        levels.Add(levelInfo);
+        Debug.LogWarning("Saving " + "/savedLevel" + levelIndex + ".level");
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.dataPath + "/savedLevels.level", FileMode.OpenOrCreate);
-        bf.Serialize(file, SaveLevel.levels);
-        Debug.LogWarning("Saved " + levelInfo.levelName);
-        levelCount++;
+        FileStream file = File.Open(Application.dataPath + "/savedLevel" +  levelIndex + ".level", FileMode.Create);
+        bf.Serialize(file, levelInfo);
+        Debug.LogWarning("Saved " + "/savedLevel" + levelIndex + ".level");
         file.Close();
     }
 
 
-    public static void Load()
+    public static void Load(int levelIndex)
     {
-        if (File.Exists("/savedLevels.level"))
+        if (File.Exists(Application.dataPath + "/savedLevel" +  levelIndex + ".level"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.dataPath + "/savedLevels.level", FileMode.Open);
-            levels = (List<LevelInfo>)bf.Deserialize(file);
-            levelCount = levels.Count;
+            FileStream file = File.Open(Application.dataPath + "/savedLevel" + levelIndex + ".level", FileMode.Open);
+            loadedLevel = bf.Deserialize(file) as LevelInfo;
             file.Close();
         }
     }

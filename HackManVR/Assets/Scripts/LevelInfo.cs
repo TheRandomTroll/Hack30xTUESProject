@@ -6,7 +6,10 @@ using UnityEngine;
 public class LevelInfo {
 
     public string levelName;
-    public List<ObjectSaveData> gameObjects = new List<ObjectSaveData>();
+    public int objCount = 0;
+    public List<MapTypes.Spawn> gameObjects = new List<MapTypes.Spawn>();
+    public List<float> xPositions = new List<float>();
+    public List<float> zPositions = new List<float>();
 
 
     public LevelInfo(string levelName, List<GameObject> prefabs)
@@ -42,8 +45,12 @@ public class LevelInfo {
                 
             }
 
-            ObjectSaveData saveData = new ObjectSaveData(spawn, gameObject.transform.position);
-            gameObjects.Add(saveData);
+            gameObjects.Add(spawn);
+            xPositions.Add(gameObject.transform.position.x);
+            zPositions.Add(gameObject.transform.position.z);
+            objCount++;
+
+
             Debug.Log("Adding to levelinfo " + spawn + " at " + gameObject.transform.position);
         }
     }

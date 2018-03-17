@@ -7,6 +7,9 @@ public class SaveLevelTrigger : MonoBehaviour {
     HasTriggered trigger;
     WorldGrid worldGrid;
 
+    [SerializeField]
+    GetNumber getNumber;
+
     // TODO: Change for console.
     KeyCode main = KeyCode.Mouse0;
 
@@ -20,10 +23,9 @@ public class SaveLevelTrigger : MonoBehaviour {
 	
 
 	void Update () {
-        if (trigger.GetTrigger() && (Input.GetKey(main) || Input.GetButtonDown(alternativeInput)))
+        if (trigger.GetTrigger() && (Input.GetKeyDown(main) || Input.GetButtonDown(alternativeInput)))
         {
-            SaveLevel.SerializeLevel(worldGrid);
-            Destroy(this);
+            SaveLevel.SerializeLevel(worldGrid, getNumber.GetIndex());
         }
     }
 }

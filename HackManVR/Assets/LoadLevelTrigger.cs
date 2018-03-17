@@ -13,11 +13,11 @@ public class LoadLevelTrigger : MonoBehaviour {
     [SerializeField]
     string alternativeInput = "Backward";
 
-    [SerializeField]
-    private int levelIndex = 0;
-
     [SerializeField] // TODO: Remove
     GenerateLevel generator;
+
+    [SerializeField]
+    GetNumber getNumber;
 
     void Start () {
         trigger = GetComponent<HasTriggered>();
@@ -26,26 +26,25 @@ public class LoadLevelTrigger : MonoBehaviour {
 	
 
 	void Update () {
-        if (trigger.GetTrigger() && (Input.GetKey(main) || Input.GetButtonDown(alternativeInput))) {
-            SaveLevel.Load();
-            List<LevelInfo> levels = SaveLevel.levels;
-            LevelInfo chosenLevel = levels[levelIndex];
+        if (trigger.GetTrigger() && (Input.GetKeyDown(main) || Input.GetButtonDown(alternativeInput))) {
+            SaveLevel.Load(getNumber.GetIndex());
+            LevelInfo chosenLevel = SaveLevel.loadedLevel;
             Debug.Log("Loading: " + chosenLevel.levelName);
+
             Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
-            foreach(ObjectSaveData saveData in chosenLevel.gameObjects)
+
+
+            for(int i = 0; i < chosenLevel.objCount; i++)
             {
-                Vector3 position = new Vector3(saveData.x, saveData.y, saveData.z);
-                Debug.Log("Loading " + saveData.spawnType + " at " + position);
                 levelDict.Add(new Vector2Int(
-                    Mathf.RoundToInt(saveData.x), 
-                    Mathf.RoundToInt(saveData.z)), 
-                    saveData.spawnType);
+                    Mathf.RoundToInt(chosenLevel.xPositions[i]), 
+                    Mathf.RoundToInt(chosenLevel.zPositions[i])), 
+                    chosenLevel.gameObjects[i]);
             }
 
             generator.levelDict = levelDict;
             generator.LoadLevelInfo();
             Debug.Log("Finished loading.");
-            Destroy(this);
         }
     }
 }
