@@ -418,7 +418,8 @@
     <Compile Include="Assets\Scripts\LevelBuilder\Spectator.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\LookAtPlayer.cs" />
-    <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\MovementGhosts.cs" />
+    <Compile Include="Assets\Scripts\MovementPacMan.cs" />
     <Compile Include="Assets\Scripts\PlayerCamera.cs" />
     <Compile Include="Assets\Scripts\PointsScript.cs" />
     <Compile Include="Assets\Scripts\Random\MapTypes.cs" />
@@ -427,7 +428,9 @@
     <Compile Include="Assets\Scripts\Random\RandomLibrary.cs" />
     <Compile Include="Assets\Scripts\RandomNew.cs" />
     <Compile Include="Assets\Scripts\TestRMS.cs" />
-    <Compile Include="Assets\Scripts\TriggerEvents.cs" />
+    <Compile Include="Assets\Scripts\TriggerEventsBigPoint.cs" />
+    <Compile Include="Assets\Scripts\TriggerEventsGhost.cs" />
+    <Compile Include="Assets\Scripts\TriggerEventsPacMan.cs" />
     <Compile Include="Assets\Scripts\Waypoint.cs" />
     <Compile Include="Assets\Scripts\WorldManager.cs" />
     <Compile Include="Assets\UserCreatorGrid.cs" />

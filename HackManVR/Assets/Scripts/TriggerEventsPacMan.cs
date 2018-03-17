@@ -4,10 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TriggerEvents : MonoBehaviour
+public class TriggerEventsPacMan : MonoBehaviour
 {
 
-    public Movement movementScript;
+    public MovementGhosts movementScriptBlinky;
+    public MovementGhosts movementScriptPinky;
+    public MovementGhosts movementScriptInky;
+    public MovementGhosts movementScriptClyde;
+
+    public MovementPacMan movementScriptPacMan;
     public PointsScript pointsScript;
     public Transform player;
     public Transform portal1;
@@ -22,34 +27,34 @@ public class TriggerEvents : MonoBehaviour
         {
             if (name == "detectorFront")
             {
-                movementScript.canMove = false;
+                movementScriptPacMan.canMove = false;
             }
 
             if (name == "detectorBack")
             {
-                movementScript.rotateBack = false;
+                movementScriptPacMan.rotateBack = false;
             }
 
             if (name == "detectorLeft")
             {
 
-                movementScript.rotateLeft = false;
+                movementScriptPacMan.rotateLeft = false;
             }
 
             if (name == "detectorRight")
             {
-                movementScript.rotateRight = false;
+                movementScriptPacMan.rotateRight = false;
             }
         }
 
-        if (this.tag == "Player" && collider.tag == "Point")
+        if (collider.tag == "Point")
         {
             pointsScript.points += 20; 
             Destroy(collider.gameObject);
 
         }
 
-        if (this.tag == "Player" && collider.tag == "Ghost")
+        if (collider.tag == "Ghost")
         {
             Debug.Log("Game Over");
             StartCoroutine(Restart());
@@ -72,23 +77,13 @@ public class TriggerEvents : MonoBehaviour
 
         if(collider.tag == "BigPoint")
         {
-            movementScript.bigPointEaten = true;
+            movementScriptBlinky.bigPointEaten = true;
+            movementScriptPinky.bigPointEaten = true;
+            movementScriptInky.bigPointEaten = true;
+            movementScriptClyde.bigPointEaten = true;
         }
 
-        if(collider.tag == "Player")
-        {
-            if (name == "Marker 1")
-                movementScript.bigPointMarkersChecker[0] = true;
-
-            if (name == "Marker 2")
-                movementScript.bigPointMarkersChecker[0] = true;
-
-            if (name == "Marker 3")
-                movementScript.bigPointMarkersChecker[0] = true;
-
-            if (name == "Marker 4")
-                movementScript.bigPointMarkersChecker[0] = true;
-        }
+        
     }
 
     private void OnTriggerExit(Collider collider)
@@ -97,22 +92,22 @@ public class TriggerEvents : MonoBehaviour
         {
             if (this.name == "detectorFront")
             {
-                movementScript.canMove = true;
+                movementScriptPacMan.canMove = true;
             }
 
             if (this.name == "detectorBack")
             {
-                movementScript.rotateBack = true;
+                movementScriptPacMan.rotateBack = true;
             }
 
             if (this.name == "detectorLeft")
             {
-                movementScript.rotateLeft = true;
+                movementScriptPacMan.rotateLeft = true;
             }
 
             if (this.name == "detectorRight")
             {
-                movementScript.rotateRight = true;
+                movementScriptPacMan.rotateRight = true;
             }
         }
 
