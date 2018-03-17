@@ -115,9 +115,9 @@ public class ObjectPlacer : MonoBehaviour {
         );
 
         instantiatedShadow.transform.localScale = new Vector3(
-            transform.localScale.x * 0.6f,
-            transform.localScale.y * 0.6f,
-            transform.localScale.z * 0.6f
+            instantiatedShadow.transform.lossyScale.x * 0.6f,
+            instantiatedShadow.transform.lossyScale.y * 0.6f,
+            instantiatedShadow.transform.lossyScale.z * 0.6f
         );
 
         MeshRenderer renderer = instantiatedShadow.GetComponent<MeshRenderer>();

@@ -15,8 +15,10 @@ ModelImporter:
     2100002: Led
     2300000: Cylinder
     2300002: Sphere
+    2300004: //RootNode
     3300000: Cylinder
     3300002: Sphere
+    3300004: //RootNode
     4300000: Cylinder
     4300002: Sphere
     7400000: Default Take
