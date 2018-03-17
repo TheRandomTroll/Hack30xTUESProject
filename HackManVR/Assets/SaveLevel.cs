@@ -8,7 +8,7 @@ using System.Linq;
 public class SaveLevel {
     
     public static List<LevelInfo> levels = new List<LevelInfo>();
-    public static int levelCount;
+    public static int levelCount = 0;
     
     public static void SerializeLevel(WorldGrid worldGrid)
     {
@@ -44,6 +44,7 @@ public class SaveLevel {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.dataPath + "/savedLevels.level", FileMode.Open);
             levels = (List<LevelInfo>)bf.Deserialize(file);
+            levelCount = levels.Count;
             file.Close();
         }
     }

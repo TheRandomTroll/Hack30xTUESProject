@@ -58,7 +58,7 @@ public class ObjectPlacer : MonoBehaviour {
                 lastGridPosition = position;
 
                 // TODO: Change getkey to controller btn.
-                if (Input.GetKey(leftClick))
+                if (Input.GetKey(leftClick) || Input.GetButton("Left"))
                 {
                     if (!worldGrid.GridContainsAt(position))
                     {
@@ -79,14 +79,14 @@ public class ObjectPlacer : MonoBehaviour {
 
             else if(hit.transform.gameObject.tag == "ItemFrame")
             {
-                if (Input.GetKey(leftClick))
+                if (Input.GetKey(leftClick) || Input.GetButton("Left"))
                 {
                     GetActiveItemFramePrefab(hit);
                 }
             }
             else if(hit.transform.GetComponent<Waypoint>())
             {
-                if (Input.GetKey(rightClick))
+                if (Input.GetKey(rightClick) || Input.GetButton("Right"))
                 {
                     Vector2Int removePos = new Vector2Int(
                         Mathf.RoundToInt(hit.transform.position.x),
