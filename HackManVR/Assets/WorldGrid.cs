@@ -12,7 +12,6 @@ public class WorldGrid : MonoBehaviour {
         if (!GridContainsAt(position))
         {
             worldGrid.Add(position, gameObj);
-            Debug.Log("Added " + gameObj + " at " + position);
         }
     }
 
@@ -27,5 +26,11 @@ public class WorldGrid : MonoBehaviour {
     {
         worldGrid.Remove(position);
         Debug.Log("Removed " + position);
+    }
+
+
+    public Dictionary<Vector2Int, GameObject> GetGrid()
+    {
+        return worldGrid;
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - Ghost
   - BuildPoint
   - ItemFrame
+  - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX

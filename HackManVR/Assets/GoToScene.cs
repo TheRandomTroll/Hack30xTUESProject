@@ -14,6 +14,9 @@ public class GoToScene : MonoBehaviour {
 
     private HasTriggered trigger;
 
+    [SerializeField]
+    private float waitTime = 0.1f;
+
 
 
     // TODO: Change for console.
@@ -34,23 +37,25 @@ public class GoToScene : MonoBehaviour {
         {
             if(sceneIndex > 0)
             {
-                LoadScene(sceneIndex);
+                StartCoroutine(LoadScene(sceneIndex));
             }
             else
             {
-                LoadScene(sceneName);
+                StartCoroutine(LoadScene(sceneName));
             }
         }
 	}
 
 
-    private void LoadScene(int index)
+    private IEnumerator LoadScene(int index)
     {
+        yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene(index);
     }
 
-    private void LoadScene(string name)
+    private IEnumerator LoadScene(string name)
     {
+        yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene(name);
     }
 }
