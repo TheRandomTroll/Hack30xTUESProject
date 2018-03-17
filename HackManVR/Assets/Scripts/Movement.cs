@@ -25,6 +25,9 @@ public class Movement : MonoBehaviour {
 
     public NavMeshAgent navAgent;
 
+    public Transform firstPrsCamera;
+    public Vector3 rotation;
+
     void Start () {
         speed = 8;
         navAgent = GetComponent<NavMeshAgent>();
@@ -43,34 +46,51 @@ public class Movement : MonoBehaviour {
 
             if (Input.GetButtonDown("Forward") && rotateForward && way == 3)
             {
+
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z); 
                 way = 1;
             }
 
             if (Input.GetButtonDown("Backward") && rotateBack && way != 3)
             {
+
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
+
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+
                 way = 3;
             }
 
             if (Input.GetButtonDown("Left") && rotateLeft)
             {
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
+
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
+
+                
+
                 way = 4;
 
             }
 
             if (Input.GetButtonDown("Right") && rotateRight)
-            {
+            { 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
+
+                firstPrsCamera.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z); 
+
                 way = 2;
             }
+
+            
         }
 
 
-        if (tag == "Ghost")
+        if (this.tag == "Ghost")
         {
-            if (name == "Blinky")
+            if (this.name == "Blinky")
             {
                 if (Time.timeSinceLevelLoad > 3)
                 {
@@ -78,7 +98,7 @@ public class Movement : MonoBehaviour {
                 }
             }
 
-            if (name == "Pinky")
+            if (this.name == "Pinky")
             {
                 if (Time.timeSinceLevelLoad > 10)
                 {
@@ -87,7 +107,7 @@ public class Movement : MonoBehaviour {
 
             }
 
-            if (name == "Inky")
+            if (this.name == "Inky")
             {
                 if (Time.timeSinceLevelLoad > 15)
                 {
@@ -102,7 +122,7 @@ public class Movement : MonoBehaviour {
                 }
             }
 
-            if (name == "Clyde")
+            if (this.name == "Clyde")
             {
                 if (Time.timeSinceLevelLoad > 25)
                 {
