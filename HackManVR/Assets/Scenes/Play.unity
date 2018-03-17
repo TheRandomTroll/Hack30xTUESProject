@@ -1144,6 +1144,7 @@ GameObject:
   - component: {fileID: 757241332}
   - component: {fileID: 757241333}
   - component: {fileID: 757241336}
+  - component: {fileID: 757241337}
   m_Layer: 0
   m_Name: detectorFront
   m_TagString: Player
@@ -1248,6 +1249,90 @@ MonoBehaviour:
   player: {fileID: 1272406999}
   portal1: {fileID: 2094148179}
   portal2: {fileID: 1788409604}
+  PointSound: {fileID: 8300000, guid: fd2d4a0188d5ebc47bc7eddae93f87ed, type: 3}
+  BigPointSound: {fileID: 8300000, guid: 9e61939e995320b4eb05af8839c03a6c, type: 3}
+  CherrySound: {fileID: 8300000, guid: 957afffb916cced4db781b8006f5f8e0, type: 3}
+  GameOverSound: {fileID: 8300000, guid: 91499bf2bc3d96346a9cbab4f85e7444, type: 3}
+--- !u!82 &757241337
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757241330}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &930490453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,6 +1714,10 @@ MonoBehaviour:
   player: {fileID: 1272406999}
   portal1: {fileID: 2094148179}
   portal2: {fileID: 1788409604}
+  PointSound: {fileID: 0}
+  BigPointSound: {fileID: 0}
+  CherrySound: {fileID: 0}
+  GameOverSound: {fileID: 0}
 --- !u!1 &1025744212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,6 +1835,10 @@ MonoBehaviour:
   player: {fileID: 1272406999}
   portal1: {fileID: 2094148179}
   portal2: {fileID: 1788409604}
+  PointSound: {fileID: 0}
+  BigPointSound: {fileID: 0}
+  CherrySound: {fileID: 0}
+  GameOverSound: {fileID: 0}
 --- !u!1 &1087861314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,6 +2047,10 @@ MonoBehaviour:
   player: {fileID: 1272406999}
   portal1: {fileID: 2094148179}
   portal2: {fileID: 1788409604}
+  PointSound: {fileID: 0}
+  BigPointSound: {fileID: 0}
+  CherrySound: {fileID: 0}
+  GameOverSound: {fileID: 0}
 --- !u!54 &1272407001
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2238,6 +2335,10 @@ MonoBehaviour:
   player: {fileID: 1272406999}
   portal1: {fileID: 2094148179}
   portal2: {fileID: 1788409604}
+  PointSound: {fileID: 0}
+  BigPointSound: {fileID: 0}
+  CherrySound: {fileID: 0}
+  GameOverSound: {fileID: 0}
 --- !u!1 &1463366904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,6 +2870,10 @@ MonoBehaviour:
   player: {fileID: 1272406999}
   portal1: {fileID: 2094148179}
   portal2: {fileID: 1788409604}
+  PointSound: {fileID: 0}
+  BigPointSound: {fileID: 0}
+  CherrySound: {fileID: 0}
+  GameOverSound: {fileID: 0}
 --- !u!1 &1771724951
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,11 +18,16 @@ public class TriggerEventsPacMan : MonoBehaviour
     public Transform portal1;
     public Transform portal2;
 
+    private AudioSource MainAudio;
+    public AudioClip PointSound;
+    public AudioClip BigPointSound;
+    public AudioClip CherrySound;
+    public AudioClip GameOverSound;
 
 
     private void OnTriggerEnter(Collider collider)
     {
-
+        MainAudio = GetComponent<AudioSource>();
         if (collider.tag == "Obstacle")
         {
             if (name == "detectorFront")
@@ -51,13 +56,16 @@ public class TriggerEventsPacMan : MonoBehaviour
         {
             pointsScript.points += 20; 
             Destroy(collider.gameObject);
-
+            MainAudio.clip = PointSound;
+            MainAudio.Play();
         }
 
         if (collider.tag == "Ghost")
         {
             Debug.Log("Game Over");
             StartCoroutine(Restart());
+            MainAudio.clip = GameOverSound;
+            MainAudio.Play();
         }
 
         if(collider.tag == "Portal")
@@ -82,8 +90,9 @@ public class TriggerEventsPacMan : MonoBehaviour
             movementScriptInky.bigPointEaten = true;
             movementScriptClyde.bigPointEaten = true;
         }
+        MainAudio.clip = BigPointSound;
+        MainAudio.Play();
 
-        
     }
 
     private void OnTriggerExit(Collider collider)
