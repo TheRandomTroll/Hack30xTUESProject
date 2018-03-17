@@ -2,11 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class ChangeCamera : MonoBehaviour {
 
     public Camera firstPersonCamera;
     public Camera staticCamera;
+    public RawImage rawImage;
+
 	// Use this for initialization
 	void Start () {
         staticCamera.enabled = true;
@@ -19,6 +23,7 @@ public class ChangeCamera : MonoBehaviour {
         {
             staticCamera.enabled = !staticCamera.enabled;
             firstPersonCamera.enabled = !firstPersonCamera.enabled;
+            rawImage.enabled = !rawImage.enabled;
         }
     }
 }
