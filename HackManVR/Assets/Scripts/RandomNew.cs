@@ -22,12 +22,12 @@ public class RandomNew : MonoBehaviour
         return (byte)(rnd[0] % max);
     }
 
-    private void GenBlock(int x, int y,  MapTypes.Spawn block)
+    public void GenBlock(int x, int y,  MapTypes.Spawn block)
     {
         randGrid.Add(new Vector2Int(x, y), MapTypes.Spawn.Cube);
     }
 
-    private void SurroundObstacle(int x, int y, int up, int right, int down, int left)      
+    public void SurroundObstacle(int x, int y, int up, int right, int down, int left)      
     {
         for (int i = 0; i < up; i++)
         {
@@ -55,7 +55,7 @@ public class RandomNew : MonoBehaviour
         randGrid.Add(new Vector2Int(x, y - down - 1), MapTypes.Spawn.Point);
     }
 
-    private int GetSpawnType(int x, int y) //to be fixed, 5 e i sam braindead
+    public int GetSpawnType(int x, int y) //to be fixed, 5 e i sam braindead
     {
         if (randGrid[new Vector2Int(x + 1, y)] == MapTypes.Spawn.Point && randGrid[new Vector2Int(x, y + 1)] == MapTypes.Spawn.Point)
             return 1;
@@ -69,7 +69,7 @@ public class RandomNew : MonoBehaviour
 
 
     }
-    private void PlaceObstacle(int x, int y, int up, int right, int down, int left)
+    public void PlaceObstacle(int x, int y, int up, int right, int down, int left)
     {
         for(int i = 0; i < up; i++)
         {
@@ -93,7 +93,7 @@ public class RandomNew : MonoBehaviour
         } 
     }
 
-    private void GenMazeBase(int x, int y, int rand, ref int XM, ref int YM)
+	public void GenMazeBase(int x, int y, int rand, ref int XM, ref int YM)
     {
         for(int i = 0; i < 5; i++)
         {
@@ -106,7 +106,7 @@ public class RandomNew : MonoBehaviour
         XM = x + rand;
         YM = y - 1;
     }
-    private void GenGhostSpawn(int x, int y)
+    public void GenGhostSpawn(int x, int y)
     {
         for(int i = 0; i < 3; i++)
             for (int k = 0; k < 5; k++)
