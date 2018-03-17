@@ -8,7 +8,21 @@ public class Spectator : MonoBehaviour
 
     void Update()
     {
-        //For the following 'if statements' don't include 'else if', so that the user can press multiple buttons at the same time
+        transform.position += transform.forward * Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        transform.position += transform.right * Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        
+        if (Input.GetButton("Backward"))
+        {
+            transform.position += transform.up * speed * Time.deltaTime;
+        }
+
+        if(Input.GetButton("Forward"))
+        {
+
+            transform.position += -transform.up * speed * Time.deltaTime;
+        }
+
+        /*
         if (Input.GetKey(KeyCode.W))
             this.transform.position += this.transform.forward * this.speed * Time.deltaTime;
 
@@ -26,6 +40,6 @@ public class Spectator : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
             this.transform.position += this.transform.up * -1 * this.speed * Time.deltaTime;
-
+        */
     }
 }

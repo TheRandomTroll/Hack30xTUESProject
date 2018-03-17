@@ -8,7 +8,14 @@ public class CameraVRRay : MonoBehaviour {
     GameObject point;
 
 
-	void FixedUpdate () {
+    private void Start()
+    {
+        point = Instantiate(point);
+        point.GetComponent<MeshRenderer>().enabled = false;
+    }
+
+
+    void FixedUpdate () {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
         Debug.DrawRay(transform.position, transform.forward * 50, Color.yellow);
