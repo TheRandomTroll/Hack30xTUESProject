@@ -7,59 +7,64 @@ public class GenerateLevel : MonoBehaviour {
     [SerializeField]
     int width, height; // Get from random map generator
 
-    int[,] arr = new int[50, 50];
-
+    public Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
 
     [SerializeField]
-    GameObject wall, ground, cherry, portal, pacman;
+    GameObject wall, ground, cherry, portal, pacman, point;
 
     [SerializeField]
     GameObject[] ghosts;
-
     private int currentGhostIndex;
 
-	void Start () {
-		for(int x = 0; x < width; x++)
+    public void LoadLevelInfo()
+    {
+        foreach (Vector2Int position in levelDict.Keys)
         {
-            for(int y = 0; y < height; y++)
+            MapTypes.Spawn value = levelDict[position];
+            if (value == MapTypes.Spawn.Cube) // Wall
             {
-                int value = arr[x, y];
-                GameObject gameObj = null;
-                if (value == (int)MapTypes.Spawn.Cube) // Wall
-                {
-                    gameObj = Instantiate(wall);
-                }
-                else if(value == (int)MapTypes.Spawn.Point) // Path
-                {
-                    gameObj = Instantiate(ground);
-                }
-                else if(value == (int)MapTypes.Spawn.Cherry)
-                {
-                    gameObj = Instantiate(cherry);
-                }
-                else if(value == (int)MapTypes.Spawn.Portal)
-                {
-                    gameObj = Instantiate(portal);
-                }
-                else if(value == (int)MapTypes.Spawn.Pac)
-                {
-                    gameObj = Instantiate(pacman);
-                }
-                else if(value == (int)MapTypes.Spawn.Ghost)
-                {
-                    gameObj = Instantiate(ghosts[currentGhostIndex]);
+                InstantiateObject(position, wall);
+            }
+            else if (value == MapTypes.Spawn.Point) // Path
+            {
+                InstantiateObject(position, point);
+                InstantiateObject(position, ground);
+            }
+            else if (value == MapTypes.Spawn.Cherry)
+            {
+                InstantiateObject(position, cherry);
+                InstantiateObject(position, ground);
+            }
+            else if (value == MapTypes.Spawn.Portal)
+            {
+                InstantiateObject(position, portal);
+                InstantiateObject(position, ground);
+            }
+            else if (value == (MapTypes.Spawn.Pac))
+            {
+                InstantiateObject(position, pacman);
+                InstantiateObject(position, ground);
+            }
+            else if (value == MapTypes.Spawn.Ghost)
+            {
+                if (currentGhostIndex < ghosts.Length) {
+                    InstantiateObject(position, ghosts[currentGhostIndex]);
+                    InstantiateObject(position, ground);
                     currentGhostIndex++;
                 }
-
-                if (gameObj)
-                {
-                    gameObj.transform.position = new Vector3(x, gameObj.transform.position.y, y);
-                }
-                else
-                {
-                    Debug.LogWarning("Viktor e napravil debilno neshto s map gena!");
-                }
+            }
+            else if(value == MapTypes.Spawn.Ground)
+            {
+                InstantiateObject(position, ground);
             }
         }
-	}
+    }
+
+    public void InstantiateObject(Vector2Int position, GameObject toInstantiate)
+    {
+        if (!toInstantiate) return;
+        GameObject gameObj = Instantiate(toInstantiate);
+        gameObj.transform.position = new Vector3(position.x, gameObj.transform.position.y, position.y);
+        Debug.Log("Instantiating " + gameObj.name + " at " + gameObj.transform.position);
+    }
 }

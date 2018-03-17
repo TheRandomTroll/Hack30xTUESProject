@@ -18,19 +18,16 @@ public class CameraVRRay : MonoBehaviour {
             HasTriggered isTriggered = hit.transform.GetComponent<HasTriggered>();
             if (!isTriggered)
             {
-                Debug.Log("No HasTriggered script!");
                 return;
             }
             
 
             isTriggered.Trigger();
-            Debug.Log("Hit " + hit.point);
             point.GetComponent<MeshRenderer>().enabled = true;
             point.transform.position = hit.point;
         }
         else
         {
-            Debug.Log("No Hit!");
             point.GetComponent<MeshRenderer>().enabled = false;
             point.transform.position = Vector3.zero;
         }
