@@ -35,10 +35,15 @@ public class TestRMS : MonoBehaviour
        
         public void Gen()
         {
-            int x = RNG(20);
-            int y = RNG(20);
+            int x = RNG(15);
+            int y = RNG(15);
             randomNew.GenMazeBase(5+x, 5+y);
-            for (int i = 1; i < 30; i++)
+            randomNew.GenBigPoint(4, 4, RNG(5), RNG(5));
+            randomNew.GenBigPoint(4, 21, RNG(5), RNG(5));
+            randomNew.GenBigPoint(21, 4, RNG(5), RNG(5));
+            randomNew.GenBigPoint(23, 23, RNG(5), RNG(5));
+            randomNew.GenCherry(RNG(5), RNG(5));
+        for (int i = 1; i < 30; i++)
             {
                 for (int k = 2; k < 30; k++)
                 {
