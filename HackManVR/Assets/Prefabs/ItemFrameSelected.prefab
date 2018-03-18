@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23476199710793080}
   - component: {fileID: 95396957068510378}
   m_Layer: 0
-  m_Name: selected-low-poly
+  m_Name: ItemFrameSelected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -24,6 +24,7 @@ public class TriggerEventsPacMan : MonoBehaviour
     public AudioClip CherrySound;
     public AudioClip GameOverSound;
 
+  
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -89,9 +90,10 @@ public class TriggerEventsPacMan : MonoBehaviour
             movementScriptPinky.bigPointEaten = true;
             movementScriptInky.bigPointEaten = true;
             movementScriptClyde.bigPointEaten = true;
+            MainAudio.clip = BigPointSound;
+            MainAudio.Play();
         }
-        MainAudio.clip = BigPointSound;
-        MainAudio.Play();
+        
 
     }
 
