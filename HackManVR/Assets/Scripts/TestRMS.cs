@@ -35,11 +35,20 @@ public class TestRMS : MonoBehaviour
        
         public void Gen()
         {
-            randomNew.GenMazeBase(20, 20);
-            Randomize();
-            randomNew.GenObstacle(19, 21, a, s, d, f);
-            randomNew.SurroundObstacle(19, 21, a, s, d, f);
-        }
+            int x = RNG(30);
+            int y = RNG(30);
+            randomNew.GenMazeBase(x, y);
+            for (int i = 1; i < 30; i++)
+            {
+                for (int k = 2; k < 30; k++)
+                {
+                    Randomize();
+                    randomNew.GenObstacle(i, k, a, s, d, f);
+                    randomNew.SurroundObstacle(i, k, a, s, d, f);
+                }
+            }
+           // randomNew.Mirror();
+    }
 
     
 
