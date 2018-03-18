@@ -28,7 +28,7 @@ public class SaveLevel {
 
         Debug.LogWarning("Saving " + "/savedLevel" + levelIndex + ".level");
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.dataPath + "/savedLevel" +  levelIndex + ".level", FileMode.Create);
+        FileStream file = File.Open(Application.persistentDataPath + "/savedLevel" +  levelIndex + ".level", FileMode.Create);
         bf.Serialize(file, levelInfo);
         Debug.LogWarning("Saved " + "/savedLevel" + levelIndex + ".level");
         file.Close();
@@ -37,10 +37,10 @@ public class SaveLevel {
 
     public static void Load(int levelIndex)
     {
-        if (File.Exists(Application.dataPath + "/savedLevel" +  levelIndex + ".level"))
+        if (File.Exists(Application.persistentDataPath + "/savedLevel" +  levelIndex + ".level"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.dataPath + "/savedLevel" + levelIndex + ".level", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/savedLevel" + levelIndex + ".level", FileMode.Open);
             loadedLevel = bf.Deserialize(file) as LevelInfo;
             file.Close();
         }
