@@ -8,7 +8,7 @@ public class GenerateLevel : MonoBehaviour {
     private WorldGrid worldGrid;
 
     [SerializeField]
-    GameObject wall, ground, cherry, portal, pacman, point;
+    GameObject wall, ground, cherry, portal, pacman, point, bigpoint;
 
     [SerializeField]
     GameObject[] ghosts;
@@ -63,6 +63,11 @@ public class GenerateLevel : MonoBehaviour {
             }
             else if(value == MapTypes.Spawn.Ground)
             {
+                InstantiateObject(position, ground);
+            }
+            else if(value == MapTypes.Spawn.Bigpoint)
+            {
+                InstantiateObject(position, bigpoint);
                 InstantiateObject(position, ground);
             }
         }
