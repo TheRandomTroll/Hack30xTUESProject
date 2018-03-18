@@ -24,8 +24,8 @@ public class MovementPacMan : MonoBehaviour {
 
     void Start () {
         speed = 8;
-        isPaused = 0;
-        pauseMenu = GameObject.Find("pauseMenu");
+        isPaused = false;
+        pauseMenu = GameObject.Find("pauseMenu").GetComponent<Canvas>();
     }
 
     void Update()
