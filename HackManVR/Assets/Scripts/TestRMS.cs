@@ -35,9 +35,9 @@ public class TestRMS : MonoBehaviour
        
         public void Gen()
         {
-            int x = RNG(30);
-            int y = RNG(30);
-            randomNew.GenMazeBase(x, y);
+            int x = RNG(20);
+            int y = RNG(20);
+            randomNew.GenMazeBase(5+x, 5+y);
             for (int i = 1; i < 30; i++)
             {
                 for (int k = 2; k < 30; k++)

@@ -142,6 +142,8 @@ using System.Security.Cryptography;
             randGrid.Add(new Vector2Int(x + 1, y - 1), MapTypes.Spawn.Ghost);
             randGrid.Add(new Vector2Int(x + 2, y - 1), MapTypes.Spawn.Ghost);
             randGrid.Add(new Vector2Int(x + 3, y - 1), MapTypes.Spawn.Ghost);
+            randGrid.Remove(new Vector2Int(x + 2, y - 3));
+            randGrid.Add(new Vector2Int(x + 2, y - 3), MapTypes.Spawn.Pac);
         }
         public void Mirror()
         {
