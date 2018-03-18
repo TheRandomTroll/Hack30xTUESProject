@@ -11,8 +11,15 @@ public class ChangeCamera : MonoBehaviour {
     public Camera staticCamera;
     public RawImage rawImage;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        firstPersonCamera = GameObject.Find("First Person Camera").GetComponent<Camera>();
+        staticCamera = GameObject.Find("Static Camera").GetComponent<Camera>();
+        rawImage = GameObject.Find("RawImage").GetComponent<RawImage>();
+    }
+
+    // Use this for initialization
+    void Start () {
         if (PlayerPrefs.GetInt("camera", 1) == 1)
             firstPersonCamera.enabled = true;
         else if(PlayerPrefs.GetInt("camera", 1) == 2)

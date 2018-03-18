@@ -24,7 +24,19 @@ public class TriggerEventsPacMan : MonoBehaviour
     public AudioClip CherrySound;
     public AudioClip GameOverSound;
 
-  
+    private void Awake()
+    {
+        movementScriptBlinky = GameObject.Find("Blinky").GetComponent<MovementGhosts>();
+        movementScriptPinky = GameObject.Find("Pinky").GetComponent<MovementGhosts>();
+        movementScriptInky = GameObject.Find("Inky").GetComponent<MovementGhosts>();
+        movementScriptClyde = GameObject.Find("Clyde").GetComponent<MovementGhosts>();
+
+        player = GameObject.Find("Player").GetComponent<Transform>();
+        movementScriptPacMan = player.GetComponent<MovementPacMan>();
+        pointsScript = GameObject.Find("Points").GetComponent<PointsScript>();
+        portal1 = GameObject.Find("PORTAL1").GetComponent<Transform>();
+        portal2 = GameObject.Find("PORTAL2").GetComponent<Transform>(); 
+    }
 
     private void OnTriggerEnter(Collider collider)
     {
