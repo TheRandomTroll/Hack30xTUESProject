@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1012463166398338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0.39}
+  m_LocalPosition: {x: 0, y: 3, z: -37.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4939203633350772}
@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68c1e9239ec8394d95fc9cad9960569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPrefab: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56,
+  selectedPrefab: {fileID: 1162404777689166, guid: 36b3dbfc4392b13409f01beefa793f8e,
     type: 2}
   activeColor: {r: 0.991, g: 0.816, b: 0, a: 0.647}
   scaleBy: 2
+  oneTapToPlace: 1

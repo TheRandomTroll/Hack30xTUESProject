@@ -57,6 +57,7 @@ MonoBehaviour:
   portal: {fileID: 1049432385019748, guid: b9d6516ca33644944b08cb292b632bf4, type: 2}
   pacman: {fileID: 1897575943721588, guid: dd0dc899b37cdab4292c0b1642f17777, type: 2}
   point: {fileID: 1853779807723182, guid: f9699e026f035404d8a7de9b17effcfb, type: 2}
+  bigpoint: {fileID: 1162404777689166, guid: 36b3dbfc4392b13409f01beefa793f8e, type: 2}
   ghosts:
   - {fileID: 1371218757277798, guid: 54af9eec339876241918e394fe39f4c3, type: 2}
   - {fileID: 1293227591996150, guid: 78462440392a4f242afcccb092d8d37f, type: 2}
