@@ -42,8 +42,7 @@ public class TestRMS : MonoBehaviour
             randomNew.GenBigPoint(4, 21, RNG(5), RNG(5));
             randomNew.GenBigPoint(21, 4, RNG(5), RNG(5));
             randomNew.GenBigPoint(23, 23, RNG(5), RNG(5));
-            randomNew.GenCherry(RNG(10), RNG(15));
-            randomNew.GenCherry(RNG(15), RNG(10));
+            randomNew.GenCherry(RNG(5), RNG(5));
         for (int i = 1; i < 30; i++)
             {
                 for (int k = 2; k < 30; k++)

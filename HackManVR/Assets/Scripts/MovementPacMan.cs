@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 public class MovementPacMan : MonoBehaviour {
 
@@ -18,14 +17,9 @@ public class MovementPacMan : MonoBehaviour {
     private int way;
 
     public bool bigPointEaten = false;
-    public bool isPaused;
-
-    public Canvas pauseMenu;
 
     void Start () {
         speed = 8;
-        isPaused = false;
-        pauseMenu = GameObject.Find("pauseMenu").GetComponent<Canvas>();
     }
 
     void Update()
@@ -61,24 +55,11 @@ public class MovementPacMan : MonoBehaviour {
             }
 
             if (Input.GetButtonDown("Right") && rotateRight)
-            {
+            { 
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
 
                 way = 2;
-            }
+            }      
         }
-
-
-        if (Input.GetButtonDown("Pause"))
-        {
-            isPaused = !isPaused;
-            pauseMenu.enabled = !pauseMenu.enabled;
-            if (isPaused)
-                Time.timeScale = 0;
-            if(!isPaused)
-                Time.timeScale = 1;
-        }
-
-
-    }
+    }   
 }

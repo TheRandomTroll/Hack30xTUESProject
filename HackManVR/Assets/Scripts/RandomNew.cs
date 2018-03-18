@@ -128,8 +128,8 @@ using System.Security.Cryptography;
         }
         public void GenCherry(int a, int b)
         {
-            randGrid.Remove(new Vector2Int(15 + a, 15 + b));
-            randGrid.Add(new Vector2Int(18 + a, 18 + b), MapTypes.Spawn.Cherry);
+            randGrid.Remove(new Vector2Int(20 + a, 20 + b));
+        randGrid.Add(new Vector2Int(20 + a, 20 + b), MapTypes.Spawn.Cherry);
         }
         public void GenGhostSpawn(int x, int y)
         {
