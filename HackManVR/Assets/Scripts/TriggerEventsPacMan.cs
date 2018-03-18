@@ -64,6 +64,17 @@ public class TriggerEventsPacMan : MonoBehaviour
         if (collider.tag == "Ghost")
         {
             Debug.Log("Game Over");
+            if(FindObjectOfType<ChangeCamera>().firstPersonCamera.enabled)
+            {
+                PlayerPrefs.SetInt("camera", 1);
+            }
+
+            else if(!FindObjectOfType<ChangeCamera>().firstPersonCamera.enabled)
+            {
+                Debug.Log("Second");
+                PlayerPrefs.SetInt("camera", 2);
+            }
+
             StartCoroutine(Restart());
             MainAudio.clip = GameOverSound;
             MainAudio.Play();
