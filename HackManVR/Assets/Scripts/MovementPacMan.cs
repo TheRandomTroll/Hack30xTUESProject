@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MovementPacMan : MonoBehaviour {
 
@@ -24,8 +25,6 @@ public class MovementPacMan : MonoBehaviour {
 
     void Start () {
         speed = 8;
-        isPaused = false;
-        pauseMenu = GameObject.Find("pauseMenu");
     }
 
     void Update()
@@ -71,12 +70,7 @@ public class MovementPacMan : MonoBehaviour {
 
         if (Input.GetButtonDown("Pause"))
         {
-            isPaused = !isPaused;
-            pauseMenu.enabled = !pauseMenu.enabled;
-            if (isPaused)
-                Time.timeScale = 0;
-            if(!isPaused)
-                Time.timeScale = 1;
+            SceneManager.LoadScene(0);
         }
 
 

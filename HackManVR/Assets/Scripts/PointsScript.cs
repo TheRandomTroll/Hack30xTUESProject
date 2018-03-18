@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PointsScript : MonoBehaviour {
 
+    public string text;
     public int points;
 
 	// Use this for initialization
@@ -14,6 +16,11 @@ public class PointsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetComponent<Text>().text = "Score:" + "\n" + points.ToString();
+        if(name == "Points")
+        {
+            GetComponent<Text>().text = points.ToString();
+        }
+        if(name == "Status")
+            GetComponent<Text>().text = text;
 	}
 }

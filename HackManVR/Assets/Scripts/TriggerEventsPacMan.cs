@@ -86,7 +86,7 @@ public class TriggerEventsPacMan : MonoBehaviour
                 Debug.Log("Second");
                 PlayerPrefs.SetInt("camera", 2);
             }
-
+            pointsScript.text = "You Lose";
             StartCoroutine(Restart());
             MainAudio.clip = GameOverSound;
             MainAudio.Play();
