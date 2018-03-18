@@ -13,9 +13,11 @@ public class ChangeCamera : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        staticCamera.enabled = true;
-        firstPersonCamera.enabled = false;
-	}
+        if (PlayerPrefs.GetInt("camera", 1) == 1)
+            firstPersonCamera.enabled = true;
+        else if(PlayerPrefs.GetInt("camera", 1) == 2)
+            staticCamera.enabled = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {

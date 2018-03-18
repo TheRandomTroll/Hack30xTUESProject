@@ -21,7 +21,9 @@ public class FollowPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
-        
+        transform.position = player.position;
+
+
         if(staticPrsCamera.transform.eulerAngles.x == 0)
         {
             staticPrsCamera.transform.Rotate(new Vector3(85, staticPrsCamera.transform.eulerAngles.y, staticPrsCamera.transform.eulerAngles.z), Space.World);
