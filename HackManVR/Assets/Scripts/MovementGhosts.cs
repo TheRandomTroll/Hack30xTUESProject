@@ -17,7 +17,7 @@ public class MovementGhosts : MonoBehaviour {
 
     public bool bigPointEaten = false;
 
-    void Awake () {
+    void Start () {
 
         bigPointMarker[0] = GameObject.Find("Marker 1").GetComponent<Transform>();
         bigPointMarker[1] = GameObject.Find("Marker 2").GetComponent<Transform>();

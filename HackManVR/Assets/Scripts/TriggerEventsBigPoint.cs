@@ -12,7 +12,7 @@ public class TriggerEventsBigPoint : MonoBehaviour
     public MovementGhosts movementScriptInky;
     public MovementGhosts movementScriptClyde;
 
-    private void Awake()
+    private void Start()
     {
         movementScriptBlinky = GameObject.Find("Blinky").GetComponent<MovementGhosts>();
         movementScriptPinky = GameObject.Find("Pinky").GetComponent<MovementGhosts>();

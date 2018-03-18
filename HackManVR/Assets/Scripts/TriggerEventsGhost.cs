@@ -13,7 +13,7 @@ public class TriggerEventsGhost : MonoBehaviour
     public Transform portal2;
 
 
-    private void Awake()
+    private void Start()
     {
         movementScriptPacMan = GameObject.Find("Player").GetComponent<MovementPacMan>();
         player = GameObject.Find("Player").GetComponent<Transform>();
