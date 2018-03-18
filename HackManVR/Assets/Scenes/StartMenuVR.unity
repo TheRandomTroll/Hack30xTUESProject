@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: -1
-  sceneName: Play
+  sceneName: FirstLevel
   waitTime: 0.1
   alternativeInput: Backward
 --- !u!1001 &1491599530
