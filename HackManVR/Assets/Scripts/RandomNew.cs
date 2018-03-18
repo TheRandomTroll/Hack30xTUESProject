@@ -113,7 +113,7 @@ using System.Security.Cryptography;
             }
         }
 
-        public void GenMazebase(int x, int y)
+        public void GenMazeBase(int x, int y)
         {
             for (int i = 0; i < 5; i++)
             {
