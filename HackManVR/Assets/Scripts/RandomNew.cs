@@ -112,7 +112,11 @@ using System.Security.Cryptography;
                     randGrid.Add(new Vector2Int(x + i + 1, y), MapTypes.Spawn.Cube);
             }
         }
-
+        public void GenBigPoint(int x, int y, int a, int b)
+        {
+            randGrid.Remove(new Vector2Int(x+a, y+b));
+            randGrid.Add(new Vector2Int(x+a, y+b), MapTypes.Spawn.Bigpoint);
+        }
         public void GenMazeBase(int x, int y)
         {
             for (int i = 0; i < 5; i++)
@@ -121,7 +125,11 @@ using System.Security.Cryptography;
             }
             GenGhostSpawn(x-4, y - 1);
             randGrid.Add(new Vector2Int(x-4+2, y + 1), MapTypes.Spawn.Point);
-            
+        }
+        public void GenCherry(int a, int b)
+        {
+            randGrid.Remove(new Vector2Int(20 + a, 20 + b));
+        randGrid.Add(new Vector2Int(20 + a, 20 + b), MapTypes.Spawn.Cherry);
         }
         public void GenGhostSpawn(int x, int y)
         {
@@ -142,6 +150,8 @@ using System.Security.Cryptography;
             randGrid.Add(new Vector2Int(x + 1, y - 1), MapTypes.Spawn.Ghost);
             randGrid.Add(new Vector2Int(x + 2, y - 1), MapTypes.Spawn.Ghost);
             randGrid.Add(new Vector2Int(x + 3, y - 1), MapTypes.Spawn.Ghost);
+            randGrid.Remove(new Vector2Int(x + 2, y - 3));
+            randGrid.Add(new Vector2Int(x + 2, y - 3), MapTypes.Spawn.Pac);
         }
         public void Mirror()
         {
