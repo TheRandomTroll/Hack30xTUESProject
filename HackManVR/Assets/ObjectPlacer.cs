@@ -22,11 +22,17 @@ public class ObjectPlacer : MonoBehaviour {
 
     [SerializeField]
     GameObject gridOutline;
+    [SerializeField]
+    GameObject ground;
+
 
 
     // TODO: Change for controller.
     private KeyCode leftClick = KeyCode.Mouse0;
     private KeyCode rightClick = KeyCode.Mouse1;
+
+    [SerializeField]
+    private bool oneTapToPlace = false;
 
 
     private void Start()
@@ -58,17 +64,34 @@ public class ObjectPlacer : MonoBehaviour {
                 lastGridPosition = position;
 
                 // TODO: Change getkey to controller btn.
-                if (Input.GetKey(leftClick) || Input.GetButton("Left"))
+                bool place = false;
+                if (!oneTapToPlace && (Input.GetKey(leftClick) || Input.GetButton("Left"))) place = true;
+
+                if (oneTapToPlace && (Input.GetKeyDown(leftClick) || Input.GetButtonDown("Left"))) place = true;
+
+                if (place)
                 {
                     if (!worldGrid.GridContainsAt(position))
                     {
                         GameObject gameObj = Instantiate(currentSelectedObject);
+                        gameObj.AddComponent<CanRemove>();
                         Vector3 gameObjPos = hit.transform.position;
                         gameObjPos.y = gameObj.transform.position.y;
                         gameObj.transform.position = gameObjPos;
                         worldGrid.AddToGrid(position, gameObj);
                         Destroy(instantiatedShadow);
                         Destroy(hit.transform.gameObject);
+
+                        // Instantiate ground
+                        if (currentSelectedObject.tag != "Wall" && currentSelectedObject.tag != "Ground")
+                        {
+                            GameObject grnd = Instantiate(ground);
+                            Vector3 groundPosition;
+                            groundPosition = gameObjPos;
+                            groundPosition.y = ground.transform.position.y;
+                            grnd.transform.position = groundPosition;
+                            grnd.AddComponent<CanRemove>();
+                        }
                     }
                     else
                     {
@@ -84,7 +107,7 @@ public class ObjectPlacer : MonoBehaviour {
                     GetActiveItemFramePrefab(hit);
                 }
             }
-            else if(hit.transform.GetComponent<Waypoint>())
+            else if(hit.transform.GetComponent<CanRemove>())
             {
                 if (Input.GetKey(rightClick) || Input.GetButton("Right"))
                 {
@@ -135,6 +158,8 @@ public class ObjectPlacer : MonoBehaviour {
     private void GetActiveItemFramePrefab(RaycastHit hit)
     {
         ItemSelection itemSelect = hit.transform.GetComponent<ItemSelection>();
+        oneTapToPlace = itemSelect.oneTapToPlace;
+
         foreach (ItemSelection itemSel in FindObjectsOfType<ItemSelection>())
         {
             itemSel.Deactivate();
