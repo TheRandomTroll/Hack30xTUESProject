@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MapTypes {
-    public enum Spawn { Cube, Pac, Ghost, Cherry, Portal, Point, Ground, Empty };
+    public enum Spawn { Cube, Pac, Ghost, Cherry, Portal, Point, Ground, Empty, Bigpoint};
 }
