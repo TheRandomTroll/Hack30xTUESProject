@@ -7,31 +7,13 @@ TagManager:
   - Obstacle
   - Point
   - Ghost
+  - BuildPoint
+  - ItemFrame
   - Ground
   - Wall
   - Cherry
-  - BigPoint
-  - Blinky
-  - Pinky
-  - Inky
-  - Clyde
-  - PORTAL2
-  - PORTAL1
-  - Marker 1
-  - Marker 2
-  - Marker 3
-  - Marker 4
-  - firstPrsCamera
-  - staticCamera
-  - minimapCamera
-  - rawImage
-  - detectorFront
-  - detectorBack
-  - detectorLeft
-  - detectorRight
-  - detectorPinky
   - Portal
-  - Base
+  - BigPoint
   layers:
   - Default
   - TransparentFX

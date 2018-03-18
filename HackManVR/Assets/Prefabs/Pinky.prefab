@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114356124997444378}
   m_Layer: 0
   m_Name: Pinky
-  m_TagString: Pinky
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

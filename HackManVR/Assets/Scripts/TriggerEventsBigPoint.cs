@@ -14,10 +14,10 @@ public class TriggerEventsBigPoint : MonoBehaviour
 
     private void Start()
     {
-        movementScriptBlinky = GameObject.FindGameObjectWithTag("Blinky").GetComponent<MovementGhosts>();
-        movementScriptPinky = GameObject.FindGameObjectWithTag("Pinky").GetComponent<MovementGhosts>();
-        movementScriptInky = GameObject.FindGameObjectWithTag("Inky").GetComponent<MovementGhosts>();
-        movementScriptClyde = GameObject.FindGameObjectWithTag("Clyde").GetComponent<MovementGhosts>();
+        movementScriptBlinky = GameObject.Find("Blinky").GetComponent<MovementGhosts>();
+        movementScriptPinky = GameObject.Find("Pinky").GetComponent<MovementGhosts>();
+        movementScriptInky = GameObject.Find("Inky").GetComponent<MovementGhosts>();
+        movementScriptClyde = GameObject.Find("Clyde").GetComponent<MovementGhosts>();
 
     }
 
@@ -27,7 +27,7 @@ public class TriggerEventsBigPoint : MonoBehaviour
 
         if (collider.tag == "Player")
         {
-            if (tag == "Marker 1")
+            if (name == "Marker 1")
             {
                 movementScriptBlinky.bigPointMarkersChecker[0] = true;
                 movementScriptPinky.bigPointMarkersChecker[0] = true;
@@ -35,7 +35,7 @@ public class TriggerEventsBigPoint : MonoBehaviour
                 movementScriptClyde.bigPointMarkersChecker[0] = true;
             }
 
-            if (tag == "Marker 2")
+            if (name == "Marker 2")
             {
                 movementScriptBlinky.bigPointMarkersChecker[1] = true;
                 movementScriptPinky.bigPointMarkersChecker[1] = true;
@@ -43,7 +43,7 @@ public class TriggerEventsBigPoint : MonoBehaviour
                 movementScriptClyde.bigPointMarkersChecker[1] = true;
             }
 
-            if (tag == "Marker 3")
+            if (name == "Marker 3")
             {
                 movementScriptBlinky.bigPointMarkersChecker[2] = true;
                 movementScriptPinky.bigPointMarkersChecker[2] = true;
@@ -51,7 +51,7 @@ public class TriggerEventsBigPoint : MonoBehaviour
                 movementScriptClyde.bigPointMarkersChecker[2] = true;
             }
 
-            if (tag == "Marker 4")
+            if (name == "Marker 4")
             {
                 movementScriptBlinky.bigPointMarkersChecker[3] = true;
                 movementScriptPinky.bigPointMarkersChecker[3] = true;

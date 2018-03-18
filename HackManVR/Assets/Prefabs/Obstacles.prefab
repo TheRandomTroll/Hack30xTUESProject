@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 95310641486302506}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Base
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
