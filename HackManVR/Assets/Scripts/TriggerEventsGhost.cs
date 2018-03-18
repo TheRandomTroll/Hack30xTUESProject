@@ -13,6 +13,16 @@ public class TriggerEventsGhost : MonoBehaviour
     public Transform portal2;
 
 
+    private void Awake()
+    {
+        movementScriptPacMan = GameObject.Find("Player").GetComponent<MovementPacMan>();
+        player = GameObject.Find("Player").GetComponent<Transform>();
+        portal1 = GameObject.Find("PORTAL1").GetComponent<Transform>();
+        portal2 = GameObject.Find("PORTAL2").GetComponent<Transform>();
+
+    }
+
+
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -30,13 +40,6 @@ public class TriggerEventsGhost : MonoBehaviour
                 portal1.GetComponent<Collider>().enabled = false;
                 player.position = portal1.position;
             }
-        }
-
-        
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-   
+        }  
     }
 }

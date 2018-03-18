@@ -35,7 +35,7 @@ public class TestRMS : MonoBehaviour
        
         public void Gen()
         {
-            randomNew.GenMazeBase(20 + RNG(20), 20 + RNG(20));
+            randomNew.GenMazebase(20 + RNG(20), 20 + RNG(20));
             Randomize();
             randomNew.PlaceObstacle(5 + RNG(10), 5 + RNG(10), RNG(3), RNG(3), RNG(3), RNG(3));
             Randomize();

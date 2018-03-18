@@ -11,14 +11,24 @@ public class MovementGhosts : MonoBehaviour {
     public Transform playerBlinky;
     public Transform playerPinky;
     public Transform Base;
-
     public Transform marker;
 
     public NavMeshAgent navAgent;
 
     public bool bigPointEaten = false;
 
-    void Start () {
+    void Awake () {
+
+        bigPointMarker[0] = GameObject.Find("Marker 1").GetComponent<Transform>();
+        bigPointMarker[1] = GameObject.Find("Marker 2").GetComponent<Transform>();
+        bigPointMarker[2] = GameObject.Find("Marker 3").GetComponent<Transform>();
+        bigPointMarker[3] = GameObject.Find("Marker 4").GetComponent<Transform>();
+
+
+        playerBlinky = GameObject.Find("Player").GetComponent<Transform>();
+        playerPinky = GameObject.Find("detectorPinky").GetComponent<Transform>();
+        Base = GameObject.Find("Base").GetComponent<Transform>();
+        marker = GameObject.Find("Marker 1").GetComponent<Transform>();
         navAgent = GetComponent<NavMeshAgent>();
     }
 
