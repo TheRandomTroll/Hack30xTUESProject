@@ -13,9 +13,9 @@ public class ChangeCamera : MonoBehaviour {
 
     private void Awake()
     {
-        firstPersonCamera = GameObject.Find("First Person Camera").GetComponent<Camera>();
-        staticCamera = GameObject.Find("Static Camera").GetComponent<Camera>();
-        rawImage = GameObject.Find("RawImage").GetComponent<RawImage>();
+        firstPersonCamera = GameObject.FindGameObjectWithTag("firstPrsCamera").GetComponent<Camera>();
+        staticCamera = GameObject.FindGameObjectWithTag("staticCamera").GetComponent<Camera>();
+        rawImage = GameObject.FindGameObjectWithTag("rawImage").GetComponent<RawImage>();
     }
 
     // Use this for initialization

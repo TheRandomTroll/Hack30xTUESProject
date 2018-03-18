@@ -26,16 +26,16 @@ public class TriggerEventsPacMan : MonoBehaviour
 
     private void Start()
     {
-        movementScriptBlinky = GameObject.Find("Blinky").GetComponent<MovementGhosts>();
-        movementScriptPinky = GameObject.Find("Pinky").GetComponent<MovementGhosts>();
-        movementScriptInky = GameObject.Find("Inky").GetComponent<MovementGhosts>();
-        movementScriptClyde = GameObject.Find("Clyde").GetComponent<MovementGhosts>();
+        movementScriptBlinky = GameObject.FindGameObjectWithTag("Blinky").GetComponent<MovementGhosts>();
+        movementScriptPinky = GameObject.FindGameObjectWithTag("Pinky").GetComponent<MovementGhosts>();
+        movementScriptInky = GameObject.FindGameObjectWithTag("Inky").GetComponent<MovementGhosts>();
+        movementScriptClyde = GameObject.FindGameObjectWithTag("Clyde").GetComponent<MovementGhosts>();
 
-        player = GameObject.Find("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         movementScriptPacMan = player.GetComponent<MovementPacMan>();
-        pointsScript = GameObject.Find("Points").GetComponent<PointsScript>();
-        portal1 = GameObject.Find("PORTAL1").GetComponent<Transform>();
-        portal2 = GameObject.Find("PORTAL2").GetComponent<Transform>(); 
+        pointsScript = GameObject.FindGameObjectWithTag("Points").GetComponent<PointsScript>();
+        portal1 = GameObject.FindGameObjectWithTag("PORTAL1").GetComponent<Transform>();
+        portal2 = GameObject.FindGameObjectWithTag("PORTAL2").GetComponent<Transform>(); 
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -43,23 +43,23 @@ public class TriggerEventsPacMan : MonoBehaviour
         MainAudio = GetComponent<AudioSource>();
         if (collider.tag == "Obstacle")
         {
-            if (name == "detectorFront")
+            if (tag == "detectorFront")
             {
                 movementScriptPacMan.canMove = false;
             }
 
-            if (name == "detectorBack")
+            if (tag == "detectorBack")
             {
                 movementScriptPacMan.rotateBack = false;
             }
 
-            if (name == "detectorLeft")
+            if (tag == "detectorLeft")
             {
 
                 movementScriptPacMan.rotateLeft = false;
             }
 
-            if (name == "detectorRight")
+            if (tag == "detectorRight")
             {
                 movementScriptPacMan.rotateRight = false;
             }
@@ -73,7 +73,7 @@ public class TriggerEventsPacMan : MonoBehaviour
             MainAudio.Play();
         }
 
-        if (collider.tag == "Ghost")
+        if (collider.tag == "Blinky" || collider.tag == "Pinky" || collider.tag == "Inky" || collider.tag == "Clyde")
         {
             Debug.Log("Game Over");
             if(FindObjectOfType<ChangeCamera>().firstPersonCamera.enabled)
@@ -92,22 +92,21 @@ public class TriggerEventsPacMan : MonoBehaviour
             MainAudio.Play();
         }
 
-        if(collider.tag == "Portal")
+        
+        if(collider.tag == "PORTAL1")
         {
-            if(collider.name == "PORTAL1")
-            {
-                portal2.GetComponent<Collider>().enabled = false;
-                player.position = portal2.position;
-            }
-
-            else if (collider.name == "PORTAL2")
-            {
-                portal1.GetComponent<Collider>().enabled = false;
-                player.position = portal1.position;
-            }
+            portal2.GetComponent<Collider>().enabled = false;
+            player.position = portal2.position;
         }
 
-        if(name == "Player" && collider.tag == "BigPoint")
+        else if (collider.tag == "PORTAL2")
+        {
+            portal1.GetComponent<Collider>().enabled = false;
+            player.position = portal1.position;
+        }
+        
+
+        if(tag == "Player" && collider.tag == "BigPoint")
         {
             movementScriptBlinky.bigPointEaten = true;
             movementScriptPinky.bigPointEaten = true;
@@ -126,22 +125,22 @@ public class TriggerEventsPacMan : MonoBehaviour
     {
         if (collider.tag == "Obstacle")
         {
-            if (this.name == "detectorFront")
+            if (this.tag == "detectorFront")
             {
                 movementScriptPacMan.canMove = true;
             }
 
-            if (this.name == "detectorBack")
+            if (this.tag == "detectorBack")
             {
                 movementScriptPacMan.rotateBack = true;
             }
 
-            if (this.name == "detectorLeft")
+            if (this.tag == "detectorLeft")
             {
                 movementScriptPacMan.rotateLeft = true;
             }
 
-            if (this.name == "detectorRight")
+            if (this.tag == "detectorRight")
             {
                 movementScriptPacMan.rotateRight = true;
             }

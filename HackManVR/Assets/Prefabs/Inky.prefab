@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114627417515478814}
   m_Layer: 0
   m_Name: Inky
-  m_TagString: Ghost
+  m_TagString: Inky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,10 +15,10 @@ public class TriggerEventsGhost : MonoBehaviour
 
     private void Start()
     {
-        movementScriptPacMan = GameObject.Find("Player").GetComponent<MovementPacMan>();
-        player = GameObject.Find("Player").GetComponent<Transform>();
-        portal1 = GameObject.Find("PORTAL1").GetComponent<Transform>();
-        portal2 = GameObject.Find("PORTAL2").GetComponent<Transform>();
+        movementScriptPacMan = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementPacMan>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        portal1 = GameObject.FindGameObjectWithTag("PORTAL1").GetComponent<Transform>();
+        portal2 = GameObject.FindGameObjectWithTag("PORTAL2").GetComponent<Transform>();
 
     }
 

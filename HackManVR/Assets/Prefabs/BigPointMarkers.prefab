@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114086035765953660}
   m_Layer: 0
   m_Name: Marker 1
-  m_TagString: Untagged
+  m_TagString: Marker 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114793905643144090}
   m_Layer: 0
   m_Name: Marker 2
-  m_TagString: Untagged
+  m_TagString: Marker 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 114710998195152222}
   m_Layer: 0
   m_Name: Marker 3
-  m_TagString: Untagged
+  m_TagString: Marker 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 114277385275531940}
   m_Layer: 0
   m_Name: Marker 4
-  m_TagString: Untagged
+  m_TagString: Marker 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

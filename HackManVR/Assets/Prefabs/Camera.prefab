@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 114239360266289984}
   m_Layer: 0
   m_Name: Minimap Camera
-  m_TagString: Untagged
+  m_TagString: minimapCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 114432350752948526}
   m_Layer: 0
   m_Name: First Person Camera
-  m_TagString: Untagged
+  m_TagString: firstPrsCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

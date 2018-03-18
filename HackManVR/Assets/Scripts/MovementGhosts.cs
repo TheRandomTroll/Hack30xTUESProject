@@ -19,16 +19,16 @@ public class MovementGhosts : MonoBehaviour {
 
     void Start () {
 
-        bigPointMarker[0] = GameObject.Find("Marker 1").GetComponent<Transform>();
-        bigPointMarker[1] = GameObject.Find("Marker 2").GetComponent<Transform>();
-        bigPointMarker[2] = GameObject.Find("Marker 3").GetComponent<Transform>();
-        bigPointMarker[3] = GameObject.Find("Marker 4").GetComponent<Transform>();
+        bigPointMarker[0] = GameObject.FindGameObjectWithTag("Marker 1").GetComponent<Transform>();
+        bigPointMarker[1] = GameObject.FindGameObjectWithTag("Marker 2").GetComponent<Transform>();
+        bigPointMarker[2] = GameObject.FindGameObjectWithTag("Marker 3").GetComponent<Transform>();
+        bigPointMarker[3] = GameObject.FindGameObjectWithTag("Marker 4").GetComponent<Transform>();
 
 
-        playerBlinky = GameObject.Find("Player").GetComponent<Transform>();
-        playerPinky = GameObject.Find("detectorPinky").GetComponent<Transform>();
-        Base = GameObject.Find("Base").GetComponent<Transform>();
-        marker = GameObject.Find("Marker 1").GetComponent<Transform>();
+        playerBlinky = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerPinky = GameObject.FindGameObjectWithTag("detectorPinky").GetComponent<Transform>();
+        Base = GameObject.FindGameObjectWithTag("Base").GetComponent<Transform>();
+        marker = GameObject.FindGameObjectWithTag("Marker 1").GetComponent<Transform>();
         navAgent = GetComponent<NavMeshAgent>();
     }
 
