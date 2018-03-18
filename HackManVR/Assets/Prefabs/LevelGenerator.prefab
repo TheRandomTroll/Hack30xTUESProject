@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b22753c8202644a8cb003c7167c738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall: {fileID: 1651707645861232, guid: 664d697ed4806554395e5d697056e90a, type: 2}
+  wall: {fileID: 1090361515173748, guid: 373889c29eb953b4fa0cade3d14f21eb, type: 2}
   ground: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56, type: 2}
   cherry: {fileID: 1188012686662354, guid: f9fd6f7173f8624429d8b359bc0a0128, type: 2}
   portal: {fileID: 1049432385019748, guid: b9d6516ca33644944b08cb292b632bf4, type: 2}

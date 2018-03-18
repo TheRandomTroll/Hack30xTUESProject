@@ -1049,6 +1049,55 @@ Transform:
   m_PrefabParentObject: {fileID: 4880894963284892, guid: 51a5ac03ca114694ba11614214a382fd,
     type: 2}
   m_PrefabInternal: {fileID: 1124221724}
+--- !u!1 &1419016017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1193372692888056, guid: 4b941784de08f2740ba8c88841682deb,
+    type: 2}
+  m_PrefabInternal: {fileID: 930896107}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1419016019}
+  - component: {fileID: 1419016018}
+  m_Layer: 0
+  m_Name: DemoInputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1419016018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114054471874721452, guid: 4b941784de08f2740ba8c88841682deb,
+    type: 2}
+  m_PrefabInternal: {fileID: 930896107}
+  m_GameObject: {fileID: 1419016017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd25f1308577456cbaa207901961126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerMain: {fileID: 0}
+  controllerPointer: {fileID: 0}
+  reticlePointer: {fileID: 0}
+  messageCanvas: {fileID: 0}
+  messageText: {fileID: 0}
+  gvrEmulatedPlatformType: 0
+--- !u!4 &1419016019
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4738829621867148, guid: 4b941784de08f2740ba8c88841682deb,
+    type: 2}
+  m_PrefabInternal: {fileID: 930896107}
+  m_GameObject: {fileID: 1419016017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1429326690
 Prefab:
   m_ObjectHideFlags: 0
@@ -1138,8 +1187,13 @@ Prefab:
         type: 2}
       propertyPath: selectedPrefab
       value: 
-      objectReference: {fileID: 1651707645861232, guid: 664d697ed4806554395e5d697056e90a,
+      objectReference: {fileID: 1090361515173748, guid: 373889c29eb953b4fa0cade3d14f21eb,
         type: 2}
+    - target: {fileID: 114553728079217212, guid: 51a5ac03ca114694ba11614214a382fd,
+        type: 2}
+      propertyPath: oneTapToPlace
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51a5ac03ca114694ba11614214a382fd, type: 2}
   m_IsPrefabParent: 0
