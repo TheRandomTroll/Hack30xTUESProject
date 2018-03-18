@@ -24,7 +24,7 @@ public class TriggerEventsPacMan : MonoBehaviour
     public AudioClip CherrySound;
     public AudioClip GameOverSound;
 
-    private void Awake()
+    private void Start()
     {
         movementScriptBlinky = GameObject.Find("Blinky").GetComponent<MovementGhosts>();
         movementScriptPinky = GameObject.Find("Pinky").GetComponent<MovementGhosts>();
@@ -107,12 +107,14 @@ public class TriggerEventsPacMan : MonoBehaviour
             }
         }
 
-        if(collider.tag == "BigPoint")
+        if(name == "Player" && collider.tag == "BigPoint")
         {
             movementScriptBlinky.bigPointEaten = true;
             movementScriptPinky.bigPointEaten = true;
             movementScriptInky.bigPointEaten = true;
             movementScriptClyde.bigPointEaten = true;
+            pointsScript.points += 40;
+            Destroy(collider.gameObject);
             MainAudio.clip = BigPointSound;
             MainAudio.Play();
         }
