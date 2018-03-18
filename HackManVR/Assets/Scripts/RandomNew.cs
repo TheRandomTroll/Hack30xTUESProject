@@ -16,31 +16,61 @@ using System.Security.Cryptography;
 
         public void SurroundObstacle(int x, int y, int up, int right, int down, int left)
         {
-            for (int i = 0; i < up; i++)
+            for (int i = 0; i <= up; i++)
             {
-                randGrid.Add(new Vector2Int(x - 1, y + i), MapTypes.Spawn.Point);
-                randGrid.Add(new Vector2Int(x + 1, y + i), MapTypes.Spawn.Point);
+                if (!randGrid.ContainsKey(new Vector2Int(x - 1, y + i)))
+                     randGrid.Add(new Vector2Int(x - 1, y + i), MapTypes.Spawn.Point);
+                if (!randGrid.ContainsKey(new Vector2Int(x + 1, y + i)))
+                    randGrid.Add(new Vector2Int(x + 1, y + i), MapTypes.Spawn.Point);
             }
-            for (int i = 0; i < down; i++)
+            for (int i = 0; i <= down; i++)
             {
-                randGrid.Add(new Vector2Int(x - 1, y - i), MapTypes.Spawn.Point);
-                randGrid.Add(new Vector2Int(x + 1, y - i), MapTypes.Spawn.Point);
+                if (!randGrid.ContainsKey(new Vector2Int(x - 1, y - i)))
+                    randGrid.Add(new Vector2Int(x - 1, y - i), MapTypes.Spawn.Point);
+                if (!randGrid.ContainsKey(new Vector2Int(x + 1, y - i)))
+                    randGrid.Add(new Vector2Int(x + 1, y - i), MapTypes.Spawn.Point);
             }
-            for (int i = 0; i < left; i++)
+            for (int i = 0; i <= left; i++)
             {
-                randGrid.Add(new Vector2Int(x - i, y - 1), MapTypes.Spawn.Point);
-                randGrid.Add(new Vector2Int(x - i, y + 1), MapTypes.Spawn.Point);
+               if (!randGrid.ContainsKey(new Vector2Int(x - i, y - i)))
+                   randGrid.Add(new Vector2Int(x - i, y - 1), MapTypes.Spawn.Point);
+               if (!randGrid.ContainsKey(new Vector2Int(x - i, y + 1)))
+                  randGrid.Add(new Vector2Int(x - i, y + 1), MapTypes.Spawn.Point);
             }
-            for (int i = 0; i < right; i++)
+            for (int i = 0; i <= right; i++)
             {
-                randGrid.Add(new Vector2Int(x + i, y - 1), MapTypes.Spawn.Point);
-                randGrid.Add(new Vector2Int(x + i, y + 1), MapTypes.Spawn.Point);
+                if (!randGrid.ContainsKey(new Vector2Int(x + i, y - 1)))
+                    randGrid.Add(new Vector2Int(x + i, y - 1), MapTypes.Spawn.Point);
+                if (!randGrid.ContainsKey(new Vector2Int(x + i, y + 1)))
+                    randGrid.Add(new Vector2Int(x + i, y + 1), MapTypes.Spawn.Point);
             }
-            randGrid.Add(new Vector2Int(x + right + 1, y), MapTypes.Spawn.Point);
-            randGrid.Add(new Vector2Int(x - left - 1, y), MapTypes.Spawn.Point);
-            randGrid.Add(new Vector2Int(x, y + up + 1), MapTypes.Spawn.Point);
-            randGrid.Add(new Vector2Int(x, y - down - 1), MapTypes.Spawn.Point);
-        }
+            if (!randGrid.ContainsKey(new Vector2Int(x + right + 1, y-1)))
+                randGrid.Add(new Vector2Int(x + right + 1, y-1), MapTypes.Spawn.Point);
+            if (!randGrid.ContainsKey(new Vector2Int(x - left - 1, y-1)))
+                randGrid.Add(new Vector2Int(x - left - 1, y-1), MapTypes.Spawn.Point);
+            if (!randGrid.ContainsKey(new Vector2Int(x-1, y + up + 1)))
+                randGrid.Add(new Vector2Int(x-1, y + up + 1), MapTypes.Spawn.Point);
+            if (!randGrid.ContainsKey(new Vector2Int(x-1, y - down - 1)))
+                randGrid.Add(new Vector2Int(x-1, y - down - 1), MapTypes.Spawn.Point);
+
+            if (!randGrid.ContainsKey(new Vector2Int(x + right + 1, y+1)))
+                randGrid.Add(new Vector2Int(x + right + 1, y+1), MapTypes.Spawn.Point);
+            if (!randGrid.ContainsKey(new Vector2Int(x - left - 1, y+1)))
+                randGrid.Add(new Vector2Int(x - left - 1, y+1), MapTypes.Spawn.Point);
+            if (!randGrid.ContainsKey(new Vector2Int(x+1, y + up + 1)))
+                randGrid.Add(new Vector2Int(x+1, y + up + 1), MapTypes.Spawn.Point);
+            if (!randGrid.ContainsKey(new Vector2Int(x+1, y - down - 1)))
+                randGrid.Add(new Vector2Int(x+1, y - down - 1), MapTypes.Spawn.Point);
+
+            if (!randGrid.ContainsKey(new Vector2Int(x + right + 1, y)))
+                randGrid.Add(new Vector2Int(x + right + 1, y), MapTypes.Spawn.Point);
+            if (!randGrid.ContainsKey(new Vector2Int(x - left - 1, y)))
+                randGrid.Add(new Vector2Int(x - left - 1, y), MapTypes.Spawn.Point);
+            if (!randGrid.ContainsKey(new Vector2Int(x, y + up + 1)))
+                randGrid.Add(new Vector2Int(x, y + up + 1), MapTypes.Spawn.Point);
+            if (!randGrid.ContainsKey(new Vector2Int(x, y - down - 1)))
+                randGrid.Add(new Vector2Int(x, y - down - 1), MapTypes.Spawn.Point);
+    }
 
         public int GetSpawnType(int x, int y) //to be fixed, 5 e i sam braindead
         {
@@ -56,27 +86,30 @@ using System.Security.Cryptography;
 
 
         }
-        public void PlaceObstacle(int x, int y, int up, int right, int down, int left)
+        public void GenObstacle(int x, int y, int up, int right, int down, int left)
         {
-            for (int i = 0; i < up; i++)
+            if (!randGrid.ContainsKey(new Vector2Int(x, y)))
+                randGrid.Add(new Vector2Int(x, y), MapTypes.Spawn.Cube);
+        int i;
+            for (i = 0; i < up; i++)
             {
-
-                randGrid.Add(new Vector2Int(x, y + i), MapTypes.Spawn.Cube);
+                if(!randGrid.ContainsKey(new Vector2Int(x, y + i+1 )))
+                    randGrid.Add(new Vector2Int(x, y + i +1 ), MapTypes.Spawn.Cube);
             }
-            for (int i = 0; i < down; i++)
+            for (i = 0; i < down; i++)
             {
-
-                randGrid.Add(new Vector2Int(x, y - i), MapTypes.Spawn.Cube);
+                if (!randGrid.ContainsKey(new Vector2Int(x, y -i -1)))
+                    randGrid.Add(new Vector2Int(x, y - i-1), MapTypes.Spawn.Cube);
             }
-            for (int i = 0; i < left; i++)
+            for (i = 0; i < left; i++)
             {
-
-                randGrid.Add(new Vector2Int(x - i, y), MapTypes.Spawn.Cube);
+                if (!randGrid.ContainsKey(new Vector2Int(x - i -1, y)))
+                    randGrid.Add(new Vector2Int(x - i -1 , y), MapTypes.Spawn.Cube);
             }
-            for (int i = 0; i < right; i++)
+            for (i = 0; i < right; i++)
             {
-
-                randGrid.Add(new Vector2Int(x + i, y), MapTypes.Spawn.Cube);
+                if (!randGrid.ContainsKey(new Vector2Int(x + i +1, y)))
+                    randGrid.Add(new Vector2Int(x + i + 1, y), MapTypes.Spawn.Cube);
             }
         }
 
@@ -86,18 +119,23 @@ using System.Security.Cryptography;
             {
                 randGrid.Add(new Vector2Int(16 + i, y), MapTypes.Spawn.Point);
             }
-            GenGhostSpawn(16, y + 1);
-            randGrid.Add(new Vector2Int(16 + 2, y - 1), MapTypes.Spawn.Point);
+            GenGhostSpawn(16, y - 1);
+            randGrid.Add(new Vector2Int(16 + 2, y + 1), MapTypes.Spawn.Point);
+            
         }
         public void GenGhostSpawn(int x, int y)
         {
             for (int i = 0; i < 3; i++)
                 for (int k = 0; k < 5; k++)
-                    randGrid.Add(new Vector2Int(x + k, y + i), MapTypes.Spawn.Cube);
+                    randGrid.Add(new Vector2Int(x + k, y - i), MapTypes.Spawn.Cube);
+            randGrid.Remove(new Vector2Int(x + 2, y));
+            randGrid.Remove(new Vector2Int(x + 1, y-1));
+            randGrid.Remove(new Vector2Int(x + 2, y-1));
+            randGrid.Remove(new Vector2Int(x + 3, y-1));
             randGrid.Add(new Vector2Int(x + 2, y), MapTypes.Spawn.Ghost);
-            randGrid.Add(new Vector2Int(x + 1, y + 1), MapTypes.Spawn.Ghost);
-            randGrid.Add(new Vector2Int(x + 2, y + 1), MapTypes.Spawn.Ghost);
-            randGrid.Add(new Vector2Int(x + 3, y + 1), MapTypes.Spawn.Ghost);
+            randGrid.Add(new Vector2Int(x + 1, y - 1), MapTypes.Spawn.Ghost);
+            randGrid.Add(new Vector2Int(x + 2, y - 1), MapTypes.Spawn.Ghost);
+            randGrid.Add(new Vector2Int(x + 3, y - 1), MapTypes.Spawn.Ghost);
         }
         public void Mirror()
         {

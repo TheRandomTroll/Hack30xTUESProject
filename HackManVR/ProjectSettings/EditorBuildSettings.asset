@@ -23,3 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UserCreation.unity
     guid: 8b624005613345b48b997a4819de5ccb
+  - enabled: 1
+    path: Assets/Scenes/LevelPicker.unity
+    guid: 282919fea9697b646bd6a68ab7bbc27c
+  - enabled: 1
+    path: Assets/Scenes/RandomLevel.unity
+    guid: 73c507812b2ecca4584bdeb62e663847
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel.unity
+    guid: 4b1fcc075189ebc43b34f31ca43aaadf
