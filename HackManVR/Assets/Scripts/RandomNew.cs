@@ -128,6 +128,12 @@ using System.Security.Cryptography;
             for (int i = 0; i < 3; i++)
                 for (int k = 0; k < 5; k++)
                     randGrid.Add(new Vector2Int(x + k, y - i), MapTypes.Spawn.Cube);
+            for (int i = 0; i < 7; i++)
+                randGrid.Add(new Vector2Int(x + i - 1, y - 3), MapTypes.Spawn.Point);
+            for (int i = 0; i < 4; i++)
+                randGrid.Add(new Vector2Int(x + 5, y +i-2), MapTypes.Spawn.Point);
+            for (int i = 0; i < 4; i++)
+                randGrid.Add(new Vector2Int(x -1, y + i-2), MapTypes.Spawn.Point);
             randGrid.Remove(new Vector2Int(x + 2, y));
             randGrid.Remove(new Vector2Int(x + 1, y-1));
             randGrid.Remove(new Vector2Int(x + 2, y-1));
