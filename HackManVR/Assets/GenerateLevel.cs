@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GenerateLevel : MonoBehaviour {
-
-    [SerializeField]
-    int width, height; // Get from random map generator
-
+    
     public Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
+    private WorldGrid worldGrid;
 
     [SerializeField]
     GameObject wall, ground, cherry, portal, pacman, point;
@@ -15,6 +13,12 @@ public class GenerateLevel : MonoBehaviour {
     [SerializeField]
     GameObject[] ghosts;
     private int currentGhostIndex;
+    private int portalIndex = 0;
+
+    void Start()
+    {
+        worldGrid = FindObjectOfType<WorldGrid>();
+    }
 
     public void LoadLevelInfo()
     {
@@ -38,8 +42,11 @@ public class GenerateLevel : MonoBehaviour {
             }
             else if (value == MapTypes.Spawn.Portal)
             {
-                InstantiateObject(position, portal);
+                GameObject port = InstantiateObject(position, portal);
+                port.name = "PORTAL" + portalIndex;
+                portalIndex++;
                 InstantiateObject(position, ground);
+                
             }
             else if (value == (MapTypes.Spawn.Pac))
             {
@@ -61,11 +68,14 @@ public class GenerateLevel : MonoBehaviour {
         }
     }
 
-    public void InstantiateObject(Vector2Int position, GameObject toInstantiate)
+    public GameObject InstantiateObject(Vector2Int position, GameObject toInstantiate)
     {
-        if (!toInstantiate) return;
+        if (!toInstantiate) return null;
         GameObject gameObj = Instantiate(toInstantiate);
+        
+        gameObj.AddComponent<CanRemove>(); // Todo: Only do if in level edit
         gameObj.transform.position = new Vector3(position.x, gameObj.transform.position.y, position.y);
-
+        worldGrid.AddToGrid(position, gameObj);
+        return gameObj;
     }
 }

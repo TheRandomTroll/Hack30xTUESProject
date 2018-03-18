@@ -13,15 +13,19 @@ public class ItemSelection : MonoBehaviour {
     private Color activeColor;
 
     [SerializeField]
-
+    private float scaleBy = 1f;
 
     private Color normalColor = Color.white;
+
+    [SerializeField]
+    public bool oneTapToPlace = false;
 
     private void Start()
     {
         GameObject instance = Instantiate(selectedPrefab);
         instance.transform.position = transform.position;
         instance.transform.parent = transform;
+        instance.transform.localScale *= scaleBy;
     }
 
 

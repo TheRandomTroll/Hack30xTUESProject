@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206156322543062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.596596, y: -21.972198, z: 25.96003}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,12 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b22753c8202644a8cb003c7167c738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 0
-  height: 0
   wall: {fileID: 1651707645861232, guid: 664d697ed4806554395e5d697056e90a, type: 2}
   ground: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56, type: 2}
   cherry: {fileID: 1188012686662354, guid: f9fd6f7173f8624429d8b359bc0a0128, type: 2}
-  portal: {fileID: 0}
-  pacman: {fileID: 0}
-  point: {fileID: 0}
-  ghosts: []
+  portal: {fileID: 1049432385019748, guid: b9d6516ca33644944b08cb292b632bf4, type: 2}
+  pacman: {fileID: 1897575943721588, guid: dd0dc899b37cdab4292c0b1642f17777, type: 2}
+  point: {fileID: 1853779807723182, guid: f9699e026f035404d8a7de9b17effcfb, type: 2}
+  ghosts:
+  - {fileID: 1371218757277798, guid: 54af9eec339876241918e394fe39f4c3, type: 2}
+  - {fileID: 1293227591996150, guid: 78462440392a4f242afcccb092d8d37f, type: 2}
+  - {fileID: 1149921064815128, guid: 95f469a14422e634ca08bf9ece8f8926, type: 2}
+  - {fileID: 1294029397182372, guid: e05dcc2af600cd547bd5915e91af5cb8, type: 2}
