@@ -12,6 +12,8 @@ TagManager:
   - Ground
   - Wall
   - Cherry
+  - Portal
+  - BigPoint
   layers:
   - Default
   - TransparentFX

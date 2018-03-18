@@ -42,6 +42,9 @@ public class LevelInfo {
                 case "Ground":
                     spawn = MapTypes.Spawn.Ground;
                     break;
+                case "BigPoint":
+                    spawn = MapTypes.Spawn.Bigpoint;
+                    break;
                 
             }
 

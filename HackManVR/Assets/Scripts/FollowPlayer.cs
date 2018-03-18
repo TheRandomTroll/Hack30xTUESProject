@@ -8,18 +8,15 @@ public class FollowPlayer : MonoBehaviour {
 
     public Camera firstPrsCamera;
     public Camera staticPrsCamera;
-    Quaternion rotation;
 
     private void Awake()
     {
-        rotation = transform.rotation;
+        player = GameObject.Find("Player").GetComponent<Transform>();
+        firstPrsCamera = GameObject.Find("First Person Camera").GetComponent<Camera>();
+        staticPrsCamera = GameObject.Find("Static Camera").GetComponent<Camera>();
     }
-    // Use this for initialization
-    void Start () {
-    }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Update () {
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
         transform.position = player.position;
 
