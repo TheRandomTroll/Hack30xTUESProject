@@ -74,8 +74,9 @@ public class GenerateLevel : MonoBehaviour {
         GameObject gameObj = Instantiate(toInstantiate);
         
         gameObj.AddComponent<CanRemove>(); // Todo: Only do if in level edit
+        if(worldGrid) worldGrid.AddToGrid(position, gameObj);
         gameObj.transform.position = new Vector3(position.x, gameObj.transform.position.y, position.y);
-        worldGrid.AddToGrid(position, gameObj);
+        
         return gameObj;
     }
 }
