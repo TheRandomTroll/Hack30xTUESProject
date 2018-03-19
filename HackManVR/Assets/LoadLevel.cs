@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class LoadLevel : MonoBehaviour {
 
-    HasTriggered trigger;
-
-
-    // TODO: Change for console.
-    KeyCode main = KeyCode.Mouse0;
-
-    [SerializeField]
-    string alternativeInput = "Backward";
-
     [SerializeField] // TODO: Remove
     GenerateLevel generator;
     
 
     void Start()
     {
-        trigger = GetComponent<HasTriggered>();
         generator = FindObjectOfType<GenerateLevel>();
     }
 

@@ -4,26 +4,20 @@ using UnityEngine;
 
 public class SaveLevelTrigger : MonoBehaviour {
 
-    HasTriggered trigger;
+    UITrigger trigger;
     WorldGrid worldGrid;
 
     [SerializeField]
     GetNumber getNumber;
 
-    // TODO: Change for console.
-    KeyCode main = KeyCode.Mouse0;
-
-    [SerializeField]
-    string alternativeInput = "Backward";
-
     void Start () {
-        trigger = GetComponent<HasTriggered>();
+        trigger = GetComponent<UITrigger>();
         worldGrid = FindObjectOfType<WorldGrid>();
 	}
 	
 
 	void Update () {
-        if (trigger.GetTrigger() && (Input.GetKeyDown(main) || Input.GetButtonDown(alternativeInput)))
+        if (trigger.GetTrigger())
         {
             SaveLevel.SerializeLevel(worldGrid, getNumber.GetIndex());
         }

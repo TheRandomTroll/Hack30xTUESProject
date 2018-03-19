@@ -4,15 +4,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class HasTriggered : MonoBehaviour {
+public class UITrigger : MonoBehaviour {
 
     [SerializeField]
-    private bool isTriggered = false; // TODO: remove SerializeField
+    private bool outsideTrigger = false; // TODO: remove SerializeField
     [SerializeField]
     private float startTriggerTimer = 0.1f;
 
     private float triggerTimer;
 
+    [SerializeField]
+    private KeyCode input = KeyCode.Mouse0;
+    [SerializeField]
+    private string alternative = "Backward";
+
+    private bool isTriggered = false;
     private void Start()
     {
         triggerTimer = 0;
@@ -21,14 +27,24 @@ public class HasTriggered : MonoBehaviour {
 
     void Update()
     {
+        
+
+
         if(triggerTimer > 0)
         {
             triggerTimer -= Time.deltaTime;
         }
         else
         {
-            isTriggered = false;
+            outsideTrigger = false;
         }
+        isTriggered = false;
+        if(outsideTrigger &&
+               (Input.GetKeyDown(input) || Input.GetButtonDown(alternative)))
+        {
+            isTriggered = true;
+        }
+
     }
 
 
@@ -40,6 +56,6 @@ public class HasTriggered : MonoBehaviour {
     public void Trigger()
     {
         triggerTimer = startTriggerTimer;
-        isTriggered = true;
+        outsideTrigger = true;
     }
 }

@@ -3,39 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(HasTriggered))]
+[RequireComponent(typeof(UITrigger))]
 public class GoToScene : MonoBehaviour {
 
     [SerializeField]
     private int sceneIndex = -1;
-    
     [SerializeField]
     private string sceneName;
-
-    private HasTriggered trigger;
 
     [SerializeField]
     private float waitTime = 0.1f;
 
+    private UITrigger trigger;
 
-
-    // TODO: Change for console.
-    KeyCode main = KeyCode.Mouse0;
-
-    [SerializeField]
-    string alternativeInput = "Backward";
+    
 
 
     void Start()
     {
-        trigger = GetComponent<HasTriggered>();
+        trigger = GetComponent<UITrigger>();
     }
 
 
 	void Update () {
-        if(trigger.GetTrigger() && (Input.GetKey(main) || Input.GetButtonDown(alternativeInput)))
+        if(trigger.GetTrigger())
         {
-            if(sceneIndex > 0)
+            if(sceneIndex >= 0)
             {
                 StartCoroutine(LoadScene(sceneIndex));
             }
@@ -52,6 +45,7 @@ public class GoToScene : MonoBehaviour {
         yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene(index);
     }
+
 
     private IEnumerator LoadScene(string name)
     {

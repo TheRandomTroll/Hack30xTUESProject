@@ -22,11 +22,8 @@ public class CameraVRRay : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit, 50f))
         {
-            HasTriggered isTriggered = hit.transform.GetComponent<HasTriggered>();
-            if (!isTriggered)
-            {
-                return;
-            }
+            UITrigger isTriggered = hit.transform.GetComponent<UITrigger>();
+            if (!isTriggered) return;
             
 
             isTriggered.Trigger();
