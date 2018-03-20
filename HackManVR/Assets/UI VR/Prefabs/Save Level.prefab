@@ -21,10 +21,11 @@ GameObject:
   - component: {fileID: 4732956364672804}
   - component: {fileID: 23264748935996080}
   - component: {fileID: 102162092304665122}
-  - component: {fileID: 65168175692015776}
   - component: {fileID: 114139064725581268}
   - component: {fileID: 114169411596424412}
   - component: {fileID: 114388033464713636}
+  - component: {fileID: 114556324208266576}
+  - component: {fileID: 65910787389947176}
   m_Layer: 0
   m_Name: Save Level
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1528042706634496}
   m_LocalRotation: {x: 0, y: -0.82908636, z: 0, w: 0.55912066}
-  m_LocalPosition: {x: -29.399998, y: 4.31, z: -56.209995}
+  m_LocalPosition: {x: -28.29, y: 5.21, z: -57.62}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65168175692015776
+--- !u!65 &65910787389947176
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -89,8 +90,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 383.0001, y: 86.58203, z: 10}
-  m_Center: {x: 191.50005, y: -43.291016, z: 0}
+  m_Size: {x: 297.50006, y: 67.03125, z: 0}
+  m_Center: {x: 148.75003, y: -33.515625, z: 0}
 --- !u!102 &102162092304665122
 TextMesh:
   serializedVersion: 3
@@ -105,7 +106,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 155
+  m_FontSize: 120
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 0}
@@ -123,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68da74b38fd13364abc7ced7e11450c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &114169411596424412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,8 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fef89e60043f647a28c43aa9a41654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTriggered: 0
+  outsideTrigger: 0
   startTriggerTimer: 0.1
+  input: 323
+  alternative: Backward
 --- !u!114 &114388033464713636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,4 +151,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getNumber: {fileID: 0}
-  alternativeInput: Backward
+--- !u!114 &114556324208266576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528042706634496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902a41a15100fc74f9b901c070a7c91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executeInEditModeOnly: 1
