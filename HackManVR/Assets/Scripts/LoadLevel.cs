@@ -24,8 +24,6 @@ public class LoadLevel : MonoBehaviour {
         }
 
         Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
-
-
         for (int i = 0; i < chosenLevel.objCount; i++)
         {
             levelDict.Add(new Vector2Int(

@@ -15,6 +15,12 @@ public class WorldGrid : MonoBehaviour {
         }
     }
 
+
+    public void Clear()
+    {
+        worldGrid.Clear();
+    }
+
 	
     public bool GridContainsAt(Vector2Int position)
     {

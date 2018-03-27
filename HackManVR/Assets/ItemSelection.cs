@@ -9,16 +9,16 @@ public class ItemSelection : MonoBehaviour {
 
     [SerializeField]
     private GameObject selectedPrefab;
-    [SerializeField]
-    private Color activeColor;
 
     [SerializeField]
     private float scaleBy = 1f;
 
+    [SerializeField]
+    private Color activeColor;
     private Color normalColor = Color.white;
 
     [SerializeField]
-    public bool oneTapToPlace = false;
+    private bool oneTapToPlace = false;
 
     private void Start()
     {
@@ -31,25 +31,20 @@ public class ItemSelection : MonoBehaviour {
 
     public void SetAsActive()
     {
-        foreach (MeshRenderer renderer in transform.GetComponentsInChildren<MeshRenderer>())
+        MeshRenderer renderer = GetComponentInChildren<MeshRenderer>();
+        if (!renderer.gameObject.GetComponent<Waypoint>())
         {
-            if (!renderer.gameObject.GetComponent<Waypoint>())
-            {
-                renderer.material.color = activeColor;
-            }
+            renderer.material.color = activeColor;
         }
-
     }
 
 
     public void Deactivate()
     {
-        foreach(MeshRenderer renderer in transform.GetComponentsInChildren<MeshRenderer>())
+        MeshRenderer renderer = GetComponentInChildren<MeshRenderer>();
+        if (!renderer.gameObject.GetComponent<Waypoint>() )
         {
-            if (!renderer.gameObject.GetComponent<Waypoint>() )
-            {
-                renderer.material.color = normalColor;
-            }
+            renderer.material.color = normalColor;
         }
     }
 
@@ -57,6 +52,12 @@ public class ItemSelection : MonoBehaviour {
     public GameObject GetPrefab()
     {
         return selectedPrefab;
+    }
+
+
+    public bool GetOneTapToPlace()
+    {
+        return oneTapToPlace;
     }
 
 

@@ -22,6 +22,7 @@ public class GenerateLevel : MonoBehaviour {
 
     public void LoadLevelInfo()
     {
+        worldGrid.Clear();
         foreach (Vector2Int position in levelDict.Keys)
         {
             MapTypes.Spawn value = levelDict[position];

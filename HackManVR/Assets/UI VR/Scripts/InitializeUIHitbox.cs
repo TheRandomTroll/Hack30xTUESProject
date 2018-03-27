@@ -5,18 +5,20 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class InitializeUIHitbox : MonoBehaviour {
 
-    [SerializeField]
-    private bool executeInEditModeOnly = true;
-
     private BoxCollider boxCollider;
     private TextMesh textMesh;
 
 	void Start () {
-        bool isInEditMode = Debug.isDebugBuild;
-        if (executeInEditModeOnly && !isInEditMode) Destroy(this);
+        bool isInDebugMode = Debug.isDebugBuild;
+        if (!isInDebugMode) Destroy(this);
 
         textMesh = GetComponent<TextMesh>();
         if (!textMesh) textMesh = gameObject.AddComponent<TextMesh>();
+        
+        if(Application.isPlaying)
+        {
+            Destroy(this);
+        }
     }
 
 
@@ -28,9 +30,11 @@ public class InitializeUIHitbox : MonoBehaviour {
 
     void UpdateHitbox()
     {
-        // Hitbox perfectly updated when adding a new one!.
         BoxCollider boxCollider = GetComponent<BoxCollider>();
         if (boxCollider) DestroyImmediate(boxCollider);
         boxCollider = gameObject.AddComponent<BoxCollider>();
+        Vector3 size = boxCollider.size;
+        size.z = 10;
+        boxCollider.size = size;
     }
 }

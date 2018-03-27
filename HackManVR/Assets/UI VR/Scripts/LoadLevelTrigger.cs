@@ -16,7 +16,13 @@ public class LoadLevelTrigger : MonoBehaviour {
 
 	void Update () {
         if (trigger.GetTrigger()) {
+            foreach (CanRemove obj in FindObjectsOfType<CanRemove>())
+            {
+                Destroy(obj.gameObject);
+                // TODO: Instantiate grid in place of destroyed objects!.
+            }
             FindObjectOfType<LoadLevel>().Load(getNumber.GetIndex());
+            
         }
     }
 }
