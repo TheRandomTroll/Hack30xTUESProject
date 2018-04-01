@@ -8,7 +8,7 @@ public class GenerateLevel : MonoBehaviour {
     private WorldGrid worldGrid;
 
     [SerializeField]
-    GameObject wall, ground, cherry, portal, pacman, point, bigpoint;
+    GameObject wallPrefab, groundPrefab, cherryPrefab, portalPrefab, pacmanPrefab, pointPrefab, bigpointPrefab;
 
     [SerializeField]
     GameObject[] ghosts;
@@ -29,47 +29,53 @@ public class GenerateLevel : MonoBehaviour {
             Debug.Log("Generating: " + value);
             if (value == MapTypes.Spawn.Cube) // Wall
             {
-                InstantiateObject(position, wall);
+                InstantiateObject(position, wallPrefab);
             }
             else if (value == MapTypes.Spawn.Point) // Path
             {
-                InstantiateObject(position, point);
-                InstantiateObject(position, ground);
+                GameObject point = InstantiateObject(position, pointPrefab);
+                GameObject ground = InstantiateObject(position, groundPrefab);
+                ConnectGameObject(point, ground);
             }
             else if (value == MapTypes.Spawn.Cherry)
             {
-                InstantiateObject(position, cherry);
-                InstantiateObject(position, ground);
+                GameObject cherry = InstantiateObject(position, cherryPrefab);
+                GameObject ground = InstantiateObject(position, groundPrefab);
+                ConnectGameObject(cherry, ground);
             }
             else if (value == MapTypes.Spawn.Portal)
             {
-                GameObject port = InstantiateObject(position, portal);
+                GameObject port = InstantiateObject(position, portalPrefab);
                 port.name = "PORTAL" + portalIndex;
                 portalIndex++;
-                InstantiateObject(position, ground);
+                GameObject ground = InstantiateObject(position, groundPrefab);
+                ConnectGameObject(port, ground);
                 
             }
             else if (value == (MapTypes.Spawn.Pac))
             {
-                InstantiateObject(position, pacman);
-                InstantiateObject(position, ground);
+                GameObject pacman = InstantiateObject(position, pacmanPrefab);
+                GameObject ground = InstantiateObject(position, groundPrefab);
+                ConnectGameObject(pacman, ground);
             }
             else if (value == MapTypes.Spawn.Ghost)
             {
                 if (currentGhostIndex < ghosts.Length) {
-                    InstantiateObject(position, ghosts[currentGhostIndex]);
-                    InstantiateObject(position, ground);
+                    GameObject ghost = InstantiateObject(position, ghosts[currentGhostIndex]);
+                    GameObject ground = InstantiateObject(position, groundPrefab);
+                    ConnectGameObject(ghost, ground);
                     currentGhostIndex++;
                 }
             }
             else if(value == MapTypes.Spawn.Ground)
             {
-                InstantiateObject(position, ground);
+                InstantiateObject(position, groundPrefab);
             }
             else if(value == MapTypes.Spawn.Bigpoint)
             {
-                InstantiateObject(position, bigpoint);
-                InstantiateObject(position, ground);
+                GameObject point = InstantiateObject(position, bigpointPrefab);
+                GameObject ground = InstantiateObject(position, groundPrefab);
+                ConnectGameObject(point, ground);
             }
         }
     }
@@ -84,5 +90,13 @@ public class GenerateLevel : MonoBehaviour {
         gameObj.transform.position = new Vector3(position.x, gameObj.transform.position.y, position.y);
         
         return gameObj;
+    }
+
+    private void ConnectGameObject(GameObject gameObjectOne, GameObject gameObjectTwo)
+    {
+        gameObjectOne.AddComponent<ConnectedTo>();
+        gameObjectOne.GetComponent<ConnectedTo>().connection = gameObjectTwo;
+        gameObjectTwo.AddComponent<ConnectedTo>();
+        gameObjectTwo.GetComponent<ConnectedTo>().connection = gameObjectOne;
     }
 }

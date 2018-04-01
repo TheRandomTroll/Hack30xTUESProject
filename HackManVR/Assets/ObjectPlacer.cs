@@ -17,7 +17,7 @@ public class ObjectPlacer : MonoBehaviour {
     [SerializeField] GameObject currentSelectedObject;
 
     private WorldGrid worldGrid;
-    private Vector2Int lastGridPosition;
+    private Vector3 lastPosition;
     
     private bool oneTapToPlace = false;
 
@@ -35,7 +35,7 @@ public class ObjectPlacer : MonoBehaviour {
     private void Start()
     {
         worldGrid = FindObjectOfType<WorldGrid>();
-        lastGridPosition = Vector2Int.zero;
+        lastPosition = Vector3.zero;
         ChangeCurrentSelectedObject(currentSelectedObject);
         raycast = GetComponent<SharedRaycast>();
     }
@@ -44,7 +44,6 @@ public class ObjectPlacer : MonoBehaviour {
     // TODO: Rework so that it doesn't instantiate a shadow of the object every time. 
     // Instead it moves the instantiated one!
 
-
     void Update () {
         if(!raycast.InfoIsRelevant()) {
             Destroy(instantiatedShadow);
@@ -52,18 +51,18 @@ public class ObjectPlacer : MonoBehaviour {
         }
 
         RaycastHit hit = raycast.GetRaycastInfo();
-        Vector2Int position = new Vector2Int(
+        Vector2Int gridPosition = new Vector2Int(
                 Mathf.RoundToInt(hit.transform.position.x),
                 Mathf.RoundToInt(hit.transform.position.z));
         
             
         if (hit.transform.gameObject.tag == "BuildPoint")
         {
-            if (position != lastGridPosition)
+            if (lastPosition != hit.transform.position)
             {
-                PlaceBuildShadow(position);
+                PlaceBuildShadow(gridPosition);
             }
-            PlaceObject(hit, position);
+            PlaceObject(hit, gridPosition);
         }
         else if(hit.transform.gameObject.tag == "ItemFrame")
         {
@@ -74,17 +73,19 @@ public class ObjectPlacer : MonoBehaviour {
         }
         else if(hit.transform.GetComponent<CanRemove>())
         {
-            if(position != lastGridPosition)
+
+            // TODO: Check not whether the position but the target has changed!
+            if (hit.transform.position != lastPosition)
             {
-                PlaceRemoveShadow(position);
+                PlaceRemoveShadow(hit.transform.position);
             }
             if (Input.GetKey(rightClick) || Input.GetButton("Right"))
             {
-                RemoveItem(hit, position);
+                RemoveItem(hit, gridPosition);
             }
         }
 
-        lastGridPosition = position;
+        lastPosition = hit.transform.position;
     }
 
 
@@ -98,8 +99,10 @@ public class ObjectPlacer : MonoBehaviour {
     }
 
 
-    private void PlaceRemoveShadow(Vector2Int position)
+    private void PlaceRemoveShadow(Vector3 position)
     {
+        // TODO: Change y position dynamically!
+
         Shader shader = Shader.Find("Transparent/Diffuse");
         Material material = new Material(shader);
         Color color = removeOutline.GetComponent<Renderer>().sharedMaterial.color;
@@ -112,6 +115,8 @@ public class ObjectPlacer : MonoBehaviour {
     {
         worldGrid.RemoveAt(removePos);
         Destroy(hit.transform.gameObject);
+        ConnectedTo connection = hit.transform.gameObject.GetComponent<ConnectedTo>();
+        if (connection) Destroy(connection.connection);
 
         GameObject grid = Instantiate(gridOutline);
         grid.transform.position = new Vector3(removePos.x, grid.transform.position.y, removePos.y);
@@ -129,17 +134,19 @@ public class ObjectPlacer : MonoBehaviour {
 
         if (place)
         {
-            Debug.Log("Trying to place object!");
             if (!worldGrid.GridContainsAt(position))
             {
                 GameObject gameObj = Instantiate(currentSelectedObject);
                 gameObj.AddComponent<CanRemove>();
+
                 Vector3 gameObjPos = hit.transform.position;
                 gameObjPos.y = gameObj.transform.position.y;
                 gameObj.transform.position = gameObjPos;
-                worldGrid.AddToGrid(position, gameObj);
-                Destroy(hit.transform.gameObject);
 
+                worldGrid.AddToGrid(position, gameObj);
+
+                // TODO: Have the build grid be destroyed by the Grid Manager!
+                Destroy(hit.transform.gameObject); // Destroy the build grid!
                 Destroy(instantiatedShadow);
 
                 // Instantiate ground
@@ -152,8 +159,12 @@ public class ObjectPlacer : MonoBehaviour {
                         position.y
                         );
                     grnd.AddComponent<CanRemove>();
+
+                    ConnectedTo groundConnection = grnd.AddComponent<ConnectedTo>();
+                    groundConnection.connection = gameObj;
+                    ConnectedTo gameObjectConnection = gameObj.AddComponent<ConnectedTo>();
+                    gameObjectConnection.connection = grnd;
                 }
-                PlaceRemoveShadow(position);
             }
             else
             {
@@ -192,6 +203,13 @@ public class ObjectPlacer : MonoBehaviour {
 
     private void InstantiateObjectShadow(Vector2Int position, GameObject gameObject, Material material)
     {
+        Vector3 pos = new Vector3(position.x, gameObject.transform.position.y, position.y);
+        InstantiateObjectShadow(pos, gameObject, material);
+    }
+
+
+    private void InstantiateObjectShadow(Vector3 position, GameObject gameObject, Material material)
+    {
         if (instantiatedShadow)
         {
             Destroy(instantiatedShadow);
@@ -200,11 +218,10 @@ public class ObjectPlacer : MonoBehaviour {
         instantiatedShadow = Instantiate(gameObject);
         instantiatedShadow.transform.position = new Vector3(
             position.x,
-            gameObject.transform.position.y,
-            position.y
+            position.y,
+            position.z
         );
         instantiatedShadow.layer = 2; // Ignore Raycast layer;
-
         instantiatedShadow.GetComponent<MeshRenderer>().material = material;
     }
 }

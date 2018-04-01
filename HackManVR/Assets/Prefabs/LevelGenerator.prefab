@@ -51,13 +51,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b22753c8202644a8cb003c7167c738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall: {fileID: 1090361515173748, guid: 373889c29eb953b4fa0cade3d14f21eb, type: 2}
-  ground: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56, type: 2}
-  cherry: {fileID: 1188012686662354, guid: f9fd6f7173f8624429d8b359bc0a0128, type: 2}
-  portal: {fileID: 1049432385019748, guid: b9d6516ca33644944b08cb292b632bf4, type: 2}
-  pacman: {fileID: 1897575943721588, guid: dd0dc899b37cdab4292c0b1642f17777, type: 2}
-  point: {fileID: 1853779807723182, guid: f9699e026f035404d8a7de9b17effcfb, type: 2}
-  bigpoint: {fileID: 1162404777689166, guid: 36b3dbfc4392b13409f01beefa793f8e, type: 2}
+  wallPrefab: {fileID: 1090361515173748, guid: 373889c29eb953b4fa0cade3d14f21eb, type: 2}
+  groundPrefab: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56,
+    type: 2}
+  cherryPrefab: {fileID: 1188012686662354, guid: f9fd6f7173f8624429d8b359bc0a0128,
+    type: 2}
+  portalPrefab: {fileID: 1049432385019748, guid: b9d6516ca33644944b08cb292b632bf4,
+    type: 2}
+  pacmanPrefab: {fileID: 1533290065241142, guid: 436fa60c38fdde44fb6b690956ec9f98,
+    type: 2}
+  pointPrefab: {fileID: 1853779807723182, guid: f9699e026f035404d8a7de9b17effcfb,
+    type: 2}
+  bigpointPrefab: {fileID: 1162404777689166, guid: 36b3dbfc4392b13409f01beefa793f8e,
+    type: 2}
   ghosts:
   - {fileID: 1374743269683902, guid: 54af9eec339876241918e394fe39f4c3, type: 2}
   - {fileID: 1169825822449974, guid: 383f276fa550e0b4098316db45ed28c7, type: 2}

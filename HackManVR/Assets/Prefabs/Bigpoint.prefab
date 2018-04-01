@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4110759162733558}
   - component: {fileID: 33705097785648772}
-  - component: {fileID: 135331439513723080}
   - component: {fileID: 23192882768041074}
+  - component: {fileID: 65906110480833936}
   m_Layer: 0
   m_Name: Bigpoint
   m_TagString: BigPoint
@@ -83,8 +83,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1162404777689166}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &135331439513723080
-SphereCollider:
+--- !u!65 &65906110480833936
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -93,5 +93,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

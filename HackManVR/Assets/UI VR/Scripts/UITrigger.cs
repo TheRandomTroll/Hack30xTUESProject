@@ -27,9 +27,6 @@ public class UITrigger : MonoBehaviour {
 
     void Update()
     {
-        
-
-
         if(triggerTimer > 0)
         {
             triggerTimer -= Time.deltaTime;
