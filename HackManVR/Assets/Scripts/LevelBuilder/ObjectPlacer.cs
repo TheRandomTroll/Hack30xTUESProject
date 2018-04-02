@@ -7,9 +7,9 @@ public class ObjectPlacer : MonoBehaviour {
 
 
     [SerializeField] GameObject gridOutline;
+
     [SerializeField] GameObject removeOutline;
     [SerializeField] GameObject ground;
-
     [SerializeField] private string controllerLeft = "Left";
     [SerializeField] private string controllerRight = "Right";
 
@@ -147,7 +147,7 @@ public class ObjectPlacer : MonoBehaviour {
 
                 // TODO: Have the build grid be destroyed by the Grid Manager!
                 Destroy(hit.transform.gameObject); // Destroy the build grid!
-                Destroy(instantiatedShadow);
+                PlaceRemoveShadow(gameObj.transform.position);
 
                 // Instantiate ground
                 if (currentSelectedObject.tag != "Wall" && currentSelectedObject.tag != "Ground")

@@ -9,7 +9,7 @@ public class GridManager : MonoBehaviour {
     [SerializeField]
     List<KeyValuePair> gridMap = new List<KeyValuePair>(); // TODO: Change to dictionary.
 
-    private Dictionary<Vector2Int, GameObject> gridDict = new Dictionary<Vector2Int, GameObject>();
+    // private Dictionary<Vector2Int, GameObject> gridDict = new Dictionary<Vector2Int, GameObject>();
 
     void Start () {
 	    foreach(KeyValuePair keyValue in gridMap)

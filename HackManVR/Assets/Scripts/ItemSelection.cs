@@ -32,20 +32,14 @@ public class ItemSelection : MonoBehaviour {
     public void SetAsActive()
     {
         MeshRenderer renderer = GetComponentInChildren<MeshRenderer>();
-        if (!renderer.gameObject.GetComponent<Waypoint>())
-        {
-            renderer.material.color = activeColor;
-        }
+        renderer.material.color = activeColor;
     }
 
 
     public void Deactivate()
     {
         MeshRenderer renderer = GetComponentInChildren<MeshRenderer>();
-        if (!renderer.gameObject.GetComponent<Waypoint>() )
-        {
-            renderer.material.color = normalColor;
-        }
+        renderer.material.color = normalColor;
     }
 
 
