@@ -30,7 +30,7 @@ public class ObjectPlacer : MonoBehaviour {
 
 
     private SharedRaycast raycast;
-
+    private string currentShadowName; // Can't find something else to differentiate shadows by.
 
     private void Start()
     {
@@ -202,11 +202,20 @@ public class ObjectPlacer : MonoBehaviour {
     {
         if (instantiatedShadow)
         {
-            Destroy(instantiatedShadow);
+            if (currentShadowName == gameObject.name)
+            {
+                instantiatedShadow.transform.position = position;
+                return;
+            }
+            else
+            {
+                Destroy(instantiatedShadow);
+            }
         }
 
+        currentShadowName = gameObject.name;
         instantiatedShadow = Instantiate(gameObject);
-        instantiatedShadow.tag = "Untagged";
+        instantiatedShadow.tag = "Untagged"; // SO it doesn't show up in ItemSelectionChanger item count.
         instantiatedShadow.transform.position = new Vector3(
             position.x,
             position.y,
