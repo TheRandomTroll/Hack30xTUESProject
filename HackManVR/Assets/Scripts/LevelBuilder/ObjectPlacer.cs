@@ -51,6 +51,7 @@ public class ObjectPlacer : MonoBehaviour {
         }
 
         RaycastHit hit = raycast.GetRaycastInfo();
+        if (!hit.transform) return;
         Vector2Int gridPosition = new Vector2Int(
                 Mathf.RoundToInt(hit.transform.position.x),
                 Mathf.RoundToInt(hit.transform.position.z));
@@ -185,7 +186,7 @@ public class ObjectPlacer : MonoBehaviour {
             itemSel.Deactivate();
         }
         itemSelect.SetAsActive();
-        ChangeCurrentSelectedObject(itemSelect.GetPrefab());
+        ChangeCurrentSelectedObject(itemSelect.GetSelection());
     }
 
 

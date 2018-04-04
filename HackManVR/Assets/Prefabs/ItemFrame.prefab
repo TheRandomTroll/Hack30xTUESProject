@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4880894963284892}
-  - component: {fileID: 114553728079217212}
   - component: {fileID: 65582778426939048}
+  - component: {fileID: 114553728079217212}
   m_Layer: 0
-  m_Name: ItemFrame 1
+  m_Name: ItemFrame
   m_TagString: ItemFrame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68c1e9239ec8394d95fc9cad9960569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPrefab: {fileID: 1162404777689166, guid: 36b3dbfc4392b13409f01beefa793f8e,
+  selectedPrefab: {fileID: 1090361515173748, guid: 373889c29eb953b4fa0cade3d14f21eb,
     type: 2}
-  activeColor: {r: 0.991, g: 0.816, b: 0, a: 0.647}
   scaleBy: 2
-  oneTapToPlace: 1
+  activeColor: {r: 0.991, g: 0.816, b: 0, a: 0.647}
+  oneTapToPlace: 0

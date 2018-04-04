@@ -471,8 +471,7 @@ MonoBehaviour:
   ground: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56, type: 2}
   controllerLeft: Left
   controllerRight: Right
-  currentSelectedObject: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56,
-    type: 2}
+  currentItemSelection: {fileID: 0}
 --- !u!114 &114736738397351182
 MonoBehaviour:
   m_ObjectHideFlags: 1

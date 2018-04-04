@@ -23,6 +23,7 @@ public class CameraVRRay : MonoBehaviour {
         if (!raycast.InfoIsRelevant()) { return; }
         RaycastHit hit = raycast.GetRaycastInfo();
 
+        if (!hit.transform) return;
         UITrigger isTriggered = hit.transform.GetComponent<UITrigger>();
         if (!isTriggered) return;
             

@@ -43,9 +43,15 @@ public class ItemSelection : MonoBehaviour {
     }
 
 
-    public GameObject GetPrefab()
+    public GameObject GetSelection()
     {
         return selectedPrefab;
+    }
+
+
+    public void SetSelection(GameObject newPrefab)
+    {
+        selectedPrefab = newPrefab;
     }
 
 
