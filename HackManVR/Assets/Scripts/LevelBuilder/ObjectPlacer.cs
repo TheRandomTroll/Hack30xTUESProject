@@ -31,12 +31,14 @@ public class ObjectPlacer : MonoBehaviour {
 
     private SharedRaycast raycast;
     private string currentShadowName; // Can't find something else to differentiate shadows by.
+    private LevelEditorGrid levelGrid;
 
     private void Start()
     {
         worldGrid = FindObjectOfType<WorldGrid>();
         lastPosition = Vector3.zero;
         if(currentItemSelection) currentItemSelection.SetAsActive();
+        levelGrid = FindObjectOfType<LevelEditorGrid>();
         raycast = GetComponent<SharedRaycast>();
     }
 
@@ -120,8 +122,7 @@ public class ObjectPlacer : MonoBehaviour {
         ConnectedTo connection = hit.transform.gameObject.GetComponent<ConnectedTo>();
         if (connection) Destroy(connection.connection);
 
-        GameObject grid = Instantiate(gridOutline);
-        grid.transform.position = new Vector3(removePos.x, grid.transform.position.y, removePos.y);
+        levelGrid.AddToGrid(new Vector2Int(removePos.x, removePos.y));
 
         Destroy(instantiatedShadow);
     }
@@ -147,9 +148,9 @@ public class ObjectPlacer : MonoBehaviour {
                 gameObj.transform.position = gameObjPos;
 
                 worldGrid.AddToGrid(position, gameObj);
+                
+                levelGrid.RemoveFromGrid(position);
 
-                // TODO: Have the build grid be destroyed by the Grid Manager!
-                Destroy(hit.transform.gameObject); // Destroy the build grid!
                 PlaceRemoveShadow(gameObj.transform.position);
 
                 // Instantiate ground
