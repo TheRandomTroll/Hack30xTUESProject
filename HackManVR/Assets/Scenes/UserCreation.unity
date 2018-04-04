@@ -267,21 +267,21 @@ GameObject:
   - component: {fileID: 365436315}
   - component: {fileID: 365436318}
   - component: {fileID: 365436317}
-  - component: {fileID: 365436316}
-  - component: {fileID: 365436332}
+  - component: {fileID: 365436322}
+  - component: {fileID: 365436321}
   - component: {fileID: 365436331}
   - component: {fileID: 365436330}
   - component: {fileID: 365436329}
   - component: {fileID: 365436328}
   - component: {fileID: 365436327}
+  - component: {fileID: 365436320}
   - component: {fileID: 365436326}
   - component: {fileID: 365436325}
   - component: {fileID: 365436324}
-  - component: {fileID: 365436323}
-  - component: {fileID: 365436322}
-  - component: {fileID: 365436321}
-  - component: {fileID: 365436320}
   - component: {fileID: 365436319}
+  - component: {fileID: 365436332}
+  - component: {fileID: 365436323}
+  - component: {fileID: 365436316}
   m_Layer: 0
   m_Name: Save Level
   m_TagString: Untagged
@@ -1229,6 +1229,16 @@ Prefab:
       propertyPath: oneTapToPlace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114959894620495666, guid: 91946d275e7b3034b800c9cdbd244599,
+        type: 2}
+      propertyPath: maxCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114959894620495666, guid: 91946d275e7b3034b800c9cdbd244599,
+        type: 2}
+      propertyPath: alternativeOneTapToPlace
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91946d275e7b3034b800c9cdbd244599, type: 2}
   m_IsPrefabParent: 0
@@ -1810,6 +1820,11 @@ Prefab:
     - target: {fileID: 114604101357567942, guid: 91946d275e7b3034b800c9cdbd244599,
         type: 2}
       propertyPath: oneTapToPlace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114959894620495666, guid: 91946d275e7b3034b800c9cdbd244599,
+        type: 2}
+      propertyPath: maxCount
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

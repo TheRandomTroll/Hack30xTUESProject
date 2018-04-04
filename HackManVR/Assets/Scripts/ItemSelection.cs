@@ -20,14 +20,24 @@ public class ItemSelection : MonoBehaviour {
     [SerializeField]
     private bool oneTapToPlace = false;
 
+    private GameObject instance;
     private void Start()
     {
-        GameObject instance = Instantiate(selectedPrefab);
+        InstantiateCurrentPrefab();
+    }
+
+
+    private void InstantiateCurrentPrefab()
+    {
+        if(instance)
+            Destroy(instance);
+
+        instance = Instantiate(selectedPrefab);
+        instance.tag = "Untagged";
         instance.transform.position = transform.position;
         instance.transform.parent = transform;
         instance.transform.localScale *= scaleBy;
     }
-
 
     public void SetAsActive()
     {
@@ -52,12 +62,18 @@ public class ItemSelection : MonoBehaviour {
     public void SetSelection(GameObject newPrefab)
     {
         selectedPrefab = newPrefab;
+        InstantiateCurrentPrefab();
     }
 
 
     public bool GetOneTapToPlace()
     {
         return oneTapToPlace;
+    }
+
+    public void SetOneTapToPlace(bool oneTap)
+    {
+        oneTapToPlace = oneTap;
     }
 
 

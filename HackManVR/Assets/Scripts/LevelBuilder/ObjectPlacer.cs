@@ -13,19 +13,19 @@ public class ObjectPlacer : MonoBehaviour {
     [SerializeField] private string controllerLeft = "Left";
     [SerializeField] private string controllerRight = "Right";
 
-
-    [SerializeField] GameObject currentSelectedObject;
+    // Choice to set in the beggining something as a default item selection.
+    [SerializeField] private ItemSelection currentItemSelection;
 
     private WorldGrid worldGrid;
     private Vector3 lastPosition;
-    
-    private bool oneTapToPlace = false;
 
     // Keys for debugging.
     private KeyCode leftClick = KeyCode.Mouse0;
     private KeyCode rightClick = KeyCode.Mouse1;
 
     private ObjectPlacer objectPlacer;
+
+
     private GameObject instantiatedShadow;
 
 
@@ -36,7 +36,7 @@ public class ObjectPlacer : MonoBehaviour {
     {
         worldGrid = FindObjectOfType<WorldGrid>();
         lastPosition = Vector3.zero;
-        ChangeCurrentSelectedObject(currentSelectedObject);
+        if(currentItemSelection) currentItemSelection.SetAsActive();
         raycast = GetComponent<SharedRaycast>();
     }
 
@@ -69,7 +69,7 @@ public class ObjectPlacer : MonoBehaviour {
         {
             if (Input.GetKey(leftClick) || Input.GetButton("Left"))
             {
-                GetActiveItemFramePrefab(hit);
+                SetActiveItemFrame(hit);
             }
         }
         else if(hit.transform.GetComponent<CanRemove>())
@@ -94,6 +94,7 @@ public class ObjectPlacer : MonoBehaviour {
     {
         Shader shader = Shader.Find("Transparent/Diffuse");
         Material material = new Material(shader);
+        GameObject currentSelectedObject = currentItemSelection.GetSelection();
         Color color = currentSelectedObject.GetComponent<Renderer>().sharedMaterial.color;
         material.color = new Color(color.r, color.g, color.b, 0.75f);
         InstantiateObjectShadow(position, currentSelectedObject, material);
@@ -127,6 +128,7 @@ public class ObjectPlacer : MonoBehaviour {
 
     private void PlaceObject(RaycastHit hit, Vector2Int position)
     {
+        bool oneTapToPlace = currentItemSelection.GetOneTapToPlace();
         bool place = false;
         if (!oneTapToPlace && (Input.GetButton(controllerLeft) || Input.GetKey(leftClick)))
             place = true;
@@ -137,7 +139,7 @@ public class ObjectPlacer : MonoBehaviour {
         {
             if (!worldGrid.GridContainsAt(position))
             {
-                GameObject gameObj = Instantiate(currentSelectedObject);
+                GameObject gameObj = Instantiate(currentItemSelection.GetSelection());
                 gameObj.AddComponent<CanRemove>();
 
                 Vector3 gameObjPos = hit.transform.position;
@@ -151,7 +153,7 @@ public class ObjectPlacer : MonoBehaviour {
                 PlaceRemoveShadow(gameObj.transform.position);
 
                 // Instantiate ground
-                if (currentSelectedObject.tag != "Wall" && currentSelectedObject.tag != "Ground")
+                if (gameObj.tag != "Wall" && gameObj.tag != "Ground")
                 {
                     GameObject grnd = Instantiate(ground);
                     grnd.transform.position = new Vector3(
@@ -176,31 +178,18 @@ public class ObjectPlacer : MonoBehaviour {
 
 
 
-    private void GetActiveItemFramePrefab(RaycastHit hit)
+    private void SetActiveItemFrame(RaycastHit hit)
     {
         ItemSelection itemSelect = hit.transform.GetComponent<ItemSelection>();
-        oneTapToPlace = itemSelect.GetOneTapToPlace();
 
         foreach (ItemSelection itemSel in FindObjectsOfType<ItemSelection>())
         {
             itemSel.Deactivate();
         }
         itemSelect.SetAsActive();
-        ChangeCurrentSelectedObject(itemSelect.GetSelection());
+        currentItemSelection = itemSelect;
+
     }
-
-
-    public void ChangeCurrentSelectedObject(GameObject gameObj)
-    {
-        currentSelectedObject = gameObj;
-    }
-
-
-    public GameObject GetCurrentSelectedObject()
-    {
-        return currentSelectedObject;
-    }
-
 
     private void InstantiateObjectShadow(Vector2Int position, GameObject gameObject, Material material)
     {
@@ -217,6 +206,7 @@ public class ObjectPlacer : MonoBehaviour {
         }
 
         instantiatedShadow = Instantiate(gameObject);
+        instantiatedShadow.tag = "Untagged";
         instantiatedShadow.transform.position = new Vector3(
             position.x,
             position.y,
