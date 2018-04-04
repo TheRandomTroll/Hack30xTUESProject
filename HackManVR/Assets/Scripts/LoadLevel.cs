@@ -6,11 +6,14 @@ public class LoadLevel : MonoBehaviour {
 
     [SerializeField] // TODO: Remove
     GenerateLevel generator;
-    
 
+    private WorldGrid worldGrid;
+    private LevelEditorGrid levelGrid;
     void Start()
     {
         generator = FindObjectOfType<GenerateLevel>();
+        worldGrid = FindObjectOfType<WorldGrid>();
+        levelGrid = FindObjectOfType<LevelEditorGrid>();
     }
 
 
@@ -24,12 +27,18 @@ public class LoadLevel : MonoBehaviour {
         }
 
         Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
+
+        // Set both to starting state!
+        worldGrid.Clear();
+        levelGrid.GenerateStartingGrid();
+
         for (int i = 0; i < chosenLevel.objCount; i++)
         {
-            levelDict.Add(new Vector2Int(
+            Vector2Int gridPosition = new Vector2Int(
                 Mathf.RoundToInt(chosenLevel.xPositions[i]),
-                Mathf.RoundToInt(chosenLevel.zPositions[i])),
-                chosenLevel.gameObjects[i]);
+                Mathf.RoundToInt(chosenLevel.zPositions[i]));
+            levelGrid.RemoveFromGrid(gridPosition);
+            levelDict.Add(gridPosition, chosenLevel.gameObjects[i]);
         }
 
         generator.levelDict = levelDict;

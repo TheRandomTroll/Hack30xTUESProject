@@ -118,6 +118,7 @@ public class ObjectPlacer : MonoBehaviour {
     private void RemoveItem(RaycastHit hit, Vector2Int removePos)
     {
         worldGrid.RemoveAt(removePos);
+
         Destroy(hit.transform.gameObject);
         ConnectedTo connection = hit.transform.gameObject.GetComponent<ConnectedTo>();
         if (connection) Destroy(connection.connection);

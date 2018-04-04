@@ -14,25 +14,24 @@ public class LevelEditorGrid : MonoBehaviour {
 
     private Dictionary<Vector2Int, GameObject> gridDict;
 
-	void Start () {
+	void Start ()
+    {
         gridDict = new Dictionary<Vector2Int, GameObject>();
-		for(int x = 0; x < width; x++)
+        GenerateStartingGrid();
+    }
+
+    public void GenerateStartingGrid()
+    {
+        for (int x = 0; x < width; x++)
         {
-            for(int y = 0; y < height; y++)
+            for (int y = 0; y < height; y++)
             {
                 Vector2Int gridPosition = new Vector2Int(x, y);
                 print("Adding grid to " + gridPosition);
                 AddToGrid(gridPosition);
             }
         }
-	}
-
-    // Y never matters. Just adding for easy use.
-    public void AddToGrid(Vector3 position)
-    {
-        AddToGrid(new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z)));
     }
-
 
     public void AddToGrid(Vector2Int gridPosition)
     {
@@ -49,14 +48,14 @@ public class LevelEditorGrid : MonoBehaviour {
         }
     }
 
-    
-
-
-    public void RemoveFromGrid(Vector3 position)
+    // Y never matters. Just adding for easy use.
+    public void AddToGrid(Vector3 position)
     {
-        RemoveFromGrid(new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z)));
+        AddToGrid(new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z)));
     }
 
+
+    
 
     public void RemoveFromGrid(Vector2Int position)
     {
@@ -70,4 +69,10 @@ public class LevelEditorGrid : MonoBehaviour {
             Debug.LogWarning("No grid at " + position);
         }
     }
+
+    public void RemoveFromGrid(Vector3 position)
+    {
+        RemoveFromGrid(new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z)));
+    }
+    
 }
