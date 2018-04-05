@@ -15,8 +15,6 @@ public class TriggerEventsPacMan : MonoBehaviour
     public MovementPacMan movementScriptPacMan;
     public PointsScript pointsScript;
     public Transform player;
-    public Transform portal1;
-    public Transform portal2;
 
     private AudioSource MainAudio;
     public AudioClip PointSound;
@@ -34,8 +32,6 @@ public class TriggerEventsPacMan : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Transform>();
         movementScriptPacMan = player.GetComponent<MovementPacMan>();
         pointsScript = GameObject.Find("Points").GetComponent<PointsScript>();
-        portal1 = GameObject.Find("PORTAL1").GetComponent<Transform>();
-        portal2 = GameObject.Find("PORTAL2").GetComponent<Transform>(); 
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -90,21 +86,6 @@ public class TriggerEventsPacMan : MonoBehaviour
             StartCoroutine(Restart());
             MainAudio.clip = GameOverSound;
             MainAudio.Play();
-        }
-
-        if(collider.tag == "Portal")
-        {
-            if(collider.name == "PORTAL1")
-            {
-                portal2.GetComponent<Collider>().enabled = false;
-                player.position = portal2.position;
-            }
-
-            else if (collider.name == "PORTAL2")
-            {
-                portal1.GetComponent<Collider>().enabled = false;
-                player.position = portal1.position;
-            }
         }
 
         if(name == "Player" && collider.tag == "BigPoint")
