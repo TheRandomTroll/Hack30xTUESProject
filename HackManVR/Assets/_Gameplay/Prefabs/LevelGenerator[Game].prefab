@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1206156322543062}
+  m_IsPrefabParent: 1
+--- !u!1 &1206156322543062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4117199861634000}
+  - component: {fileID: 114076156455443870}
+  m_Layer: 0
+  m_Name: LevelGenerator[Game]
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4117199861634000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206156322543062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114076156455443870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206156322543062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b22753c8202644a8cb003c7167c738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallPrefab: {fileID: 1090361515173748, guid: 373889c29eb953b4fa0cade3d14f21eb, type: 2}
+  groundPrefab: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56,
+    type: 2}
+  cherryPrefab: {fileID: 1188012686662354, guid: f9fd6f7173f8624429d8b359bc0a0128,
+    type: 2}
+  portalPrefab: {fileID: 1049432385019748, guid: b9d6516ca33644944b08cb292b632bf4,
+    type: 2}
+  pacmanPrefab: {fileID: 1897575943721588, guid: dd0dc899b37cdab4292c0b1642f17777,
+    type: 2}
+  pointPrefab: {fileID: 1853779807723182, guid: f9699e026f035404d8a7de9b17effcfb,
+    type: 2}
+  bigpointPrefab: {fileID: 1162404777689166, guid: 36b3dbfc4392b13409f01beefa793f8e,
+    type: 2}
+  ghosts:
+  - {fileID: 1374743269683902, guid: 54af9eec339876241918e394fe39f4c3, type: 2}
+  - {fileID: 1169825822449974, guid: 383f276fa550e0b4098316db45ed28c7, type: 2}
+  - {fileID: 1816911016671820, guid: 0bdaa0e54083728489c59448d069321a, type: 2}
+  - {fileID: 1939144719831688, guid: 95c993f22467fa4478b1255ceb6073ca, type: 2}
