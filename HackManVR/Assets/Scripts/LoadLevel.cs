@@ -29,15 +29,15 @@ public class LoadLevel : MonoBehaviour {
         Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
 
         // Set both to starting state!
-        worldGrid.Clear();
-        levelGrid.GenerateStartingGrid();
+        if(worldGrid) worldGrid.Clear();
+        if(levelGrid) levelGrid.GenerateStartingGrid();
 
         for (int i = 0; i < chosenLevel.objCount; i++)
         {
             Vector2Int gridPosition = new Vector2Int(
                 Mathf.RoundToInt(chosenLevel.xPositions[i]),
                 Mathf.RoundToInt(chosenLevel.zPositions[i]));
-            levelGrid.RemoveFromGrid(gridPosition);
+            if(levelGrid) levelGrid.RemoveFromGrid(gridPosition);
             levelDict.Add(gridPosition, chosenLevel.gameObjects[i]);
         }
 
