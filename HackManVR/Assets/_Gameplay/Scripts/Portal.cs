@@ -52,7 +52,7 @@ public class Portal : MonoBehaviour {
 
     private void SetCameraToRenderSurface(Camera targetCamera, GameObject targetSurface)
     {
-        RenderTexture renderTexture = new RenderTexture(512, 512, 16, RenderTextureFormat.ARGB32);
+        RenderTexture renderTexture = new RenderTexture(1024, 1024, 16, RenderTextureFormat.ARGB32);
         renderTexture.Create();
         targetCamera.targetTexture = renderTexture;
         Shader shader = Shader.Find("Unlit/ScreenCutoutShader");
