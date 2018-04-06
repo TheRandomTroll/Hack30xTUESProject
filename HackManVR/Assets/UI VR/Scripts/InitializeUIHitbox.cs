@@ -9,6 +9,10 @@ public class InitializeUIHitbox : MonoBehaviour {
     private TextMesh textMesh;
 
 	void Start () {
+        if (Application.isPlaying)
+        {
+            Destroy(this);
+        }
 
         textMesh = GetComponent<TextMesh>();
         if (!textMesh) textMesh = gameObject.AddComponent<TextMesh>();
