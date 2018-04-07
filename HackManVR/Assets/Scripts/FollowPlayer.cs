@@ -9,6 +9,9 @@ public class FollowPlayer : MonoBehaviour {
     public Camera firstPrsCamera;
     public Camera staticPrsCamera;
 
+    [SerializeField]
+    private float heightOffset = 1;
+
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<Transform>();
@@ -18,7 +21,7 @@ public class FollowPlayer : MonoBehaviour {
 
     void Update () {
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
-        transform.position = player.position;
+        transform.position = player.position + new Vector3(0, heightOffset, 0);
 
 
         if(staticPrsCamera.transform.eulerAngles.x == 0)

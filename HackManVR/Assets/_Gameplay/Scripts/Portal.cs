@@ -17,9 +17,19 @@ public class Portal : MonoBehaviour {
     [SerializeField] private GameObject backPlane;
 
     [SerializeField] private bool destroyIfNoPortals = false;
+
+    [SerializeField] private Transform playerCameraParent;
+    [SerializeField] private Transform playerCamera;
 	void Start ()
     {
         StartCoroutine(SetPortalConnections());
+        playerCamera = Camera.main.transform;
+        playerCameraParent = playerCamera.parent;
+    }
+
+    private void Update()
+    {
+
     }
 
     private IEnumerator SetPortalConnections()
@@ -43,8 +53,8 @@ public class Portal : MonoBehaviour {
             if (portal != this)
             {
                 connectedPortal = portal;
-                SetCameraToRenderSurface(connectedPortal.frontCamera, frontPlane);
-                SetCameraToRenderSurface(connectedPortal.backCamera, backPlane);
+                SetCameraToRenderSurface(connectedPortal.frontCamera, backPlane);
+                SetCameraToRenderSurface(connectedPortal.backCamera, frontPlane);
                 break;
             }
         }
@@ -52,7 +62,7 @@ public class Portal : MonoBehaviour {
 
     private void SetCameraToRenderSurface(Camera targetCamera, GameObject targetSurface)
     {
-        RenderTexture renderTexture = new RenderTexture(1024, 1024, 16, RenderTextureFormat.ARGB32);
+        RenderTexture renderTexture = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
         renderTexture.Create();
         targetCamera.targetTexture = renderTexture;
         Shader shader = Shader.Find("Unlit/ScreenCutoutShader");
@@ -65,11 +75,6 @@ public class Portal : MonoBehaviour {
     }
 
 
-
-	void Update () {
-		
-	}
-
     private void OnTriggerEnter(Collider other)
     {
         if (disabled) return;
@@ -77,10 +82,22 @@ public class Portal : MonoBehaviour {
         if(other.tag == "Player")
         {
             Transform player = other.transform;
-            if(player.forward == transform.forward || player.forward == -transform.forward)
+            if (player.forward == transform.forward || player.forward == -transform.forward)
             {
-                player.position = connectedPortal.transform.position;
                 connectedPortal.Disable();
+                Vector3 target;
+                if (transform.forward == player.forward)
+                    target = connectedPortal.transform.forward + connectedPortal.transform.position;
+                else
+                    target = -connectedPortal.transform.forward + connectedPortal.transform.position;
+                player.transform.position = connectedPortal.transform.position; // Only for LookAt
+                player.transform.LookAt(target);
+                player.transform.position = target;
+
+                // Keep direction that camera had before teleporting.
+                Vector3 portalDifference = connectedPortal.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
+                Vector3 compensateRotation = playerCameraParent.eulerAngles + portalDifference;
+                playerCameraParent.eulerAngles = compensateRotation;
             }
         }
     }

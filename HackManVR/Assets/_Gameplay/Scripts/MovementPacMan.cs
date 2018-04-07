@@ -14,7 +14,7 @@ public class MovementPacMan : MonoBehaviour {
 
     public bool canMove = true;
 
-    private float speed;
+    [SerializeField] private float speed = 5;
 
     private int way;
 
@@ -24,47 +24,51 @@ public class MovementPacMan : MonoBehaviour {
     public Canvas pauseMenu;
 
     void Start () {
-        speed = 8;
+
     }
 
     void Update()
     {
 
-        if (tag == "Player")
+        if(Input.GetKey(KeyCode.Space))
         {
-            if (canMove)
-            {
-                transform.Translate(Vector3.forward / speed);
-            }
+            canMove = false;
+        }
+        else
+        {
+            canMove = true;
+        }
+        if (canMove)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
 
-            if (Input.GetButtonDown("Forward") && rotateForward && way == 3)
-            {
+        if (Input.GetButtonDown("Forward") && rotateForward && way == 3)
+        {
 
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
-            }
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+        }
 
-            if (Input.GetButtonDown("Backward") && rotateBack && way != 3)
-            {
+        if (Input.GetButtonDown("Backward") && rotateBack && way != 3)
+        {
 
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
 
-                way = 3;
-            }
+            way = 3;
+        }
 
-            if (Input.GetButtonDown("Left") && rotateLeft)
-            {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
+        if (Input.GetButtonDown("Left") && rotateLeft)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
 
-                way = 4;
+            way = 4;
 
-            }
+        }
 
-            if (Input.GetButtonDown("Right") && rotateRight)
-            {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
-
-                way = 2;
-            }
+        if (Input.GetButtonDown("Right") && rotateRight)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
+            way = 2;
         }
 
 
@@ -72,7 +76,5 @@ public class MovementPacMan : MonoBehaviour {
         {
             SceneManager.LoadScene(0);
         }
-
-
     }
 }
