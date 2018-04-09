@@ -15,6 +15,7 @@ public class MovementPacMan : MonoBehaviour {
     public bool canMove = true;
 
     [SerializeField] private float speed = 5;
+    [SerializeField] private float bigpointDuration = 10;
 
     private int way;
 
@@ -76,5 +77,19 @@ public class MovementPacMan : MonoBehaviour {
         {
             SceneManager.LoadScene(0);
         }
+    }
+
+
+    public void EatBigpoint()
+    {
+        bigPointEaten = true;
+        // TODO: Send message to Ghosts.
+        StartCoroutine(BigpointDuration());
+    }
+
+    private IEnumerator BigpointDuration()
+    {
+        yield return new WaitForSeconds(bigpointDuration);
+        bigPointEaten = false;
     }
 }

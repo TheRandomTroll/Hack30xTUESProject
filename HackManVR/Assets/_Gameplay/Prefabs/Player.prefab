@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 4312434405211778}
   - component: {fileID: 33801528997621498}
   - component: {fileID: 65273178857524460}
-  - component: {fileID: 114813252332650134}
   - component: {fileID: 23669074816430208}
   - component: {fileID: 114220911975160208}
   m_Layer: 0
@@ -138,8 +137,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533290065241142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2, y: 1.17, z: 14.05}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -6.91, y: 1.17, z: -7.94}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4703868582242644}
   - {fileID: 4785873125356866}
@@ -621,7 +620,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533290065241142}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
@@ -631,10 +630,7 @@ MonoBehaviour:
   movementScriptInky: {fileID: 0}
   movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
-  pointsScript: {fileID: 0}
   player: {fileID: 0}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
   PointSound: {fileID: 0}
   BigPointSound: {fileID: 0}
   CherrySound: {fileID: 0}
@@ -645,7 +641,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1894294147786214}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
@@ -655,10 +651,7 @@ MonoBehaviour:
   movementScriptInky: {fileID: 0}
   movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
-  pointsScript: {fileID: 0}
   player: {fileID: 0}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
   PointSound: {fileID: 0}
   BigPointSound: {fileID: 0}
   CherrySound: {fileID: 0}
@@ -669,7 +662,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1681140090812138}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
@@ -679,10 +672,7 @@ MonoBehaviour:
   movementScriptInky: {fileID: 0}
   movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
-  pointsScript: {fileID: 0}
   player: {fileID: 0}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
   PointSound: {fileID: 0}
   BigPointSound: {fileID: 0}
   CherrySound: {fileID: 0}
@@ -693,7 +683,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1194472683896118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
@@ -703,10 +693,7 @@ MonoBehaviour:
   movementScriptInky: {fileID: 0}
   movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
-  pointsScript: {fileID: 0}
   player: {fileID: 0}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
   PointSound: {fileID: 0}
   BigPointSound: {fileID: 0}
   CherrySound: {fileID: 0}
@@ -731,7 +718,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385961783222750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
@@ -741,32 +728,18 @@ MonoBehaviour:
   movementScriptInky: {fileID: 0}
   movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
-  pointsScript: {fileID: 0}
   player: {fileID: 0}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
   PointSound: {fileID: 0}
   BigPointSound: {fileID: 0}
   CherrySound: {fileID: 0}
   GameOverSound: {fileID: 0}
---- !u!114 &114813252332650134
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894294147786214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114924876554040618
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224846137661082}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
@@ -776,10 +749,7 @@ MonoBehaviour:
   movementScriptInky: {fileID: 0}
   movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
-  pointsScript: {fileID: 0}
   player: {fileID: 0}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
   PointSound: {fileID: 0}
   BigPointSound: {fileID: 0}
   CherrySound: {fileID: 0}
@@ -800,6 +770,8 @@ MonoBehaviour:
   rotateLeft: 1
   rotateRight: 1
   canMove: 1
+  speed: 2
+  bigpointDuration: 5
   bigPointEaten: 0
   isPaused: 0
   pauseMenu: {fileID: 0}
@@ -810,7 +782,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533290065241142}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -821,7 +793,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533290065241142}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5

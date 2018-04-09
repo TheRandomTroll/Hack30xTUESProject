@@ -13,7 +13,6 @@ public class TriggerEventsPacMan : MonoBehaviour
     public MovementGhosts movementScriptClyde;
 
     public MovementPacMan movementScriptPacMan;
-    public PointsScript pointsScript;
     public Transform player;
 
     private AudioSource MainAudio;
@@ -31,7 +30,6 @@ public class TriggerEventsPacMan : MonoBehaviour
 
         player = GameObject.Find("Player").GetComponent<Transform>();
         movementScriptPacMan = player.GetComponent<MovementPacMan>();
-        pointsScript = GameObject.Find("Points").GetComponent<PointsScript>();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -60,14 +58,7 @@ public class TriggerEventsPacMan : MonoBehaviour
                 movementScriptPacMan.rotateRight = false;
             }
         }
-
-        if (collider.tag == "Point")
-        {
-            pointsScript.points += 20; 
-            Destroy(collider.gameObject);
-            MainAudio.clip = PointSound;
-            MainAudio.Play();
-        }
+        
 
         if (collider.tag == "Ghost")
         {
@@ -82,25 +73,10 @@ public class TriggerEventsPacMan : MonoBehaviour
                 Debug.Log("Second");
                 PlayerPrefs.SetInt("camera", 2);
             }
-            pointsScript.text = "You Lose";
             StartCoroutine(Restart());
             MainAudio.clip = GameOverSound;
             MainAudio.Play();
         }
-
-        if(name == "Player" && collider.tag == "BigPoint")
-        {
-            movementScriptBlinky.bigPointEaten = true;
-            movementScriptPinky.bigPointEaten = true;
-            movementScriptInky.bigPointEaten = true;
-            movementScriptClyde.bigPointEaten = true;
-            pointsScript.points += 40;
-            Destroy(collider.gameObject);
-            MainAudio.clip = BigPointSound;
-            MainAudio.Play();
-        }
-        
-
     }
 
     private void OnTriggerExit(Collider collider)
@@ -127,8 +103,6 @@ public class TriggerEventsPacMan : MonoBehaviour
                 movementScriptPacMan.rotateRight = true;
             }
         }
-
-        
     }
 
     private IEnumerator Restart()

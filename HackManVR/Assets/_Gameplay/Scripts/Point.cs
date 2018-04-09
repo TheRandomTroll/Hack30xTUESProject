@@ -7,7 +7,7 @@ public class Point : MonoBehaviour {
     [SerializeField] private int points = 100;
 
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
