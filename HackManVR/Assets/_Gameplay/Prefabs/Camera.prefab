@@ -466,6 +466,7 @@ MonoBehaviour:
   player: {fileID: 0}
   firstPrsCamera: {fileID: 0}
   staticPrsCamera: {fileID: 0}
+  heightOffset: 0.5
 --- !u!114 &114385549738896100
 MonoBehaviour:
   m_ObjectHideFlags: 1
