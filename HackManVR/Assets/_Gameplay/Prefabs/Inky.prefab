@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 114882313664112870}
   - component: {fileID: 65184306835802362}
   - component: {fileID: 195156921005459302}
-  - component: {fileID: 114627417515478814}
   m_Layer: 0
   m_Name: Inky
   m_TagString: Ghost
@@ -39,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1816911016671820}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8989105, y: 1.8, z: -7.901699}
+  m_LocalPosition: {x: 6.47, y: 1.8, z: -15.56}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,21 +99,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.217168, y: 3.621244, z: 3.217168}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114627417515478814
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816911016671820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c07b6f4889d29b4ca804b2cb04fb33d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementScriptPacMan: {fileID: 0}
-  player: {fileID: 0}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
 --- !u!114 &114882313664112870
 MonoBehaviour:
   m_ObjectHideFlags: 1

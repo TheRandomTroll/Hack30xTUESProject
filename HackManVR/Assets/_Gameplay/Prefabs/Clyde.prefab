@@ -23,9 +23,7 @@ GameObject:
   - component: {fileID: 23441764782513238}
   - component: {fileID: 114491871786281768}
   - component: {fileID: 65319825503397790}
-  - component: {fileID: 65436320407929990}
   - component: {fileID: 195429742666450030}
-  - component: {fileID: 114037090507382530}
   m_Layer: 0
   m_Name: Clyde
   m_TagString: Ghost
@@ -40,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1169825822449974}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1, y: 1.8, z: -6.5}
+  m_LocalPosition: {x: 2.85, y: 1.8, z: -17.48}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,33 +99,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.02, y: 3.621244, z: 3.217168}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65436320407929990
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1169825822449974}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.217168, y: 3.621244, z: 3.217168}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114037090507382530
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1169825822449974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c07b6f4889d29b4ca804b2cb04fb33d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementScriptPacMan: {fileID: 0}
-  player: {fileID: 0}
-  portal1: {fileID: 0}
-  portal2: {fileID: 0}
 --- !u!114 &114491871786281768
 MonoBehaviour:
   m_ObjectHideFlags: 1
