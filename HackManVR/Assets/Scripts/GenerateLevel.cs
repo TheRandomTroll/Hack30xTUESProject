@@ -7,16 +7,20 @@ public class GenerateLevel : MonoBehaviour {
     public Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
     private WorldGrid worldGrid;
 
+    [SerializeField] private bool readyForPlay = false;
     [SerializeField]
     GameObject wallPrefab, groundPrefab, cherryPrefab, portalPrefab, pacmanPrefab, pointPrefab, bigpointPrefab;
 
     [SerializeField]
     GameObject[] ghosts;
+
+    [SerializeField] private NavigationMesh navMesh; // TODO: Remove SerializeField;
     private int currentGhostIndex;
     private int portalIndex = 0;
 
     void Start()
     {
+        navMesh = FindObjectOfType<NavigationMesh>();
         worldGrid = FindObjectOfType<WorldGrid>();
     }
 
@@ -77,6 +81,11 @@ public class GenerateLevel : MonoBehaviour {
                 ConnectGameObject(point, ground);
             }
         }
+        if(readyForPlay)
+        {
+            navMesh.BuildNavMesh();
+        }
+
     }
 
     public GameObject InstantiateObject(Vector2Int position, GameObject toInstantiate)
