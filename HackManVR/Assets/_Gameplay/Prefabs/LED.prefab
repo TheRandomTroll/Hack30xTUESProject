@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 135464891508139690}
   - component: {fileID: 114572620099936386}
   - component: {fileID: 95561463783548590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4844786176591306}
   - component: {fileID: 108472109108092436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4568647722361988}
   - component: {fileID: 33486697042880204}
   - component: {fileID: 23420450681035104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Cherry
   m_Icon: {fileID: 0}

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 135037402417249890}
   - component: {fileID: 114507433646504592}
   - component: {fileID: 114262410525789356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point
   m_TagString: Point
   m_Icon: {fileID: 0}
@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786e9b67173030348ab6468466ce96ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 2
-  rotationsPerPeriod: 0.5
+  period: 20
+  rotationsPerPeriod: 2
   movementFactor: 0
   startRotation: {x: 0, y: 0, z: 0}
   endRotation: {x: 0, y: 0, z: 0}
