@@ -10,6 +10,7 @@ public class LevelInfo {
     public List<MapTypes.Spawn> gameObjects = new List<MapTypes.Spawn>();
     public List<float> xPositions = new List<float>();
     public List<float> zPositions = new List<float>();
+    public List<float> yRotations = new List<float>();
 
 
     public LevelInfo(string levelName, List<GameObject> prefabs)
@@ -51,6 +52,7 @@ public class LevelInfo {
             gameObjects.Add(spawn);
             xPositions.Add(gameObject.transform.position.x);
             zPositions.Add(gameObject.transform.position.z);
+            yRotations.Add(gameObject.transform.rotation.eulerAngles.y);
             objCount++;
 
 

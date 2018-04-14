@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GenerateLevel : MonoBehaviour {
     
-    public Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
+    // X, Y are X and Z positions. Z is Y Rotation.
+    public Dictionary<Vector3, MapTypes.Spawn> levelDict = new Dictionary<Vector3, MapTypes.Spawn>();
     private WorldGrid worldGrid;
 
     [SerializeField] private bool readyForPlay = false;
@@ -26,7 +27,7 @@ public class GenerateLevel : MonoBehaviour {
 
     public void LoadLevelInfo()
     {
-        foreach (Vector2Int position in levelDict.Keys)
+        foreach (Vector3 position in levelDict.Keys)
         {
             MapTypes.Spawn value = levelDict[position];
             Debug.Log("Generating: " + value);
@@ -49,8 +50,6 @@ public class GenerateLevel : MonoBehaviour {
             else if (value == MapTypes.Spawn.Portal)
             {
                 GameObject port = InstantiateObject(position, portalPrefab);
-                port.name = "PORTAL" + portalIndex;
-                portalIndex++;
                 GameObject ground = InstantiateObject(position, groundPrefab);
                 ConnectGameObject(port, ground);
                 
@@ -88,15 +87,19 @@ public class GenerateLevel : MonoBehaviour {
 
     }
 
-    public GameObject InstantiateObject(Vector2Int position, GameObject toInstantiate)
+    public GameObject InstantiateObject(Vector3 positionRotation, GameObject toInstantiate)
     {
         if (!toInstantiate) return null;
         GameObject gameObj = Instantiate(toInstantiate);
         
         gameObj.AddComponent<CanRemove>(); // Todo: Only do if in level edit
+        Vector2Int position = new Vector2Int((int) positionRotation.x, (int) positionRotation.y);
         if(worldGrid) worldGrid.AddToGrid(position, gameObj);
         gameObj.transform.position = new Vector3(position.x, gameObj.transform.position.y, position.y);
-        
+
+        Vector3 rotation = gameObj.transform.eulerAngles;
+        rotation.y = positionRotation.z;
+        gameObj.transform.eulerAngles = rotation;
         return gameObj;
     }
 

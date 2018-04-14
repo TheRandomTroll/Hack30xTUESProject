@@ -21,7 +21,6 @@ public class Spectator : MonoBehaviour
 
         if(Input.GetButton("Forward"))
         {
-
             transform.position += -camera.transform.up * speed * Time.deltaTime;
         }
         

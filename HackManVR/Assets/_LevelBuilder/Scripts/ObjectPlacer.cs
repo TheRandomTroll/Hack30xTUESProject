@@ -12,6 +12,8 @@ public class ObjectPlacer : MonoBehaviour {
     [SerializeField] GameObject ground;
     [SerializeField] private string controllerLeft = "Left";
     [SerializeField] private string controllerRight = "Right";
+    [SerializeField] private string controllerRotateLeft = "";
+    [SerializeField] private string controllerRotateRight = "Backward";
 
     // Choice to set in the beggining something as a default item selection.
     [SerializeField] private ItemSelection currentItemSelection;
@@ -22,6 +24,8 @@ public class ObjectPlacer : MonoBehaviour {
     // Keys for debugging.
     private KeyCode leftClick = KeyCode.Mouse0;
     private KeyCode rightClick = KeyCode.Mouse1;
+    private KeyCode rotateLeft = KeyCode.Q;
+    private KeyCode rotateRight = KeyCode.R;
 
     private ObjectPlacer objectPlacer;
 
@@ -32,6 +36,7 @@ public class ObjectPlacer : MonoBehaviour {
     private SharedRaycast raycast;
     private string currentShadowName; // Can't find something else to differentiate shadows by.
     private LevelEditorGrid levelGrid;
+    private float yRotation = 0;
 
     private void Start()
     {
@@ -58,6 +63,16 @@ public class ObjectPlacer : MonoBehaviour {
                 Mathf.RoundToInt(hit.transform.position.x),
                 Mathf.RoundToInt(hit.transform.position.z));
         
+        if (Input.GetKeyDown(rotateLeft) || Input.GetButtonDown(controllerRotateLeft))
+        {
+            yRotation -= 90;
+            Debug.Log("rotate left");
+        }
+        if (Input.GetKeyDown(rotateRight) || Input.GetButtonDown(controllerRotateRight))
+        {
+            Debug.Log("rotate right");
+            yRotation += 90;
+        }
             
         if (hit.transform.gameObject.tag == "BuildPoint")
         {
@@ -65,6 +80,7 @@ public class ObjectPlacer : MonoBehaviour {
             {
                 PlaceBuildShadow(gridPosition);
             }
+            SetYRotation(instantiatedShadow);
             PlaceObject(hit, gridPosition);
         }
         else if(hit.transform.gameObject.tag == "ItemFrame")
@@ -100,6 +116,7 @@ public class ObjectPlacer : MonoBehaviour {
         Color color = currentSelectedObject.GetComponent<Renderer>().sharedMaterial.color;
         material.color = new Color(color.r, color.g, color.b, 0.75f);
         InstantiateObjectShadow(position, currentSelectedObject, material);
+
     }
 
 
@@ -148,8 +165,9 @@ public class ObjectPlacer : MonoBehaviour {
                 gameObjPos.y = gameObj.transform.position.y;
                 gameObj.transform.position = gameObjPos;
 
+                SetYRotation(gameObj);
+
                 worldGrid.AddToGrid(position, gameObj);
-                
                 levelGrid.RemoveFromGrid(position);
 
                 PlaceRemoveShadow(gameObj.transform.position);
@@ -225,5 +243,13 @@ public class ObjectPlacer : MonoBehaviour {
         );
         instantiatedShadow.layer = 2; // Ignore Raycast layer;
         instantiatedShadow.GetComponent<MeshRenderer>().material = material;
+    }
+
+
+    private void SetYRotation(GameObject gameObj)
+    {
+        Vector3 rotation = gameObj.transform.rotation.eulerAngles;
+        rotation.y = yRotation;
+        gameObj.transform.eulerAngles = rotation;
     }
 }

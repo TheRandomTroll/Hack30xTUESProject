@@ -26,7 +26,7 @@ public class LoadLevel : MonoBehaviour {
             return;
         }
 
-        Dictionary<Vector2Int, MapTypes.Spawn> levelDict = new Dictionary<Vector2Int, MapTypes.Spawn>();
+        Dictionary<Vector3, MapTypes.Spawn> levelDict = new Dictionary<Vector3, MapTypes.Spawn>();
 
         // Set both to starting state!
         if(worldGrid) worldGrid.Clear();
@@ -38,7 +38,9 @@ public class LoadLevel : MonoBehaviour {
                 Mathf.RoundToInt(chosenLevel.xPositions[i]),
                 Mathf.RoundToInt(chosenLevel.zPositions[i]));
             if(levelGrid) levelGrid.RemoveFromGrid(gridPosition);
-            levelDict.Add(gridPosition, chosenLevel.gameObjects[i]);
+            levelDict.Add(
+                new Vector3(chosenLevel.xPositions[i], chosenLevel.zPositions[i], chosenLevel.yRotations[i]), 
+                chosenLevel.gameObjects[i]);
         }
 
         generator.levelDict = levelDict;

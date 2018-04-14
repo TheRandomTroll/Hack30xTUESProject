@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 65541471632888588}
   m_Layer: 0
   m_Name: Portal
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -422,6 +422,7 @@ MonoBehaviour:
   backPlane: {fileID: 1374554684760030}
   destroyIfNoPortals: 0
   playerCameraParent: {fileID: 0}
+  playerCamera: {fileID: 0}
 --- !u!124 &124971421196793956
 Behaviour:
   m_ObjectHideFlags: 1

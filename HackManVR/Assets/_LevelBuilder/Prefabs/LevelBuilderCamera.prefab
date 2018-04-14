@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 114367751756821526}
   m_Layer: 2
   m_Name: LevelBuilderCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,6 +471,8 @@ MonoBehaviour:
   ground: {fileID: 1556721645125678, guid: 2ad1f009edd02a24a92f9985e56dec56, type: 2}
   controllerLeft: Left
   controllerRight: Right
+  controllerRotateLeft: Left1
+  controllerRotateRight: Right1
   currentItemSelection: {fileID: 0}
 --- !u!114 &114736738397351182
 MonoBehaviour:

@@ -17,7 +17,7 @@ public class ConnectToGenerateLevel : MonoBehaviour {
         yield return new WaitForEndOfFrame();
         testrms = FindObjectOfType<TestRMS>();
         generator = FindObjectOfType<GenerateLevel>();
-        generator.levelDict = testrms.randomNew.randGrid;
+        // generator.levelDict = testrms.randomNew.randGrid; TODO: Fix
         generator.LoadLevelInfo();
     }
 }
