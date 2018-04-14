@@ -20,10 +20,13 @@ public class CameraVRRay : MonoBehaviour {
 
 
     void Update () {
-        if (!raycast.InfoIsRelevant()) { return; }
+        if (!raycast.InfoIsRelevant()) {
+            point.GetComponent<MeshRenderer>().enabled = false;
+            return;
+        }
         RaycastHit hit = raycast.GetRaycastInfo();
-
         if (!hit.transform) return;
+
         UITrigger isTriggered = hit.transform.GetComponent<UITrigger>();
         if (!isTriggered) return;
             
