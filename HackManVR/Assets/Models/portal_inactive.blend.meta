@@ -1,17 +1,33 @@
 fileFormatVersion: 2
-guid: 42cbf4c4c92fca44eb6ff499133ff6b3
-timeCreated: 1521326291
+guid: 722cdd9e2308d9946b62d0b3c7893a29
+timeCreated: 1523734183
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: Material_002
-    2100002: Material_003
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube_001
+    100000: Back
+    100002: Frame
+    100004: Front
+    100006: //RootNode
+    100008: Empty
+    400000: Back
+    400002: Frame
+    400004: Front
+    400006: //RootNode
+    400008: Empty
+    2100000: portal-body
+    2100002: portal-transp
+    2300000: Back
+    2300002: Frame
+    2300004: Front
+    2300006: //RootNode
+    3300000: Back
+    3300002: Frame
+    3300004: Front
+    3300006: //RootNode
+    4300000: Frame
+    4300002: Back
+    4300004: Front
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -69,7 +85,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -88,7 +104,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

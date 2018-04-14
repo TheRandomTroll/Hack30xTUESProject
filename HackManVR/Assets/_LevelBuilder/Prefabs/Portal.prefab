@@ -56,14 +56,13 @@ GameObject:
   - component: {fileID: 20651414713976774}
   - component: {fileID: 124823433293338458}
   - component: {fileID: 81331117984101642}
-  - component: {fileID: 114484122398469228}
   m_Layer: 0
   m_Name: frontCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1762667165693156
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,8 +96,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1848787537527010
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,8 +173,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848787537527010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.36, y: 2, z: 0.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4872543071605626}
   - {fileID: 4113695655528154}
@@ -425,17 +424,8 @@ MonoBehaviour:
   frontPlane: {fileID: 1762667165693156}
   backPlane: {fileID: 1061117584123470}
   destroyIfNoPortals: 0
---- !u!114 &114484122398469228
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1326558257564640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b73183cf713fa4e9814686e5f18c61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  playerCameraParent: {fileID: 0}
+  playerCamera: {fileID: 0}
 --- !u!124 &124574698507829778
 Behaviour:
   m_ObjectHideFlags: 1
