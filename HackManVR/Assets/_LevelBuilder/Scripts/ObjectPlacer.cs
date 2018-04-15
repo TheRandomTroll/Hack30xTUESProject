@@ -80,7 +80,7 @@ public class ObjectPlacer : MonoBehaviour {
             {
                 PlaceBuildShadow(gridPosition);
             }
-            SetYRotation(instantiatedShadow);
+            if(instantiatedShadow) SetYRotation(instantiatedShadow);
             PlaceObject(hit, gridPosition);
         }
         else if(hit.transform.gameObject.tag == "ItemFrame")
