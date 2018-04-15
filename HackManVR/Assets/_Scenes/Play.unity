@@ -3337,6 +3337,11 @@ Prefab:
       propertyPath: m_Name
       value: Navmesh
       objectReference: {fileID: 0}
+    - target: {fileID: 114807205599022632, guid: 418c9bd951a70ba4ea6a2ed6f582e9bb,
+        type: 2}
+      propertyPath: bakeAtStart
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 418c9bd951a70ba4ea6a2ed6f582e9bb, type: 2}
   m_IsPrefabParent: 0

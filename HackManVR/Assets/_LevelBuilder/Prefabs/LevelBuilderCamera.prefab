@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 114188560902603540}
   - component: {fileID: 114657884490235950}
   - component: {fileID: 114743222575989416}
+  - component: {fileID: 114985898851781710}
   m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -228,12 +229,12 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -519,6 +520,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   maxRaycastHits: 64
+--- !u!114 &114985898851781710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1772964032497782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: bf75b0ac29cc6454fa156710e877b222, type: 2}
 --- !u!120 &120123407925200816
 LineRenderer:
   m_ObjectHideFlags: 1
