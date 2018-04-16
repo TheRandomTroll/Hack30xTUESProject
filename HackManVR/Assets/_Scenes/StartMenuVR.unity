@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003495894, g: 0.003495894, b: 0.003495894, a: 1}
+  m_IndirectSpecularColor: {r: 0.0035453066, g: 0.0037127617, b: 0.0035453066, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -298,31 +298,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 126.5, y: 67.03125, z: 0}
-  m_Center: {x: 63.25, y: -33.515625, z: 0}
---- !u!65 &585925119
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 585925117}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 126.5, y: 67.03125, z: 0}
-  m_Center: {x: 63.25, y: -33.515625, z: 0}
---- !u!65 &585925120
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 585925117}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 126.5, y: 67.03125, z: 0}
+  m_Size: {x: 126.5, y: 67.03125, z: 10}
   m_Center: {x: 63.25, y: -33.515625, z: 0}
 --- !u!1 &768248142 stripped
 GameObject:
@@ -339,19 +315,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 317.50006, y: 67.03125, z: 0}
-  m_Center: {x: 158.75003, y: -33.515625, z: 0}
---- !u!65 &768248144
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 768248142}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 317.50006, y: 67.03125, z: 0}
+  m_Size: {x: 317.50006, y: 67.03125, z: 10}
   m_Center: {x: 158.75003, y: -33.515625, z: 0}
 --- !u!1001 &819173985
 Prefab:
@@ -521,6 +485,23 @@ Prefab:
     - target: {fileID: 1745560940117862, guid: 4709aadd58197344386bb9a8ebcadcf8, type: 2}
       propertyPath: m_TagString
       value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 20420495941142888, guid: 4709aadd58197344386bb9a8ebcadcf8,
+        type: 2}
+      propertyPath: field of view
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318763133783466, guid: 4709aadd58197344386bb9a8ebcadcf8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318763133783466, guid: 4709aadd58197344386bb9a8ebcadcf8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318763133783466, guid: 4709aadd58197344386bb9a8ebcadcf8, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4709aadd58197344386bb9a8ebcadcf8, type: 2}
@@ -791,5 +772,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 227.50006, y: 67.03125, z: 0}
+  m_Size: {x: 227.50006, y: 67.03125, z: 10}
   m_Center: {x: 113.75003, y: -33.515625, z: 0}
