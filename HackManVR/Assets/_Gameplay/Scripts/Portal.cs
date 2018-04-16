@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -29,36 +30,63 @@ public class Portal : MonoBehaviour {
 
     private void Update()
     {
+        if(connectedPortal)
+        {
+            SimulatePlayerLookingThroughCamera(frontCamera, connectedPortal.backPlane);
+            SimulatePlayerLookingThroughCamera(backCamera, connectedPortal.frontPlane);
+        }
+    }
 
+    private void SimulatePlayerLookingThroughCamera(Camera camera, GameObject renderPlane)
+    {
+        /*
+        Vector3 playerOffsetFromPortal = playerCamera.position - renderPlane.transform.position;
+        camera.transform.position = transform.position + playerOffsetFromPortal;
+        
+        float angularDifferenceBetweenPortalRotations = Quaternion.Angle(portal.rotation, otherPortal.rotation);
+
+        Quaternion portalRotationalDifference = Quaternion.AngleAxis(angularDifferenceBetweenPortalRotations, Vector3.up);
+        Vector3 newCameraDirection = portalRotationalDifference * playerCamera.forward;
+        transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
+        */
     }
 
     private IEnumerator SetPortalConnections()
     {
-        var portals = FindObjectsOfType<Portal>();
-        if (portals.Length == 1) // Only this portal
+        while (true)
         {
-            Debug.LogWarning("hello");
-            if (destroyIfNoPortals)
+            var portals = FindObjectsOfType<Portal>();
+            foreach (Portal portal in portals)
+            {
+                if (portal != this && portal.connectedPortal == null)
+                {
+                    SetupPortalConnection(portal);
+                    yield break;
+                }
+            }
+            if(destroyIfNoPortals)
             {
                 Destroy(gameObject);
+                break;
             }
             else
             {
-                yield return new WaitForEndOfFrame();
-            }
-        }
-
-        foreach (Portal portal in portals)
-        {
-            if (portal != this)
-            {
-                connectedPortal = portal;
-                SetCameraToRenderSurface(connectedPortal.frontCamera, backPlane);
-                SetCameraToRenderSurface(connectedPortal.backCamera, frontPlane);
-                break;
+                yield return new WaitForSeconds(1);
             }
         }
     }
+
+
+    private void SetupPortalConnection(Portal portal)
+    {
+        connectedPortal = portal;
+        portal.connectedPortal = this;
+        SetCameraToRenderSurface(connectedPortal.frontCamera, backPlane);
+        SetCameraToRenderSurface(connectedPortal.backCamera, frontPlane);
+        SetCameraToRenderSurface(frontCamera, connectedPortal.backPlane);
+        SetCameraToRenderSurface(backCamera, connectedPortal.frontPlane);
+    }
+
 
     private void SetCameraToRenderSurface(Camera targetCamera, GameObject targetSurface)
     {
