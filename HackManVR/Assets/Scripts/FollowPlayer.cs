@@ -14,7 +14,7 @@ public class FollowPlayer : MonoBehaviour {
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         firstPrsCamera = GameObject.Find("First Person Camera").GetComponent<Camera>();
         staticPrsCamera = GameObject.Find("Static Camera").GetComponent<Camera>();
     }

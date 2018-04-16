@@ -17,6 +17,7 @@ public class PreviewLevel : MonoBehaviour {
         levelLoader = FindObjectOfType<LoadLevel>();
 
         lastFrameLevelIndex = getNumberUI.GetIndex();
+        levelLoader.Load(getNumberUI.GetIndex());
 	}
 	
 

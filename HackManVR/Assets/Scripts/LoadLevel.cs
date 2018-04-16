@@ -9,7 +9,9 @@ public class LoadLevel : MonoBehaviour {
 
     private WorldGrid worldGrid;
     private LevelEditorGrid levelGrid;
-    void Start()
+
+    // TODO: Implement loading different level directories
+    void Awake()
     {
         generator = FindObjectOfType<GenerateLevel>();
         worldGrid = FindObjectOfType<WorldGrid>();

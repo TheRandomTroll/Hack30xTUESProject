@@ -17,7 +17,6 @@ public class GenerateLevel : MonoBehaviour {
 
     [SerializeField] private NavigationMesh navMesh; // TODO: Remove SerializeField;
     private int currentGhostIndex;
-    private int portalIndex = 0;
 
     void Start()
     {
@@ -27,6 +26,7 @@ public class GenerateLevel : MonoBehaviour {
 
     public void LoadLevelInfo()
     {
+        currentGhostIndex = 0;
         foreach (Vector3 position in levelDict.Keys)
         {
             MapTypes.Spawn value = levelDict[position];

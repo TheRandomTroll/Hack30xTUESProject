@@ -39,10 +39,12 @@ public class Portal : MonoBehaviour {
 
     private void SimulatePlayerLookingThroughCamera(Camera camera, GameObject renderPlane)
     {
-        /*
-        Vector3 playerOffsetFromPortal = playerCamera.position - renderPlane.transform.position;
-        camera.transform.position = transform.position + playerOffsetFromPortal;
         
+        Vector3 playerOffsetFromPortal = playerCamera.position - renderPlane.transform.position;
+        camera.transform.position = renderPlane.transform.position;
+        camera.transform.Translate(transform.position + playerOffsetFromPortal, camera.transform.parent);
+        
+        /*
         float angularDifferenceBetweenPortalRotations = Quaternion.Angle(portal.rotation, otherPortal.rotation);
 
         Quaternion portalRotationalDifference = Quaternion.AngleAxis(angularDifferenceBetweenPortalRotations, Vector3.up);

@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/UserCreation.unity
     guid: 8b624005613345b48b997a4819de5ccb
   - enabled: 1
+    path: Assets/_Scenes/LoadedLevel.unity
+    guid: c91607ad7aba0ba4d92b81c6dcee220f
+  - enabled: 1
     path: Assets/_Scenes/LevelPicker.unity
     guid: 282919fea9697b646bd6a68ab7bbc27c
   - enabled: 1
