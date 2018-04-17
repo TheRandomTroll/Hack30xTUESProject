@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4959113383147730}
   - component: {fileID: 33285562444275184}
   - component: {fileID: 23441764782513238}
-  - component: {fileID: 114491871786281768}
   - component: {fileID: 65319825503397790}
   - component: {fileID: 195429742666450030}
+  - component: {fileID: 114915533242677778}
   m_Layer: 0
   m_Name: Clyde
   m_TagString: Ghost
@@ -99,7 +99,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.02, y: 3.621244, z: 3.217168}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114491871786281768
+--- !u!114 &114915533242677778
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,21 +107,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1169825822449974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740f5a50b25287c489e8c8c4d7c08558, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f21f5109d5d1f242b548349391a4990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bigPointMarkersChecker: 00000000
-  bigPointMarker:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  playerBlinky: {fileID: 0}
-  playerPinky: {fileID: 0}
-  Base: {fileID: 0}
-  marker: {fileID: 0}
+  currentState: 3
+  activationTime: 10
+  bigpointDuration: 0
+  pacman: {fileID: 0}
   navAgent: {fileID: 0}
-  bigPointEaten: 0
 --- !u!195 &195429742666450030
 NavMeshAgent:
   m_ObjectHideFlags: 1
