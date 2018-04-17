@@ -21,10 +21,14 @@ public class GenerateLevel : MonoBehaviour {
     [SerializeField] [Tooltip("For ground and wall only")]
     private int scaleValue = 1;
 
+    private GameObject environment;
+
     void Start()
     {
         navMesh = FindObjectOfType<NavigationMesh>();
         worldGrid = FindObjectOfType<WorldGrid>();
+        environment = new GameObject("Environment");
+
     }
 
     public void LoadLevelInfo()
@@ -98,7 +102,8 @@ public class GenerateLevel : MonoBehaviour {
         
         gameObj.AddComponent<CanRemove>(); // Don't remove!
 
-        Vector2Int position = new Vector2Int((int) positionRotation.x, (int) positionRotation.y); if (gameObj.tag == "Wall" || gameObj.tag == "Ground")
+        Vector2Int position = new Vector2Int((int) positionRotation.x, (int) positionRotation.y);
+        if (gameObj.tag == "Wall" || gameObj.tag == "Ground")
         {
             gameObj.transform.localScale *= scaleValue;
         }

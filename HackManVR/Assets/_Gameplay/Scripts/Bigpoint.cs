@@ -8,7 +8,7 @@ public class Bigpoint : Point {
     {
         if(other.tag == "Player")
         {
-            FindObjectOfType<MovementPacMan>().EatBigpoint();
+            FindObjectOfType<Pacman>().EatBigpoint();
         }
         base.OnTriggerEnter(other);
     }

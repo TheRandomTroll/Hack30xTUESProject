@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33418793188583306}
   - component: {fileID: 65880253857638084}
   - component: {fileID: 23999178013501834}
+  - component: {fileID: 114386775314805082}
   m_Layer: 9
   m_Name: PlayGround
   m_TagString: Ground
@@ -95,3 +96,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114386775314805082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556721645125678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8b4518be2f83f47b0a788321bcdea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

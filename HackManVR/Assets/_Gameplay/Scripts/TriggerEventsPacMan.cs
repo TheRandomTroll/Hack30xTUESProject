@@ -12,7 +12,7 @@ public class TriggerEventsPacMan : MonoBehaviour
     public MovementGhosts movementScriptInky;
     public MovementGhosts movementScriptClyde;
 
-    public MovementPacMan movementScriptPacMan;
+    public Pacman movementScriptPacMan;
     public Transform player;
 
     private AudioSource MainAudio;
@@ -29,7 +29,7 @@ public class TriggerEventsPacMan : MonoBehaviour
         movementScriptClyde = GameObject.Find("Clyde").GetComponent<MovementGhosts>();
 
         player = GameObject.Find("Player").GetComponent<Transform>();
-        movementScriptPacMan = player.GetComponent<MovementPacMan>();
+        movementScriptPacMan = player.GetComponent<Pacman>();
     }
 
     private void OnTriggerEnter(Collider collider)

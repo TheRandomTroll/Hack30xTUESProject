@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MovementPacMan : MonoBehaviour {
+public class Pacman : MonoBehaviour {
 
     public bool rotateBack = true;
     public bool rotateForward = true;
@@ -83,7 +83,10 @@ public class MovementPacMan : MonoBehaviour {
     public void EatBigpoint()
     {
         bigPointEaten = true;
-        // TODO: Send message to Ghosts.
+        foreach(Ghost ghost in FindObjectsOfType<Ghost>())
+        {
+            ghost.PlayerHasEatenBigPoint();
+        }
         StartCoroutine(BigpointDuration());
     }
 
@@ -91,5 +94,11 @@ public class MovementPacMan : MonoBehaviour {
     {
         yield return new WaitForSeconds(bigpointDuration);
         bigPointEaten = false;
+    }
+
+
+    public float GetBigPointDuration()
+    {
+        return bigpointDuration;
     }
 }
