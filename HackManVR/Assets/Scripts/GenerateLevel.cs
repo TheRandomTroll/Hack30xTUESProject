@@ -18,6 +18,9 @@ public class GenerateLevel : MonoBehaviour {
     [SerializeField] private NavigationMesh navMesh; // TODO: Remove SerializeField;
     private int currentGhostIndex;
 
+    [SerializeField] [Tooltip("For ground and wall only")]
+    private int scaleValue = 1;
+
     void Start()
     {
         navMesh = FindObjectOfType<NavigationMesh>();
@@ -92,10 +95,15 @@ public class GenerateLevel : MonoBehaviour {
         if (!toInstantiate) return null;
         GameObject gameObj = Instantiate(toInstantiate);
         
+        
         gameObj.AddComponent<CanRemove>(); // Don't remove!
 
-        Vector2Int position = new Vector2Int((int) positionRotation.x, (int) positionRotation.y);
-        if(worldGrid) worldGrid.AddToGrid(position, gameObj);
+        Vector2Int position = new Vector2Int((int) positionRotation.x, (int) positionRotation.y); if (gameObj.tag == "Wall" || gameObj.tag == "Ground")
+        {
+            gameObj.transform.localScale *= scaleValue;
+        }
+        position *= scaleValue;
+        if (worldGrid) worldGrid.AddToGrid(position, gameObj);
         gameObj.transform.position = new Vector3(position.x, gameObj.transform.position.y, position.y);
 
         Vector3 rotation = gameObj.transform.eulerAngles;

@@ -71,3 +71,4 @@ MonoBehaviour:
   - {fileID: 1816911016671820, guid: 0bdaa0e54083728489c59448d069321a, type: 2}
   - {fileID: 1939144719831688, guid: 95c993f22467fa4478b1255ceb6073ca, type: 2}
   navMesh: {fileID: 0}
+  scaleValue: 2
