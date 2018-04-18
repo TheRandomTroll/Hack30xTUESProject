@@ -63,7 +63,7 @@ MonoBehaviour:
     type: 2}
   pointPrefab: {fileID: 1853779807723182, guid: f9699e026f035404d8a7de9b17effcfb,
     type: 2}
-  bigpointPrefab: {fileID: 1162404777689166, guid: 36b3dbfc4392b13409f01beefa793f8e,
+  bigpointPrefab: {fileID: 1824872390440194, guid: d00cd7aafa3a9b742827a8d2e6747a89,
     type: 2}
   ghosts:
   - {fileID: 1623687975126496, guid: 54cbbf5aa808d3a4ba9c425b8b6ef6a2, type: 2}
@@ -71,3 +71,4 @@ MonoBehaviour:
   - {fileID: 1623687975126496, guid: 54cbbf5aa808d3a4ba9c425b8b6ef6a2, type: 2}
   - {fileID: 1623687975126496, guid: 54cbbf5aa808d3a4ba9c425b8b6ef6a2, type: 2}
   navMesh: {fileID: 0}
+  scaleValue: 1
