@@ -111,10 +111,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 3
-  activationTime: 23
-  bigpointDuration: 0
-  pacman: {fileID: 0}
-  navAgent: {fileID: 0}
+  ghostBehaviours: []
+  currentStateTimer: 0
+  currentStateIndex: 0
+  bigpointDurationLeft: 0
+  activationTime: 0
+  currentTravelDestination: {fileID: 0}
+  blocksAhead: 4
 --- !u!195 &195231617336378938
 NavMeshAgent:
   m_ObjectHideFlags: 1

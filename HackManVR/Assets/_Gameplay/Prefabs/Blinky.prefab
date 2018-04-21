@@ -94,7 +94,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1374743269683902}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.217168, y: 3.621244, z: 3.217168}
@@ -111,10 +111,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 3
-  activationTime: 3
-  bigpointDuration: 0
-  pacman: {fileID: 0}
-  navAgent: {fileID: 0}
+  ghostBehaviours:
+  - state: 2
+    stateTime: 5
+  - state: 1
+    stateTime: 10
+  - state: 2
+    stateTime: 5
+  - state: 1
+    stateTime: 0
+  currentStateTimer: 0
+  currentStateIndex: 0
+  bigpointDurationLeft: 0
+  activationTime: 6
+  currentTravelDestination: {fileID: 0}
 --- !u!195 &195536494866113058
 NavMeshAgent:
   m_ObjectHideFlags: 1

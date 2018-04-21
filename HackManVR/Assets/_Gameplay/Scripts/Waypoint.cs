@@ -3,14 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Waypoint : MonoBehaviour {
-
-	// Use this for initialization
+    
 	void Start () {
-		
+        gameObject.GetComponentInChildren<TextMesh>().text = FindObjectOfType<GroundMap>().GetGridPosition(gameObject) + "";
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

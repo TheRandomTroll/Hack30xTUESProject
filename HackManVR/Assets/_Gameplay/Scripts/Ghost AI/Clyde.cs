@@ -3,5 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Clyde : Ghost {
-    
+
+    protected override void PursueBehaviour()
+    {
+
+    }
 }
