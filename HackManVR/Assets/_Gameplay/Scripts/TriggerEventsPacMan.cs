@@ -58,7 +58,12 @@ public class TriggerEventsPacMan : MonoBehaviour
                 movementScriptPacMan.rotateRight = false;
             }
         }
-        
+
+        if (collider.tag == "Point")
+        {
+            Destroy(collider.gameObject);
+            FindObjectOfType<PointManager>().points++;
+        }
 
         if (collider.tag == "Ghost")
         {

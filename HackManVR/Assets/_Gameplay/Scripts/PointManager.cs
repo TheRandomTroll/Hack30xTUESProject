@@ -12,9 +12,17 @@ public class PointManager : MonoBehaviour {
     {
         // Todo: AddPoints(previousLevel.points)
         text = GetComponent<Text>();
-        UpdatePointText();
     }
 
+    private void Update()
+    {
+        AddPoints(points);
+        if (points == 20)
+        {
+            Debug.Log("You win");
+            Time.timeScale = 0;
+        }
+    }
 
     public void AddPoints(int points)
     {

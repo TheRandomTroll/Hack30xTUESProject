@@ -14,7 +14,7 @@ public class MovementPacMan : MonoBehaviour {
 
     public bool canMove = true;
 
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed = 8;
     [SerializeField] private float bigpointDuration = 10;
 
     private int way;
