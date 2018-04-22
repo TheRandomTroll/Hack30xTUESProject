@@ -103,6 +103,9 @@ public class Ghost : MonoBehaviour {
             }
             GetComponent<MeshRenderer>().material.color = previousColor;
             currentState = previousState;
+
+            currentTravelDestination = null;
+            navAgent.SetDestination(transform.position); // Stop
         }
     }
 
