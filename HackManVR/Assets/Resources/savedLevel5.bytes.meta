@@ -1,9 +1,8 @@
 fileFormatVersion: 2
-guid: 49e310ca7bf18b24b98aa6fdaa7c0665
-folderAsset: yes
-timeCreated: 1460409800
+guid: ad2433f0b4c1d244d90ac76adf623e7f
+timeCreated: 1524437499
 licenseType: Free
-DefaultImporter:
+TextScriptImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 

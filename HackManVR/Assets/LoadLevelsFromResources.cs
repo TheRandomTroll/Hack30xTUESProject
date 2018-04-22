@@ -8,9 +8,14 @@ public class LoadLevelsFromResources : MonoBehaviour {
     
 	void Start ()
     {
+        LoadLevelFromResources(1);
+    }
+
+    private static void LoadLevelFromResources(int index)
+    {
         BinaryFormatter bf = new BinaryFormatter();
-        TextAsset binData = Resources.Load("savedLevel0") as TextAsset;
-        if (binData == null) Debug.LogWarning("Cant find!");
+        TextAsset binData = Resources.Load("savedLevel" + index) as TextAsset;
+        if (binData == null) Debug.LogError("Cant find!");
         MemoryStream binaryFile = new MemoryStream(binData.bytes);
         LevelInfo chosenLevel = bf.Deserialize(binaryFile) as LevelInfo;
 
