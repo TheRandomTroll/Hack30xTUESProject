@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4704412358221368}
   - component: {fileID: 33717709078480116}
   - component: {fileID: 23984097631238502}
-  - component: {fileID: 114186456622069358}
+  - component: {fileID: 54438777935407706}
   - component: {fileID: 65929056102992634}
   - component: {fileID: 195231617336378938}
+  - component: {fileID: 114096918475436634}
   m_Layer: 0
   m_Name: Pinky
   m_TagString: Ghost
@@ -87,6 +88,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1939144719831688}
   m_Mesh: {fileID: 4300000, guid: 769ebe7c19e5bfe41a345afba00148af, type: 3}
+--- !u!54 &54438777935407706
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939144719831688}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65929056102992634
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -99,7 +115,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.217168, y: 3.621244, z: 3.217168}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114186456622069358
+--- !u!114 &114096918475436634
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,21 +123,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1939144719831688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740f5a50b25287c489e8c8c4d7c08558, type: 3}
+  m_Script: {fileID: 11500000, guid: d0bb704df9ffd2549b180ecb7da406c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bigPointMarkersChecker: 00000000
-  bigPointMarker:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  playerBlinky: {fileID: 0}
-  playerPinky: {fileID: 0}
-  Base: {fileID: 0}
-  marker: {fileID: 0}
-  navAgent: {fileID: 0}
-  bigPointEaten: 0
+  currentState: 3
+  ghostBehaviours:
+  - state: 2
+    stateTime: 2
+  - state: 1
+    stateTime: 15
+  - state: 2
+    stateTime: 10
+  - state: 1
+    stateTime: 0
+  currentStateTimer: 0
+  currentStateIndex: 0
+  bigpointDurationLeft: 0
+  activationTime: 0
+  currentTravelDestination: {fileID: 0}
+  blocksAhead: 4
 --- !u!195 &195231617336378938
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -131,7 +151,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.608584
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

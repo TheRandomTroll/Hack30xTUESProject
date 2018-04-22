@@ -770,7 +770,7 @@ MonoBehaviour:
   rotateLeft: 1
   rotateRight: 1
   canMove: 1
-  speed: 2
+  speed: 4
   bigpointDuration: 5
   bigPointEaten: 0
   isPaused: 0
