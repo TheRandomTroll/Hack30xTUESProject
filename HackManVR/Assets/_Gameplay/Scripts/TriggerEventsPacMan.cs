@@ -6,36 +6,19 @@ using UnityEngine.UI;
 
 public class TriggerEventsPacMan : MonoBehaviour
 {
-
-    public MovementGhosts movementScriptBlinky;
-    public MovementGhosts movementScriptPinky;
-    public MovementGhosts movementScriptInky;
-    public MovementGhosts movementScriptClyde;
+    
 
     public Pacman movementScriptPacMan;
     public Transform player;
 
-    private AudioSource MainAudio;
-    public AudioClip PointSound;
-    public AudioClip BigPointSound;
-    public AudioClip CherrySound;
-    public AudioClip GameOverSound;
-
     private void Start()
     {
-        movementScriptBlinky = GameObject.Find("Blinky").GetComponent<MovementGhosts>();
-        movementScriptPinky = GameObject.Find("Pinky").GetComponent<MovementGhosts>();
-        movementScriptInky = GameObject.Find("Inky").GetComponent<MovementGhosts>();
-        movementScriptClyde = GameObject.Find("Clyde").GetComponent<MovementGhosts>();
-
-        player = GameObject.Find("Player").GetComponent<Transform>();
-        movementScriptPacMan = player.GetComponent<Pacman>();
+        movementScriptPacMan = FindObjectOfType<Pacman>();
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        MainAudio = GetComponent<AudioSource>();
-        if (collider.tag == "Obstacle")
+        if (collider.tag == "Wall")
         {
             if (name == "detectorFront")
             {
@@ -58,40 +41,11 @@ public class TriggerEventsPacMan : MonoBehaviour
                 movementScriptPacMan.rotateRight = false;
             }
         }
-        
-
-        if (collider.tag == "Ghost")
-        {
-            Debug.Log("Game Over");
-            if(FindObjectOfType<ChangeCamera>().firstPersonCamera.enabled)
-            {
-                PlayerPrefs.SetInt("camera", 1);
-            }
-
-            else if(!FindObjectOfType<ChangeCamera>().firstPersonCamera.enabled)
-            {
-                Debug.Log("Second");
-                PlayerPrefs.SetInt("camera", 2);
-            }
-            if(FindObjectOfType<Pacman>().bigPointEaten)
-            {
-                StartCoroutine(Respawn(collider.gameObject, collider.gameObject.transform));
-                Destroy(collider.gameObject);
-                
-            }
-            else
-            {
-                StartCoroutine(Restart());
-            }
-
-            MainAudio.clip = GameOverSound;
-            MainAudio.Play();
-        }
     }
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.tag == "Obstacle")
+        if (collider.tag == "Wall")
         {
             if (this.name == "detectorFront")
             {
@@ -113,16 +67,5 @@ public class TriggerEventsPacMan : MonoBehaviour
                 movementScriptPacMan.rotateRight = true;
             }
         }
-    }
-
-    private IEnumerator Restart()
-    {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-    private IEnumerator Respawn(GameObject obj, Transform pos)
-    {
-        yield return new WaitForSeconds(5);
-        Instantiate(obj, pos);
     }
 }

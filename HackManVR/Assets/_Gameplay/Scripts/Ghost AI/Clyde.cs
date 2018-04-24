@@ -13,8 +13,7 @@ public class Clyde : Ghost {
     {
         float distance = Vector3.Distance(pacman.transform.position, transform.position);
         distance /= map.GetGridSize();
-
-        Debug.Log("Player distance to Clyde: " + distance);
+        
        
         if (distance >= distanceBetweenSwitching)
         {

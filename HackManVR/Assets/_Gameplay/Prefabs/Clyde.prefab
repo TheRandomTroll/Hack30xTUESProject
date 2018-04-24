@@ -137,7 +137,10 @@ MonoBehaviour:
   currentStateTimer: 0
   currentStateIndex: 0
   bigpointDurationLeft: 0
+  blinkStartTime: 2
+  blinkFrequency: 1
   activationTime: 1
+  ghostColor: {r: 0, g: 0, b: 0, a: 0}
   currentTravelDestination: {fileID: 0}
   distanceBetweenSwitching: 5
 --- !u!195 &195429742666450030

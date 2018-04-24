@@ -24,8 +24,8 @@ public class Portal : MonoBehaviour {
 	void Start ()
     {
         StartCoroutine(SetPortalConnections());
-        playerCamera = Camera.main.transform;
-        playerCameraParent = playerCamera.parent;
+        playerCameraParent = FindObjectOfType<FollowPlayer>().transform;
+        playerCamera = playerCameraParent.GetComponent<FollowPlayer>().firstPrsCamera.transform;
     }
 
     private void Update()

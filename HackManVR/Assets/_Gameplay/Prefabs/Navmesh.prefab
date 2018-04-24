@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshSurface: {fileID: 0}
+  bakeAtStart: 0
 --- !u!114 &114930611569421380
 MonoBehaviour:
   m_ObjectHideFlags: 1

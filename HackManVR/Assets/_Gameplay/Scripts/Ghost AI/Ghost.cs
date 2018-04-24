@@ -8,7 +8,7 @@ using System.Linq;
 
 public class Ghost : MonoBehaviour {
     
-    public enum GhostState { Frightened, Pursue, MovingAround, NotActivated}
+    public enum GhostState { Frightened, Pursue, MovingAround, NotActivated, Respawning }
 
     [SerializeField] public GhostState currentState = GhostState.NotActivated;
 
@@ -17,40 +17,44 @@ public class Ghost : MonoBehaviour {
     [SerializeField] private int currentStateIndex = 0;
     [SerializeField] private float bigpointDurationLeft = 0;
 
+    [SerializeField] private float blinkStartTime = 2f;
+    [SerializeField] private float blinkFrequency = 1;
 
     [SerializeField] private float activationTime;
+
+    [SerializeField] private Color ghostColor;
     private float bigpointDuration;
 
     protected Pacman pacman;
     protected NavMeshAgent navAgent;
     protected GroundMap map;
 
-    private Vector3 startingPosition;
+    private Waypoint startingWaypoint;
 
     [SerializeField] protected Waypoint currentTravelDestination;
 
 
-
-
     void Start () {
-        startingPosition = transform.position;
         navAgent = GetComponent<NavMeshAgent>();
         pacman = FindObjectOfType<Pacman>();
         bigpointDuration = pacman.GetBigPointDuration();
         map = FindObjectOfType<GroundMap>();
         StartCoroutine(GhostActivation());
+        ghostColor = GetComponent<MeshRenderer>().material.color;
+
+        navAgent.autoBraking = true;
 	}
 	
 
 	void Update () {
-        if (currentState == GhostState.NotActivated) return;
+        if (currentState == GhostState.NotActivated || currentState == GhostState.Respawning) return;
         StateSwitch();
         ExecuteGhostStateLogic();
 	}
 
     private void StateSwitch()
     {
-        if (currentState == GhostState.Frightened) return;
+        if (currentState == GhostState.Frightened || currentState == GhostState.Respawning) return;
         currentStateTimer += Time.deltaTime;
         GhostBehaviourTime ghostBehaviour = ghostBehaviours[currentStateIndex];
         if(currentStateIndex < ghostBehaviours.Length - 1 && currentStateTimer >= ghostBehaviour.stateTime)
@@ -92,8 +96,32 @@ public class Ghost : MonoBehaviour {
         // URGENT TODO:
         // Otiva obratno mnogo burzo v starting position.
         // Premigva dokato go pravi.
-        // 
+        StartCoroutine(EatenCoroutine());
+    }
 
+    private IEnumerator EatenCoroutine()
+    {
+        currentState = GhostState.Respawning;
+        Waypoint currentWaypoint = map.GetWaypointOfObject(gameObject);
+        navAgent.SetDestination(startingWaypoint.transform.position);
+        float startSpeed = navAgent.speed;
+        navAgent.speed *= 10;
+        GetComponent<BoxCollider>().enabled = false;
+        startingWaypoint.GetComponent<MeshRenderer>().material.color = ghostColor;
+        while (currentWaypoint != startingWaypoint)
+        {
+            currentWaypoint = map.GetWaypointOfObject(gameObject);
+            Debug.Log("is in eaten Coroutine");
+            yield return new WaitForEndOfFrame();
+        }
+
+        navAgent.speed = startSpeed;
+        Debug.Log("exited EatenCoroutine!");
+        currentState = ghostBehaviours[currentStateIndex].state;
+
+        GetComponent<MeshRenderer>().enabled = true;
+        GetComponent<MeshRenderer>().material.color = ghostColor;
+        GetComponent<BoxCollider>().enabled = true;
     }
 
 
@@ -101,6 +129,7 @@ public class Ghost : MonoBehaviour {
     {
         yield return new WaitForSeconds(activationTime);
         currentState = GhostState.MovingAround;
+        startingWaypoint = map.GetWaypointOfObject(gameObject);
         HashSet<Waypoint> waypoints = map.GetAllWaypointsInRange(gameObject, 0, 5);
         GhostBehaviourTime ghostBehaviour = ghostBehaviours[currentStateIndex];
         currentState = ghostBehaviour.state;
@@ -116,21 +145,50 @@ public class Ghost : MonoBehaviour {
 
     private IEnumerator EnterFrightenedState()
     {
-
+        if (currentState == GhostState.Respawning) yield break;
         bigpointDurationLeft += bigpointDuration;
+
+        // in case bigpoint eaten a second time!
+        GetComponent<MeshRenderer>().material.color = ghostColor; 
+        float blinkMax = 1 / blinkFrequency;
+        float blinkTimer = 0;
+
         if (currentState != GhostState.Frightened)
         {
-            GhostState previousState = currentState;
             currentState = GhostState.Frightened;
-            Color previousColor = GetComponent<MeshRenderer>().material.color;
             GetComponent<MeshRenderer>().material.color = Color.blue;
+
+
+            
             while (bigpointDurationLeft >= 0)
             {
                 bigpointDurationLeft -= Time.deltaTime;
+                if (bigpointDurationLeft <= blinkStartTime)
+                {
+                    blinkTimer += Time.deltaTime;
+                    if (blinkTimer >= blinkMax)
+                    {
+                        MeshRenderer renderer = GetComponent<MeshRenderer>();
+                        if (renderer.material.color == ghostColor)
+                        {
+                            renderer.material.color = Color.blue;
+                        }
+                        else
+                        {
+                            renderer.material.color = ghostColor;
+                        }
+                        blinkTimer = 0;
+                    }
+
+                    if(currentState == GhostState.Respawning)
+                    {
+                        yield break;
+                    }
+                }
                 yield return new WaitForEndOfFrame();
             }
-            GetComponent<MeshRenderer>().material.color = previousColor;
-            currentState = previousState;
+            GetComponent<MeshRenderer>().material.color = ghostColor;
+            currentState = ghostBehaviours[currentStateIndex].state;
 
             currentTravelDestination = null;
             navAgent.SetDestination(transform.position); // Stop

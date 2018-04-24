@@ -31,14 +31,11 @@ public class Pacman : MonoBehaviour {
     void Update()
     {
 
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Space) && canMove == true)
         {
             canMove = false;
         }
-        else
-        {
-            canMove = true;
-        }
+
         if (canMove)
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -92,8 +89,10 @@ public class Pacman : MonoBehaviour {
 
     private IEnumerator BigpointDuration()
     {
+        speed *= 1.5f;
         yield return new WaitForSeconds(bigpointDuration);
         bigPointEaten = false;
+        speed /= 1.5f;
     }
 
 
@@ -109,6 +108,13 @@ public class Pacman : MonoBehaviour {
         {
             if (bigPointEaten)
             {
+                FindObjectOfType<PointManager>().AddPoints(1000); // TODO: Add SerializeField.
+                // V takiva momenti kato komentiram da addna serializefield osuznavam kolko sum murzeliv
+                // i zapochvam da se chudq kak vuobshte si otvarqm ochite sutrinta.
+                // dazhe mozheshe da go dobavq serializefield dokato pisha tozi komentar.
+                // mozheshe i sega...
+                // i sega.....
+                // :'(
                 other.GetComponent<Ghost>().GetEaten();
             }
             else
