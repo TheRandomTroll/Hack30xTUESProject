@@ -93,7 +93,7 @@ public class Ghost : MonoBehaviour {
         // Otiva obratno mnogo burzo v starting position.
         // Premigva dokato go pravi.
         // 
-        throw new NotImplementedException();
+
     }
 
 
