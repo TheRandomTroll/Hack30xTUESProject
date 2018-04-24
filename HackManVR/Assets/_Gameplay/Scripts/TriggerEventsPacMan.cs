@@ -73,7 +73,17 @@ public class TriggerEventsPacMan : MonoBehaviour
                 Debug.Log("Second");
                 PlayerPrefs.SetInt("camera", 2);
             }
-            StartCoroutine(Restart());
+            if(FindObjectOfType<Pacman>().bigPointEaten)
+            {
+                StartCoroutine(Respawn(collider.gameObject, collider.gameObject.transform));
+                Destroy(collider.gameObject);
+                
+            }
+            else
+            {
+                StartCoroutine(Restart());
+            }
+
             MainAudio.clip = GameOverSound;
             MainAudio.Play();
         }
@@ -109,5 +119,10 @@ public class TriggerEventsPacMan : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    private IEnumerator Respawn(GameObject obj, Transform pos)
+    {
+        yield return new WaitForSeconds(5);
+        Instantiate(obj, pos);
     }
 }

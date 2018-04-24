@@ -16,6 +16,7 @@ public class ChangeCamera : MonoBehaviour {
         firstPersonCamera = GameObject.Find("First Person Camera").GetComponent<Camera>();
         staticCamera = GameObject.Find("Static Camera").GetComponent<Camera>();
         rawImage = GameObject.Find("RawImage").GetComponent<RawImage>();
+        
     }
 
     // Use this for initialization
@@ -24,6 +25,8 @@ public class ChangeCamera : MonoBehaviour {
             firstPersonCamera.enabled = true;
         else if(PlayerPrefs.GetInt("camera", 1) == 2)
             staticCamera.enabled = true;
+        staticCamera.enabled = true;
+        firstPersonCamera.enabled = false;
     }
 	
 	// Update is called once per frame
@@ -32,6 +35,7 @@ public class ChangeCamera : MonoBehaviour {
         {
             staticCamera.enabled = !staticCamera.enabled;
             firstPersonCamera.enabled = !firstPersonCamera.enabled;
+            rawImage.enabled = !rawImage.enabled;
             staticCamera.transform.eulerAngles = new Vector3(90, 0, 0);
             //rawImage.enabled = !rawImage.enabled;
         }
