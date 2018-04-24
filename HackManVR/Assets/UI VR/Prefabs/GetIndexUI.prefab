@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4415001664856758}
   - component: {fileID: 114306192055773562}
-  - component: {fileID: 114382416602902550}
   m_Layer: 0
   m_Name: GetIndexUI
   m_TagString: Untagged
@@ -57,7 +56,7 @@ GameObject:
   - component: {fileID: 102606410228962348}
   - component: {fileID: 114208295762108482}
   - component: {fileID: 114766245012594886}
-  - component: {fileID: 65024250513032420}
+  - component: {fileID: 65447873825073664}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -96,7 +95,7 @@ GameObject:
   - component: {fileID: 102003378211526902}
   - component: {fileID: 114508691948377540}
   - component: {fileID: 114951618553130600}
-  - component: {fileID: 65986855107342400}
+  - component: {fileID: 65012868084053068}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -136,8 +135,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1194930415407324}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.6, y: -0.8, z: 1.27}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 26.656778, y: 17.35, z: 10.245016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4368217030042560}
@@ -146,7 +145,7 @@ Transform:
   - {fileID: 4981222687835474}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4525060939769714
 Transform:
   m_ObjectHideFlags: 1
@@ -309,19 +308,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65024250513032420
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1548168907750184}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 44.000015, y: 83.78906, z: 6.252776e-13}
-  m_Center: {x: 22.000008, y: -41.89453, z: -3.126388e-13}
---- !u!65 &65986855107342400
+--- !u!65 &65012868084053068
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -331,8 +318,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 44.000015, y: 83.78906, z: 6.252776e-13}
-  m_Center: {x: 21.999992, y: -41.89453, z: 3.126388e-13}
+  m_Size: {x: 44.000015, y: 83.78906, z: 10}
+  m_Center: {x: 22.000008, y: -41.89453, z: 0.000030517578}
+--- !u!65 &65447873825073664
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548168907750184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 44.000015, y: 83.78906, z: 10}
+  m_Center: {x: 22.000008, y: -41.89453, z: -3.126388e-13}
 --- !u!102 &102003378211526902
 TextMesh:
   serializedVersion: 3
@@ -431,7 +430,7 @@ MonoBehaviour:
   outsideTrigger: 0
   startTriggerTimer: 0.1
   input: 323
-  alternative: Backward
+  alternative: Right
 --- !u!114 &114306192055773562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -447,17 +446,6 @@ MonoBehaviour:
   right: {fileID: 114508691948377540}
   indexText: {fileID: 102916046501004518}
   maxIndex: 10
---- !u!114 &114382416602902550
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194930415407324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68da74b38fd13364abc7ced7e11450c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114430517596786102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,7 +472,7 @@ MonoBehaviour:
   outsideTrigger: 0
   startTriggerTimer: 0.1
   input: 323
-  alternative: Backward
+  alternative: Right
 --- !u!114 &114766245012594886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -496,7 +484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902a41a15100fc74f9b901c070a7c91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  executeInEditModeOnly: 1
 --- !u!114 &114930470940096286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -523,4 +510,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902a41a15100fc74f9b901c070a7c91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  executeInEditModeOnly: 1

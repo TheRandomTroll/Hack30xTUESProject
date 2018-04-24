@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 102665316608239218}
   - component: {fileID: 114588270461836358}
   - component: {fileID: 114112379077405802}
-  - component: {fileID: 65387261217001532}
+  - component: {fileID: 65756872701359568}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 102249454503540718}
   - component: {fileID: 114668602456691862}
   - component: {fileID: 114032331180370868}
-  - component: {fileID: 65379201934351644}
+  - component: {fileID: 65058707797973400}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 114550579395923884}
   - component: {fileID: 114423804550585866}
   - component: {fileID: 114783361217491228}
-  - component: {fileID: 65470235095397022}
+  - component: {fileID: 65928667878675448}
   m_Layer: 0
   m_Name: Load Level
   m_TagString: Untagged
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 114171587197078332}
   - component: {fileID: 114554413171285738}
   - component: {fileID: 114820036119683992}
-  - component: {fileID: 65949729701464284}
+  - component: {fileID: 65434458476388820}
   m_Layer: 0
   m_Name: Save Level
   m_TagString: Untagged
@@ -235,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632899619520248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.53, y: 6.02, z: 2.7}
+  m_LocalPosition: {x: -36.53, y: 6.02, z: -5.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4337180191315346}
@@ -478,7 +478,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65379201934351644
+--- !u!65 &65058707797973400
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -489,32 +489,8 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 44.000015, y: 83.78906, z: 10}
-  m_Center: {x: 22.000023, y: -41.89453, z: 3.126388e-13}
---- !u!65 &65387261217001532
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1031760848027586}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 44.000015, y: 83.78906, z: 10}
-  m_Center: {x: 22.000015, y: -41.89453, z: -0.000030517578}
---- !u!65 &65470235095397022
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1231786246136310}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 172.00002, y: 86.58203, z: 10}
-  m_Center: {x: 85.99999, y: -43.29102, z: 0.000033080578}
---- !u!65 &65949729701464284
+  m_Center: {x: 22.000015, y: -41.89453, z: 0.000030517578}
+--- !u!65 &65434458476388820
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -525,7 +501,31 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 176.50005, y: 86.58203, z: 10}
-  m_Center: {x: 88.25001, y: -43.29102, z: -0.000030517578}
+  m_Center: {x: 88.24999, y: -43.29102, z: -0.000030517578}
+--- !u!65 &65756872701359568
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031760848027586}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 44.000015, y: 83.78906, z: 10}
+  m_Center: {x: 22.000023, y: -41.89453, z: -3.126388e-13}
+--- !u!65 &65928667878675448
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1231786246136310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 172.00002, y: 86.58203, z: 10}
+  m_Center: {x: 86.00001, y: -43.29102, z: 0.000033080578}
 --- !u!102 &102249454503540718
 TextMesh:
   serializedVersion: 3
@@ -789,7 +789,7 @@ MonoBehaviour:
   outsideTrigger: 0
   startTriggerTimer: 0.1
   input: 323
-  alternative: Backward
+  alternative: Right
 --- !u!114 &114601290716555098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -816,7 +816,7 @@ MonoBehaviour:
   outsideTrigger: 0
   startTriggerTimer: 0.1
   input: 323
-  alternative: Backward
+  alternative: Right
 --- !u!114 &114673690239226486
 MonoBehaviour:
   m_ObjectHideFlags: 1
