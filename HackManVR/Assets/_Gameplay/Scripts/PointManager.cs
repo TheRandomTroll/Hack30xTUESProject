@@ -22,7 +22,6 @@ public class PointManager : MonoBehaviour {
     {
         this.points += points;
         pointCount--;
-        Debug.Log("Remaining points: " + pointCount);
         UpdatePointText();
 
         if(pointCount <= 0)

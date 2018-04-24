@@ -34,11 +34,7 @@ public class Clyde : Ghost {
             else // Go to a random place
                 waypoints = map.GetAllWaypointsInRange(gameObject, 5, 8);
             
-            // TODO: Remove sprite renderer stuff
-            if (currentTravelDestination)
-                currentTravelDestination.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
             Waypoint waypoint = waypoints.ElementAt(Random.Range(0, waypoints.Count));
-            waypoint.GetComponent<MeshRenderer>().material.color = Color.magenta;
             currentTravelDestination = waypoint;
             navAgent.SetDestination(waypoint.transform.position);
         }

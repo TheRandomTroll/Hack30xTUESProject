@@ -72,7 +72,6 @@ public class GroundMap : MonoBehaviour {
         Queue<Waypoint> searchQueue = new Queue<Waypoint>();
         searchQueue.Enqueue(start);
         visitedWaypoints.Add(start);
-        Debug.Log("Start point: " + GetGridPosition(start.gameObject));
         for(int i = 0; i < maxRange; i++)
         {
             List<Waypoint> loopQueue = new List<Waypoint>();

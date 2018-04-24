@@ -18,8 +18,6 @@ public class Pacman : MonoBehaviour {
     [SerializeField] private float bigpointDuration = 10;
 
     private int way;
-
-    public bool bigPointEaten = false;
     public bool isPaused;
 
     public Canvas pauseMenu;
@@ -74,7 +72,6 @@ public class Pacman : MonoBehaviour {
 
     public void EatBigpoint()
     {
-        bigPointEaten = true;
         foreach(Ghost ghost in FindObjectsOfType<Ghost>())
         {
             ghost.PlayerHasEatenBigPoint();
@@ -86,7 +83,6 @@ public class Pacman : MonoBehaviour {
     {
         speed *= 1.5f;
         yield return new WaitForSeconds(bigpointDuration);
-        bigPointEaten = false;
         speed /= 1.5f;
     }
 
@@ -101,7 +97,12 @@ public class Pacman : MonoBehaviour {
     {
         if(other.tag == "Ghost")
         {
-            if (bigPointEaten)
+            if (other.GetComponent<Ghost>().CanEatPlayer())
+            {
+                Debug.Log("Got killed by: " + other.name);
+                FindObjectOfType<WinLoseManager>().LoseExecution();
+            }
+            else
             {
                 FindObjectOfType<PointManager>().AddPoints(1000); // TODO: Add SerializeField.
                 // V takiva momenti kato komentiram da addna serializefield osuznavam kolko sum murzeliv
@@ -111,10 +112,7 @@ public class Pacman : MonoBehaviour {
                 // i sega.....
                 // :'(
                 other.GetComponent<Ghost>().GetEaten();
-            }
-            else
-            {
-                FindObjectOfType<WinLoseManager>().LoseExecution();
+                Debug.Log("Ate: " + other.name);
             }
         }
     }

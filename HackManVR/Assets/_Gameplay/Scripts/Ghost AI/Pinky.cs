@@ -11,7 +11,6 @@ public class Pinky : Ghost {
     {
         Waypoint targetWaypoint = GetBlockInFrontPosition(pacman.gameObject, blocksAhead);
         navAgent.SetDestination(targetWaypoint.transform.position);
-        Debug.Log("Pinky going to: " + targetWaypoint.transform.position);
     }
 
     private Waypoint GetBlockInFrontPosition(GameObject target, int blocks)

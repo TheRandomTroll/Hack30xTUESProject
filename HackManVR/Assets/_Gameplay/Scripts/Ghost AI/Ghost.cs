@@ -94,6 +94,7 @@ public class Ghost : MonoBehaviour {
 
     private IEnumerator GetEatenRoutine()
     {
+        GetComponent<Collider>().enabled = false;
         currentState = GhostState.NotActivated;
         transform.Translate(Vector3.down * 5);
         GetComponent<MeshRenderer>().enabled = false;
@@ -108,6 +109,8 @@ public class Ghost : MonoBehaviour {
         transform.position = startingPosition;
         currentTravelDestination = null;
         currentState = ghostBehaviours[currentStateIndex].state;
+
+        GetComponent<Collider>().enabled = true;
     }
 
     protected virtual IEnumerator GhostActivation()
@@ -180,5 +183,11 @@ public class Ghost : MonoBehaviour {
             currentTravelDestination = waypoints.ElementAt(randomIndex);
             navAgent.SetDestination(currentTravelDestination.transform.position);
         }
+    }
+
+
+    public bool CanEatPlayer()
+    {
+        return bigpointDurationLeft <= 0;
     }
 }
