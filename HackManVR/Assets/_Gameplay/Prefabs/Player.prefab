@@ -83,7 +83,6 @@ GameObject:
   - component: {fileID: 195962480938389338}
   - component: {fileID: 114693424811740792}
   - component: {fileID: 114925764080528988}
-  - component: {fileID: 114126971579984420}
   - component: {fileID: 82839409522632900}
   m_Layer: 0
   m_Name: Player
@@ -614,27 +613,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114126971579984420
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1533290065241142}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementScriptBlinky: {fileID: 0}
-  movementScriptPinky: {fileID: 0}
-  movementScriptInky: {fileID: 0}
-  movementScriptClyde: {fileID: 0}
-  movementScriptPacMan: {fileID: 0}
-  player: {fileID: 0}
-  PointSound: {fileID: 0}
-  BigPointSound: {fileID: 0}
-  CherrySound: {fileID: 0}
-  GameOverSound: {fileID: 0}
 --- !u!114 &114220911975160208
 MonoBehaviour:
   m_ObjectHideFlags: 1

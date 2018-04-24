@@ -101,4 +101,20 @@ public class Pacman : MonoBehaviour {
     {
         return bigpointDuration;
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Ghost")
+        {
+            if (bigPointEaten)
+            {
+                other.GetComponent<Ghost>().GetEaten();
+            }
+            else
+            {
+                FindObjectOfType<WinLoseManager>().LoseExecution();
+            }
+        }
+    }
 }

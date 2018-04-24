@@ -58,7 +58,8 @@ public class Ghost : MonoBehaviour {
             currentStateIndex++;
             currentStateTimer = 0;
             currentState = ghostBehaviours[currentStateIndex].state;
-            currentTravelDestination.GetComponent<MeshRenderer>().material.color = Color.green;
+            if(currentTravelDestination)
+                currentTravelDestination.GetComponent<MeshRenderer>().material.color = Color.green;
             currentTravelDestination = null;
             navAgent.SetDestination(gameObject.transform.position); // Stop
         }
@@ -86,6 +87,33 @@ public class Ghost : MonoBehaviour {
         StartCoroutine(EnterFrightenedState());
     }
 
+    public virtual void GetEaten()
+    {
+        // URGENT TODO:
+        // Otiva obratno mnogo burzo v starting position.
+        // Premigva dokato go pravi.
+        // 
+        throw new NotImplementedException();
+    }
+
+
+    protected virtual IEnumerator GhostActivation()
+    {
+        yield return new WaitForSeconds(activationTime);
+        currentState = GhostState.MovingAround;
+        HashSet<Waypoint> waypoints = map.GetAllWaypointsInRange(gameObject, 0, 5);
+        GhostBehaviourTime ghostBehaviour = ghostBehaviours[currentStateIndex];
+        currentState = ghostBehaviour.state;
+    }
+
+
+    protected virtual void PursueBehaviour()
+    {
+
+        throw new NotImplementedException("Pursue behaviour should be implemented differently in every ghost");
+    }
+
+
     private IEnumerator EnterFrightenedState()
     {
 
@@ -109,22 +137,6 @@ public class Ghost : MonoBehaviour {
         }
     }
 
-
-    protected virtual IEnumerator GhostActivation()
-    {
-        yield return new WaitForSeconds(activationTime);
-        currentState = GhostState.MovingAround;
-        HashSet<Waypoint> waypoints = map.GetAllWaypointsInRange(gameObject, 0, 5);
-        GhostBehaviourTime ghostBehaviour = ghostBehaviours[currentStateIndex];
-        currentState = ghostBehaviour.state;
-    }
-
-
-    protected virtual void PursueBehaviour()
-    {
-
-        throw new NotImplementedException("Pursue behaviour should be implemented differently in every ghost");
-    }
 
     protected virtual void FrightenedBehaviour()
     {
