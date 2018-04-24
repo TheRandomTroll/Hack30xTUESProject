@@ -1,0 +1,35 @@
+diff a/HackManVR/Assets/_Gameplay/Scripts/Ghost AI/Ghost.cs b/HackManVR/Assets/_Gameplay/Scripts/Ghost AI/Ghost.cs	(rejected hunks)
+@@ -96,8 +96,32 @@
+         // URGENT TODO:
+         // Otiva obratno mnogo burzo v starting position.
+         // Premigva dokato go pravi.
+-        // 
++        StartCoroutine(EatenCoroutine());
++    }
++
++    private IEnumerator EatenCoroutine()
++    {
++        currentState = GhostState.Respawning;
++        Waypoint currentWaypoint = map.GetWaypointOfObject(gameObject);
++        navAgent.SetDestination(startingWaypoint.transform.position);
++        float startSpeed = navAgent.speed;
++        navAgent.speed *= 10;
++        GetComponent<BoxCollider>().enabled = false;
++        startingWaypoint.GetComponent<MeshRenderer>().material.color = ghostColor;
++        while (currentWaypoint != startingWaypoint)
++        {
++            currentWaypoint = map.GetWaypointOfObject(gameObject);
++            Debug.Log("is in eaten Coroutine");
++            yield return new WaitForEndOfFrame();
++        }
++
++        navAgent.speed = startSpeed;
++        Debug.Log("exited EatenCoroutine!");
++        currentState = ghostBehaviours[currentStateIndex].state;
+ 
++        GetComponent<MeshRenderer>().enabled = true;
++        GetComponent<MeshRenderer>().material.color = ghostColor;
++        GetComponent<BoxCollider>().enabled = true;
+     }
+ 
+ 

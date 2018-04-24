@@ -31,11 +31,6 @@ public class Pacman : MonoBehaviour {
     void Update()
     {
 
-        if(Input.GetKey(KeyCode.Space) && canMove == true)
-        {
-            canMove = false;
-        }
-
         if (canMove)
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);

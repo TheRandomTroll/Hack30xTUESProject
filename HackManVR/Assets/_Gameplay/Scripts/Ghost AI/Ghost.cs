@@ -8,7 +8,7 @@ using System.Linq;
 
 public class Ghost : MonoBehaviour {
     
-    public enum GhostState { Frightened, Pursue, MovingAround, NotActivated, Respawning }
+    public enum GhostState { Frightened, Pursue, MovingAround, NotActivated}
 
     [SerializeField] public GhostState currentState = GhostState.NotActivated;
 
@@ -17,44 +17,42 @@ public class Ghost : MonoBehaviour {
     [SerializeField] private int currentStateIndex = 0;
     [SerializeField] private float bigpointDurationLeft = 0;
 
-    [SerializeField] private float blinkStartTime = 2f;
-    [SerializeField] private float blinkFrequency = 1;
-
-    [SerializeField] private float activationTime;
-
     [SerializeField] private Color ghostColor;
+    [SerializeField] private float activationTime;
     private float bigpointDuration;
 
     protected Pacman pacman;
     protected NavMeshAgent navAgent;
     protected GroundMap map;
 
-    private Waypoint startingWaypoint;
+    private Vector3 startingPosition;
 
     [SerializeField] protected Waypoint currentTravelDestination;
 
 
+
+
     void Start () {
+        startingPosition = transform.position;
         navAgent = GetComponent<NavMeshAgent>();
         pacman = FindObjectOfType<Pacman>();
         bigpointDuration = pacman.GetBigPointDuration();
         map = FindObjectOfType<GroundMap>();
         StartCoroutine(GhostActivation());
-        ghostColor = GetComponent<MeshRenderer>().material.color;
 
-        navAgent.autoBraking = true;
+        ghostColor = GetComponent<MeshRenderer>().material.color;
 	}
 	
 
 	void Update () {
-        if (currentState == GhostState.NotActivated || currentState == GhostState.Respawning) return;
+        if (currentState == GhostState.NotActivated) return;
         StateSwitch();
         ExecuteGhostStateLogic();
 	}
 
     private void StateSwitch()
     {
-        if (currentState == GhostState.Frightened || currentState == GhostState.Respawning) return;
+        if (currentState == GhostState.Frightened) return;
         currentStateTimer += Time.deltaTime;
         GhostBehaviourTime ghostBehaviour = ghostBehaviours[currentStateIndex];
         if(currentStateIndex < ghostBehaviours.Length - 1 && currentStateTimer >= ghostBehaviour.stateTime)
@@ -62,8 +60,6 @@ public class Ghost : MonoBehaviour {
             currentStateIndex++;
             currentStateTimer = 0;
             currentState = ghostBehaviours[currentStateIndex].state;
-            if(currentTravelDestination)
-                currentTravelDestination.GetComponent<MeshRenderer>().material.color = Color.green;
             currentTravelDestination = null;
             navAgent.SetDestination(gameObject.transform.position); // Stop
         }
@@ -93,43 +89,32 @@ public class Ghost : MonoBehaviour {
 
     public virtual void GetEaten()
     {
-        // URGENT TODO:
-        // Otiva obratno mnogo burzo v starting position.
-        // Premigva dokato go pravi.
-        StartCoroutine(EatenCoroutine());
+        StartCoroutine(GetEatenRoutine());
     }
 
-    private IEnumerator EatenCoroutine()
+    private IEnumerator GetEatenRoutine()
     {
-        currentState = GhostState.Respawning;
-        Waypoint currentWaypoint = map.GetWaypointOfObject(gameObject);
-        navAgent.SetDestination(startingWaypoint.transform.position);
-        float startSpeed = navAgent.speed;
-        navAgent.speed *= 10;
-        GetComponent<BoxCollider>().enabled = false;
-        startingWaypoint.GetComponent<MeshRenderer>().material.color = ghostColor;
-        while (currentWaypoint != startingWaypoint)
-        {
-            currentWaypoint = map.GetWaypointOfObject(gameObject);
-            Debug.Log("is in eaten Coroutine");
-            yield return new WaitForEndOfFrame();
-        }
+        currentState = GhostState.NotActivated;
+        transform.Translate(Vector3.down * 5);
+        GetComponent<MeshRenderer>().enabled = false;
+        StopCoroutine(EnterFrightenedState());
 
-        navAgent.speed = startSpeed;
-        Debug.Log("exited EatenCoroutine!");
-        currentState = ghostBehaviours[currentStateIndex].state;
+        // Simulate travelling back to the start.
+        float travelTime = Vector3.Distance(transform.position, startingPosition) / navAgent.speed / 2;
+        yield return new WaitForSeconds(travelTime);
 
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<MeshRenderer>().material.color = ghostColor;
-        GetComponent<BoxCollider>().enabled = true;
+        transform.position = startingPosition;
+        currentTravelDestination = null;
+        currentState = ghostBehaviours[currentStateIndex].state;
     }
-
 
     protected virtual IEnumerator GhostActivation()
     {
         yield return new WaitForSeconds(activationTime);
         currentState = GhostState.MovingAround;
-        startingWaypoint = map.GetWaypointOfObject(gameObject);
+        startingPosition = transform.position;
         HashSet<Waypoint> waypoints = map.GetAllWaypointsInRange(gameObject, 0, 5);
         GhostBehaviourTime ghostBehaviour = ghostBehaviours[currentStateIndex];
         currentState = ghostBehaviour.state;
@@ -138,53 +123,20 @@ public class Ghost : MonoBehaviour {
 
     protected virtual void PursueBehaviour()
     {
-
         throw new NotImplementedException("Pursue behaviour should be implemented differently in every ghost");
     }
 
 
     private IEnumerator EnterFrightenedState()
     {
-        if (currentState == GhostState.Respawning) yield break;
         bigpointDurationLeft += bigpointDuration;
-
-        // in case bigpoint eaten a second time!
-        GetComponent<MeshRenderer>().material.color = ghostColor; 
-        float blinkMax = 1 / blinkFrequency;
-        float blinkTimer = 0;
-
         if (currentState != GhostState.Frightened)
         {
             currentState = GhostState.Frightened;
             GetComponent<MeshRenderer>().material.color = Color.blue;
-
-
-            
             while (bigpointDurationLeft >= 0)
             {
                 bigpointDurationLeft -= Time.deltaTime;
-                if (bigpointDurationLeft <= blinkStartTime)
-                {
-                    blinkTimer += Time.deltaTime;
-                    if (blinkTimer >= blinkMax)
-                    {
-                        MeshRenderer renderer = GetComponent<MeshRenderer>();
-                        if (renderer.material.color == ghostColor)
-                        {
-                            renderer.material.color = Color.blue;
-                        }
-                        else
-                        {
-                            renderer.material.color = ghostColor;
-                        }
-                        blinkTimer = 0;
-                    }
-
-                    if(currentState == GhostState.Respawning)
-                    {
-                        yield break;
-                    }
-                }
                 yield return new WaitForEndOfFrame();
             }
             GetComponent<MeshRenderer>().material.color = ghostColor;
@@ -206,20 +158,11 @@ public class Ghost : MonoBehaviour {
 
             
             ghostWaypoints.ExceptWith(pacmanWaypointsRange);
-            // TODO: Remove
-            for (int i = 0; i < ghostWaypoints.Count; i++)
-            {
-                ghostWaypoints.ElementAt(i).GetComponent<MeshRenderer>().material.color = Color.red;
-            }
 
             int randomIndex = UnityEngine.Random.Range(0, ghostWaypoints.Count);
-            if (currentTravelDestination) currentTravelDestination.GetComponent<MeshRenderer>().material.color = Color.green;
             currentTravelDestination = ghostWaypoints.ElementAt(randomIndex);
-            currentTravelDestination.GetComponent<MeshRenderer>().material.color = Color.blue;
             navAgent.SetDestination(currentTravelDestination.transform.position);
         }
-
-
     }
 
     protected virtual void MovingAroundBehaviour()
@@ -232,11 +175,9 @@ public class Ghost : MonoBehaviour {
                 waypoints = map.GetAllWaypointsInRange(gameObject, 0, 5);
 
             int randomIndex = UnityEngine.Random.Range(0, waypoints.Count);
+            
 
-            // TODO: Remove things with meshrenderer
-            if (currentTravelDestination) currentTravelDestination.GetComponent<MeshRenderer>().material.color = Color.green;
             currentTravelDestination = waypoints.ElementAt(randomIndex);
-            currentTravelDestination.GetComponent<MeshRenderer>().material.color = Color.blue;
             navAgent.SetDestination(currentTravelDestination.transform.position);
         }
     }
