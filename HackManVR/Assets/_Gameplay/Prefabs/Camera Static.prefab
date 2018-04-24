@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4021972374871540}
+  - component: {fileID: 114135145278956656}
   m_Layer: 0
   m_Name: Camera Static
   m_TagString: Untagged
@@ -109,12 +110,13 @@ GameObject:
   - component: {fileID: 124363888711020104}
   - component: {fileID: 81576458861353680}
   - component: {fileID: 114043226349379804}
+  - component: {fileID: 114554706639378080}
   m_Layer: 0
   m_Name: Static Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4021972374871540
 Transform:
@@ -178,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1732771670407888}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -5.14, y: 0, z: 2.71}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4021972374871540}
@@ -225,7 +227,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 0521faf9060025b4595f8c5cde9bbdfd, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -351,7 +353,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armModel: {fileID: 114876269633316070}
-  isDeactivatedWhenDisconnected: 1
+  isDeactivatedWhenDisconnected: 0
+--- !u!114 &114135145278956656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044245487294172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3472e39756ad1d6479c6548fc6989a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114295840936911540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -387,6 +400,18 @@ MonoBehaviour:
     alongYAxis: 1
     alongZAxis: 1
   sortingOrder: 0
+--- !u!114 &114554706639378080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732771670407888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: bf75b0ac29cc6454fa156710e877b222, type: 2}
 --- !u!114 &114737244794679782
 MonoBehaviour:
   m_ObjectHideFlags: 1

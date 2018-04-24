@@ -6,13 +6,11 @@ public class CameraStatic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        transform.eulerAngles = new Vector3(45, 90, 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector3(0, 35.5f, 0);
-        transform.eulerAngles = new Vector3(90, 0, 0);
-
+        transform.position = new Vector3(10, 20, 20);
 	}
 }

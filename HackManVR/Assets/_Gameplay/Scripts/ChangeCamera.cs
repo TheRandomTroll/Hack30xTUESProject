@@ -32,7 +32,8 @@ public class ChangeCamera : MonoBehaviour {
         {
             staticCamera.enabled = !staticCamera.enabled;
             firstPersonCamera.enabled = !firstPersonCamera.enabled;
-            rawImage.enabled = !rawImage.enabled;
+            staticCamera.transform.eulerAngles = new Vector3(90, 0, 0);
+            //rawImage.enabled = !rawImage.enabled;
         }
     }
 }
