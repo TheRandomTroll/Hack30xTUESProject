@@ -11,7 +11,7 @@ public class PointManager : MonoBehaviour {
 
     private void Start()
     {
-        // Todo: AddPoints(previousLevel.points)
+        points = GetSavedPoints();
         pointCount = FindObjectsOfType<Point>().Length;
         text = GetComponent<Text>();
         UpdatePointText();
@@ -34,5 +34,23 @@ public class PointManager : MonoBehaviour {
     private void UpdatePointText()
     {
         text.text = "Points: " + points;
+    }
+
+
+    public int GetSavedPoints()
+    {
+        return PlayerPrefs.GetInt("points", 0); 
+    }
+
+    public void SavePoints()
+    {
+        PlayerPrefs.SetInt("points", points);
+    }
+
+
+    public void ResetPoints()
+    {
+        points = 0;
+        PlayerPrefs.SetInt("points", 0);
     }
 }

@@ -619,63 +619,39 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1894294147786214}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScriptBlinky: {fileID: 0}
-  movementScriptPinky: {fileID: 0}
-  movementScriptInky: {fileID: 0}
-  movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
   player: {fileID: 0}
-  PointSound: {fileID: 0}
-  BigPointSound: {fileID: 0}
-  CherrySound: {fileID: 0}
-  GameOverSound: {fileID: 0}
 --- !u!114 &114418240243240880
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1681140090812138}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScriptBlinky: {fileID: 0}
-  movementScriptPinky: {fileID: 0}
-  movementScriptInky: {fileID: 0}
-  movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
   player: {fileID: 0}
-  PointSound: {fileID: 0}
-  BigPointSound: {fileID: 0}
-  CherrySound: {fileID: 0}
-  GameOverSound: {fileID: 0}
 --- !u!114 &114571793401399770
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1194472683896118}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScriptBlinky: {fileID: 0}
-  movementScriptPinky: {fileID: 0}
-  movementScriptInky: {fileID: 0}
-  movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
   player: {fileID: 0}
-  PointSound: {fileID: 0}
-  BigPointSound: {fileID: 0}
-  CherrySound: {fileID: 0}
-  GameOverSound: {fileID: 0}
 --- !u!114 &114693424811740792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -696,42 +672,26 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385961783222750}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScriptBlinky: {fileID: 0}
-  movementScriptPinky: {fileID: 0}
-  movementScriptInky: {fileID: 0}
-  movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
   player: {fileID: 0}
-  PointSound: {fileID: 0}
-  BigPointSound: {fileID: 0}
-  CherrySound: {fileID: 0}
-  GameOverSound: {fileID: 0}
 --- !u!114 &114924876554040618
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224846137661082}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9918fad4101a0f549ab20ed9c00ef282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScriptBlinky: {fileID: 0}
-  movementScriptPinky: {fileID: 0}
-  movementScriptInky: {fileID: 0}
-  movementScriptClyde: {fileID: 0}
   movementScriptPacMan: {fileID: 0}
   player: {fileID: 0}
-  PointSound: {fileID: 0}
-  BigPointSound: {fileID: 0}
-  CherrySound: {fileID: 0}
-  GameOverSound: {fileID: 0}
 --- !u!114 &114925764080528988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -750,7 +710,6 @@ MonoBehaviour:
   canMove: 1
   speed: 4
   bigpointDuration: 5
-  bigPointEaten: 0
   isPaused: 0
   pauseMenu: {fileID: 0}
 --- !u!135 &135354089023178974
