@@ -806,12 +806,6 @@ Prefab:
       propertyPath: currentItemSelection
       value: 
       objectReference: {fileID: 1686889278}
-    - target: {fileID: 114985898851781710, guid: a0debed338e591a4c8dc0c9a3a2b16f6,
-        type: 2}
-      propertyPath: profile
-      value: 
-      objectReference: {fileID: 11400000, guid: 4d9f11b9e1375ac4dadad306428a6cb7,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0debed338e591a4c8dc0c9a3a2b16f6, type: 2}
   m_IsPrefabParent: 0

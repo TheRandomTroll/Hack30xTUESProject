@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
     path: Assets/_Scenes/Play - Krasi.unity
     guid: fd438a778dec86f49aaa189a1e33cafd
   - enabled: 0
@@ -17,24 +14,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/StartMenuVR.unity
     guid: f235795a4765b4f4d9ac29cffc1f4ad0
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Scenes/Play.unity
-    guid: 3b815928269cdd34e96b9cd1bf2e8a51
+    guid: 78564b78530ac3b4aad0b461693b22d0
+  - enabled: 1
+    path: Assets/_Scenes/WinScene.unity
+    guid: 0c5a308d53495b54db1bfc14f86a1b2b
   - enabled: 1
     path: Assets/_Scenes/UserCreation.unity
     guid: 8b624005613345b48b997a4819de5ccb
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/_Scenes/LevelPicker.unity
     guid: 282919fea9697b646bd6a68ab7bbc27c
   - enabled: 1
-    path: Assets/_Scenes/RandomLevel.unity
-    guid: 73c507812b2ecca4584bdeb62e663847
-  - enabled: 1
     path: Assets/_Scenes/LoadedLevel.unity
     guid: ea5ed9a93aef7444a92e7bb294225950
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/_Scenes/RandomLevel.unity
+    guid: 73c507812b2ecca4584bdeb62e663847

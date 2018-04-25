@@ -15,10 +15,9 @@ public class PlayWinLoseManager : WinLoseManager {
 
     public override void WinExecution()
     {
+        ChosenLevel.levelIndex++;
         if (ChosenLevel.levelIndex < levelCount)
         {
-
-            ChosenLevel.levelIndex++;
             FindObjectOfType<PointManager>().SavePoints();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

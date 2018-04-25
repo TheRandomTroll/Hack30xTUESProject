@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003495894, g: 0.003495894, b: 0.003495894, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -152,17 +152,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 1044245487294172, guid: bbfe517b03417f749be816c331904b47, type: 2}
-      propertyPath: m_TagString
-      value: MainCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 20116361806884226, guid: bbfe517b03417f749be816c331904b47,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 81576458861353680, guid: bbfe517b03417f749be816c331904b47, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbfe517b03417f749be816c331904b47, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &186729371
@@ -882,11 +872,6 @@ Prefab:
     - target: {fileID: 1586027609653602, guid: bfb107428ccdbad44be7a79c79d2e113, type: 2}
       propertyPath: m_Name
       value: FP Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 20642337879951748, guid: bfb107428ccdbad44be7a79c79d2e113,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfb107428ccdbad44be7a79c79d2e113, type: 2}
