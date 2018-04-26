@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 879a5e4655c67bc4cacbdd295823f764, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 19e2485c6f92d6944ad20466ac77b04c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -176,7 +176,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4328217887106298, guid: d3e9796c433de794a8ad550a3a0a4077, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.65
+      value: -9.01
       objectReference: {fileID: 0}
     - target: {fileID: 4328217887106298, guid: d3e9796c433de794a8ad550a3a0a4077, type: 2}
       propertyPath: m_LocalRotation.x
@@ -205,6 +205,22 @@ Prefab:
 
         99999'
       objectReference: {fileID: 0}
+    - target: {fileID: 102658567867307650, guid: d3e9796c433de794a8ad550a3a0a4077,
+        type: 2}
+      propertyPath: m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 50c6f2d9377221f48995324045c5010c,
+        type: 3}
+    - target: {fileID: 23059180876669690, guid: d3e9796c433de794a8ad550a3a0a4077,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50c6f2d9377221f48995324045c5010c, type: 3}
+    - target: {fileID: 102658567867307650, guid: d3e9796c433de794a8ad550a3a0a4077,
+        type: 2}
+      propertyPath: m_Color.rgba
+      value: 4279863794
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65433622266219102, guid: d3e9796c433de794a8ad550a3a0a4077, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d3e9796c433de794a8ad550a3a0a4077, type: 2}
@@ -224,8 +240,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 271.00006, y: 136.02539, z: 10}
-  m_Center: {x: 135.50003, y: -68.012695, z: 0}
+  m_Size: {x: 366.5001, y: 131.54297, z: 10}
+  m_Center: {x: 183.25005, y: -65.771484, z: 0}
 --- !u!102 &225071168 stripped
 TextMesh:
   m_PrefabParentObject: {fileID: 102658567867307650, guid: d3e9796c433de794a8ad550a3a0a4077,
@@ -433,7 +449,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &731547633
 Prefab:
@@ -484,6 +500,22 @@ Prefab:
       propertyPath: sceneName
       value: StartMenuVR
       objectReference: {fileID: 0}
+    - target: {fileID: 102926865051587850, guid: 1bc6b720196a9dd4b93089f141f2222f,
+        type: 2}
+      propertyPath: m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 50c6f2d9377221f48995324045c5010c,
+        type: 3}
+    - target: {fileID: 23213844798150196, guid: 1bc6b720196a9dd4b93089f141f2222f,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50c6f2d9377221f48995324045c5010c, type: 3}
+    - target: {fileID: 102926865051587850, guid: 1bc6b720196a9dd4b93089f141f2222f,
+        type: 2}
+      propertyPath: m_Color.rgba
+      value: 4279863794
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65411938389372152, guid: 1bc6b720196a9dd4b93089f141f2222f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1bc6b720196a9dd4b93089f141f2222f, type: 2}
@@ -503,8 +535,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 133.50003, y: 67.03125, z: 10}
-  m_Center: {x: 66.750015, y: -33.515625, z: 0}
+  m_Size: {x: 176.00005, y: 62.51953, z: 10}
+  m_Center: {x: 88.00002, y: -31.259766, z: 0}
 --- !u!1001 &1205130762
 Prefab:
   m_ObjectHideFlags: 0
@@ -599,7 +631,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1361447646
 MonoBehaviour:
@@ -664,6 +696,22 @@ Prefab:
 
         99999'
       objectReference: {fileID: 0}
+    - target: {fileID: 23059180876669690, guid: d3e9796c433de794a8ad550a3a0a4077,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50c6f2d9377221f48995324045c5010c, type: 3}
+    - target: {fileID: 102658567867307650, guid: d3e9796c433de794a8ad550a3a0a4077,
+        type: 2}
+      propertyPath: m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 50c6f2d9377221f48995324045c5010c,
+        type: 3}
+    - target: {fileID: 102658567867307650, guid: d3e9796c433de794a8ad550a3a0a4077,
+        type: 2}
+      propertyPath: m_Color.rgba
+      value: 4279863794
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65433622266219102, guid: d3e9796c433de794a8ad550a3a0a4077, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d3e9796c433de794a8ad550a3a0a4077, type: 2}
@@ -683,8 +731,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 167.50005, y: 136.02539, z: 10}
-  m_Center: {x: 83.75002, y: -68.012695, z: 0}
+  m_Size: {x: 220.00005, y: 131.54297, z: 10}
+  m_Center: {x: 110.00002, y: -65.771484, z: 0}
 --- !u!102 &1449746312 stripped
 TextMesh:
   m_PrefabParentObject: {fileID: 102658567867307650, guid: d3e9796c433de794a8ad550a3a0a4077,
@@ -731,6 +779,53 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87c35d808850c410ca0e398a8da84e68, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1525830094
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4425420040303862, guid: 050a3101bd8841044b4b3066bef8a4c0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 23.036682
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425420040303862, guid: 050a3101bd8841044b4b3066bef8a4c0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 18.861866
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425420040303862, guid: 050a3101bd8841044b4b3066bef8a4c0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 14.933625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425420040303862, guid: 050a3101bd8841044b4b3066bef8a4c0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425420040303862, guid: 050a3101bd8841044b4b3066bef8a4c0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425420040303862, guid: 050a3101bd8841044b4b3066bef8a4c0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425420040303862, guid: 050a3101bd8841044b4b3066bef8a4c0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425420040303862, guid: 050a3101bd8841044b4b3066bef8a4c0, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114163245665680112, guid: 050a3101bd8841044b4b3066bef8a4c0,
+        type: 2}
+      propertyPath: scene
+      value: StartMenuVR
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 050a3101bd8841044b4b3066bef8a4c0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1550172103
 Prefab:
