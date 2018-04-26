@@ -51,9 +51,10 @@ public class Pacman : MonoBehaviour {
 
     private IEnumerator BigpointDuration()
     {
-        speed *= 1.5f;
+        //speed *= 1.5f;
         yield return new WaitForSeconds(bigpointDuration);
-        speed /= 1.5f;
+        //speed /= 1.5f;
+        // TODO: Fix speed.
     }
 
 

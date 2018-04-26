@@ -22,6 +22,7 @@ public class ChangeCamera : MonoBehaviour {
     void Start () {
         staticCamera.enabled = false;
         firstPersonCamera.enabled = true;
+        
     }
 	
 	// Update is called once per frame
