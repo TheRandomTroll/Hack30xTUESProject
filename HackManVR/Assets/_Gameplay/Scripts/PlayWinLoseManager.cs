@@ -30,6 +30,6 @@ public class PlayWinLoseManager : WinLoseManager {
     {
         ChosenLevel.levelIndex = 0;
         FindObjectOfType<PointManager>().ResetPoints();
-        SceneManager.LoadScene(ChosenLevel.levelIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
