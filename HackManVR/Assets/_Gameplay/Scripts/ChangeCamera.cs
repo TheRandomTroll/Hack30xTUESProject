@@ -27,7 +27,7 @@ public class ChangeCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetButtonDown("Select") || Input.GetKeyDown(KeyCode.Mouse1))
+        if(Input.GetButtonDown("Right2") || Input.GetKeyDown(KeyCode.Mouse1))
         {
             staticCamera.enabled = !staticCamera.enabled;
             firstPersonCamera.enabled = !firstPersonCamera.enabled;
