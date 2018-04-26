@@ -10,7 +10,7 @@ public class Portal : MonoBehaviour {
 
     [SerializeField] private float inactiveTime = 1f;
     private bool disabled = false;
-
+    /*
     [SerializeField] public Camera frontCamera;
     [SerializeField] public Camera backCamera;
 
@@ -18,23 +18,26 @@ public class Portal : MonoBehaviour {
     [SerializeField] private GameObject backPlane;
 
     [SerializeField] private bool destroyIfNoPortals = false;
-
+    */
     [SerializeField] private Transform playerCameraParent;
     [SerializeField] private Transform playerCamera;
 	void Start ()
     {
-        StartCoroutine(SetPortalConnections());
+
+        SetPortalConnections();
         playerCameraParent = FindObjectOfType<FollowPlayer>().transform;
         playerCamera = playerCameraParent.GetComponent<FollowPlayer>().firstPrsCamera.transform;
     }
 
     private void Update()
     {
+        /*
         if(connectedPortal)
         {
             SimulatePlayerLookingThroughCamera(frontCamera, connectedPortal.backPlane);
             SimulatePlayerLookingThroughCamera(backCamera, connectedPortal.frontPlane);
         }
+        */
     }
 
     private void SimulatePlayerLookingThroughCamera(Camera camera, GameObject renderPlane)
@@ -52,33 +55,22 @@ public class Portal : MonoBehaviour {
         transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
         */
     }
-
-    private IEnumerator SetPortalConnections()
+    
+    private void SetPortalConnections()
     {
-        while (true)
+        var portals = FindObjectsOfType<Portal>();
+        foreach (Portal portal in portals)
         {
-            var portals = FindObjectsOfType<Portal>();
-            foreach (Portal portal in portals)
+            if (portal != this && portal.connectedPortal == null)
             {
-                if (portal != this && portal.connectedPortal == null)
-                {
-                    SetupPortalConnection(portal);
-                    yield break;
-                }
-            }
-            if(destroyIfNoPortals)
-            {
-                Destroy(gameObject);
-                break;
-            }
-            else
-            {
-                yield return new WaitForSeconds(1);
+                portal.connectedPortal = this;
+                connectedPortal = portal;
             }
         }
     }
 
 
+    /*
     private void SetupPortalConnection(Portal portal)
     {
         connectedPortal = portal;
@@ -103,6 +95,7 @@ public class Portal : MonoBehaviour {
         materials.Insert(0, material); // Insert before transparent material
         renderer.materials = materials.ToArray();
     }
+    */
 
 
     private void OnTriggerEnter(Collider other)
