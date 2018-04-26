@@ -9,10 +9,17 @@ public class LoadDefaultLevels : MonoBehaviour {
     [SerializeField] int defaultLevelCount = 3;
 
 	void Start () {
-		for(int i = 0; i < defaultLevelCount; i++)
+        if (PlayerPrefs.GetInt("HasLoadedLevels", 0) != 1)
         {
-            // TODO: Use PlayerPrefs to check if its been loaded already!
-            LoadLevelFromResources(i);
+            for (int i = 0; i < defaultLevelCount; i++)
+            {
+                LoadLevelFromResources(i);
+                PlayerPrefs.SetInt("HasLoadedLevels", 1);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Not Loading Default Levels!");
         }
 	}
 

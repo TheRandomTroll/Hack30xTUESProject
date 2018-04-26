@@ -14,12 +14,12 @@ public class Spectator : MonoBehaviour
         transform.position += camera.transform.forward * Input.GetAxis("Vertical") * speed * Time.deltaTime;
         transform.position += camera.transform.right * Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         
-        if (Input.GetButton("Backward"))
+        if (Input.GetButton("Forward"))
         {
             transform.position += camera.transform.up * speed * Time.deltaTime;
         }
 
-        if(Input.GetButton("Forward"))
+        if(Input.GetButton("Backward"))
         {
             transform.position += -camera.transform.up * speed * Time.deltaTime;
         }

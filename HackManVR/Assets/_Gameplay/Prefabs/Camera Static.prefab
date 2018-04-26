@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3472e39756ad1d6479c6548fc6989a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraHeight: 40
 --- !u!114 &114295840936911540
 MonoBehaviour:
   m_ObjectHideFlags: 1

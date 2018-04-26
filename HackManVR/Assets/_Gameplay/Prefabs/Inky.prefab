@@ -127,12 +127,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 3
-  ghostBehaviours: []
+  ghostBehaviours:
+  - state: 1
+    stateTime: 15
+  - state: 2
+    stateTime: 10
+  - state: 1
+    stateTime: 0
   currentStateTimer: 0
   currentStateIndex: 0
   bigpointDurationLeft: 0
-  activationTime: 18
+  ghostColor: {r: 0, g: 0, b: 0, a: 0}
+  activationTime: 10
   currentTravelDestination: {fileID: 0}
+  setPosition: {x: 0, y: 0, z: 0}
 --- !u!195 &195156921005459302
 NavMeshAgent:
   m_ObjectHideFlags: 1

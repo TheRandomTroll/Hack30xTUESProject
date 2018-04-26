@@ -7,18 +7,15 @@ public class PlayWinLoseManager : WinLoseManager {
 
     [SerializeField] private string winScene;
     [SerializeField] private int levelCount;
+    
 
-    private void Start()
-    {
-
-    }
 
     public override void WinExecution()
     {
         ChosenLevel.levelIndex++;
+        FindObjectOfType<PointManager>().SavePoints();
         if (ChosenLevel.levelIndex < levelCount)
         {
-            FindObjectOfType<PointManager>().SavePoints();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else

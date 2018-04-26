@@ -129,16 +129,17 @@ MonoBehaviour:
   currentState: 3
   ghostBehaviours:
   - state: 2
-    stateTime: 5
-  - state: 1
     stateTime: 10
+  - state: 1
+    stateTime: 15
   - state: 2
-    stateTime: 5
+    stateTime: 10
   - state: 1
     stateTime: 0
   currentStateTimer: 0
   currentStateIndex: 0
   bigpointDurationLeft: 0
+  ghostColor: {r: 0, g: 0, b: 0, a: 0}
   activationTime: 5
   currentTravelDestination: {fileID: 0}
 --- !u!195 &195536494866113058

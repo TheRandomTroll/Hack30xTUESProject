@@ -5,8 +5,7 @@ using UnityEngine;
 public class GroundMap : MonoBehaviour {
 
     [SerializeField] private int gridSize;
-    [SerializeField] private Vector4 gridBounds = Vector4.zero; // (minX, minY, maxX, maxY)
-
+    [SerializeField] public Vector4 gridBounds = Vector4.zero; // (minX, minY, maxX, maxY)
     private Dictionary<Vector2Int, Waypoint> map = new Dictionary<Vector2Int, Waypoint>();
 
 	void Start () {
@@ -32,6 +31,8 @@ public class GroundMap : MonoBehaviour {
         }
 
         gridBounds = new Vector4(minGridX, minGridY, maxGridX, maxGridY);
+
+        FindObjectOfType<CameraStatic>().SetCameraPosition(gridBounds);
 	}
 
     public Waypoint GetWaypointAt(Vector2Int position)

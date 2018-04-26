@@ -14,58 +14,28 @@ public class Pacman : MonoBehaviour {
 
     public bool canMove = true;
 
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed = 4;
+    [SerializeField] private float bigpointSpeed = 6;
     [SerializeField] private float bigpointDuration = 10;
-
-    private int way;
-    public bool isPaused;
-
-    public Canvas pauseMenu;
-
-    void Start () {
-
-    }
+    
+    private int currentBigpointDuration = 0;
+    
 
     void Update()
     {
-
         if (canMove)
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        if (Input.GetButtonDown("Forward") && rotateForward && way == 3)
-        {
-
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
-        }
-
-        if (Input.GetButtonDown("Backward") && rotateBack && way != 3)
-        {
-
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 180, transform.eulerAngles.z);
-
-            way = 3;
-        }
-
         if (Input.GetButtonDown("Left") && rotateLeft)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
-
-            way = 4;
-
         }
 
         if (Input.GetButtonDown("Right") && rotateRight)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
-            way = 2;
-        }
-
-
-        if (Input.GetButtonDown("Pause"))
-        {
-            SceneManager.LoadScene(0);
         }
     }
 

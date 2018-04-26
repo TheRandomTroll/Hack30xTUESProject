@@ -21,19 +21,37 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 2
+        value: 50
         inSlope: 0
         outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.6
+        value: 5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3
+        value: 5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.4
+        value: 20
+        inSlope: 4
+        outSlope: 4
         tangentMode: 136
       - serializedVersion: 2
         time: 8
-        value: 2
-        inSlope: 0
-        outSlope: 0
+        value: 25
+        inSlope: 1.724138
+        outSlope: 1.724138
         tangentMode: 136
       - serializedVersion: 2
         time: 15
-        value: 2
+        value: 50
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -201,6 +219,13 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
+      path: 2866508787
+      attribute: 898800009
+      script: {fileID: 0}
+      typeID: 108
+      customType: 25
+      isPPtrCurve: 0
+    - serializedVersion: 2
       path: 1096652136
       attribute: 1303350129
       script: {fileID: 0}
@@ -213,13 +238,6 @@ AnimationClip:
       script: {fileID: 0}
       typeID: 23
       customType: 22
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 2866508787
-      attribute: 898800009
-      script: {fileID: 0}
-      typeID: 108
-      customType: 25
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 1096652136
@@ -262,19 +280,37 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 2
+        value: 50
         inSlope: 0
         outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.6
+        value: 5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3
+        value: 5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.4
+        value: 20
+        inSlope: 4
+        outSlope: 4
         tangentMode: 136
       - serializedVersion: 2
         time: 8
-        value: 2
-        inSlope: 0
-        outSlope: 0
+        value: 25
+        inSlope: 1.724138
+        outSlope: 1.724138
         tangentMode: 136
       - serializedVersion: 2
         time: 15
-        value: 2
+        value: 50
         inSlope: 0
         outSlope: 0
         tangentMode: 136

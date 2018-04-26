@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cheats : MonoBehaviour {
     
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.N) || (Input.GetButton("L1") && Input.GetButton("R1")))
+		if(Input.GetKeyDown(KeyCode.N) || (Input.GetButton("Left1") && Input.GetButton("Right1")))
         {
             CollectAllPointsCheat();
         }

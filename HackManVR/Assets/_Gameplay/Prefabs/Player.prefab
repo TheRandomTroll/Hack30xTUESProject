@@ -81,7 +81,6 @@ GameObject:
   - component: {fileID: 23557832008667282}
   - component: {fileID: 54347976333700200}
   - component: {fileID: 195962480938389338}
-  - component: {fileID: 114693424811740792}
   - component: {fileID: 114925764080528988}
   - component: {fileID: 82839409522632900}
   m_Layer: 0
@@ -136,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533290065241142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.91, y: 1.17, z: -7.94}
+  m_LocalPosition: {x: 5.0617213, y: 4.262351, z: 5.061866}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4703868582242644}
@@ -652,20 +651,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementScriptPacMan: {fileID: 0}
   player: {fileID: 0}
---- !u!114 &114693424811740792
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1533290065241142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0501e2b1fd56eef42bb529d72bcdc791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstPersonCamera: {fileID: 0}
-  staticCamera: {fileID: 0}
-  rawImage: {fileID: 0}
 --- !u!114 &114719413051698316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -709,9 +694,8 @@ MonoBehaviour:
   rotateRight: 1
   canMove: 1
   speed: 4
+  bigpointSpeed: 6
   bigpointDuration: 5
-  isPaused: 0
-  pauseMenu: {fileID: 0}
 --- !u!135 &135354089023178974
 SphereCollider:
   m_ObjectHideFlags: 1

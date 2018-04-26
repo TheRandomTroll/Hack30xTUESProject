@@ -129,7 +129,7 @@ MonoBehaviour:
   currentState: 3
   ghostBehaviours:
   - state: 1
-    stateTime: 100
+    stateTime: 10
   - state: 2
     stateTime: 15
   - state: 1
@@ -137,10 +137,8 @@ MonoBehaviour:
   currentStateTimer: 0
   currentStateIndex: 0
   bigpointDurationLeft: 0
-  blinkStartTime: 2
-  blinkFrequency: 1
-  activationTime: 1
   ghostColor: {r: 0, g: 0, b: 0, a: 0}
+  activationTime: 15
   currentTravelDestination: {fileID: 0}
   distanceBetweenSwitching: 5
 --- !u!195 &195429742666450030

@@ -14,24 +14,19 @@ public class ChangeCamera : MonoBehaviour {
     private void Awake()
     {
         firstPersonCamera = GameObject.Find("First Person Camera").GetComponent<Camera>();
-        staticCamera = GameObject.Find("Static Camera").GetComponent<Camera>();
+        staticCamera = FindObjectOfType<CameraStatic>().GetComponentInChildren<Camera>();
         rawImage = GameObject.Find("RawImage").GetComponent<RawImage>();
-        
     }
 
     // Use this for initialization
     void Start () {
-        if (PlayerPrefs.GetInt("camera", 1) == 1)
-            firstPersonCamera.enabled = true;
-        else if(PlayerPrefs.GetInt("camera", 1) == 2)
-            staticCamera.enabled = true;
-        staticCamera.enabled = true;
-        firstPersonCamera.enabled = false;
+        staticCamera.enabled = false;
+        firstPersonCamera.enabled = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetButtonDown("Select"))
+        if(Input.GetButtonDown("Select") || Input.GetKeyDown(KeyCode.Mouse1))
         {
             staticCamera.enabled = !staticCamera.enabled;
             firstPersonCamera.enabled = !firstPersonCamera.enabled;

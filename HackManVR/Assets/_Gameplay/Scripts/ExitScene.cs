@@ -13,6 +13,7 @@ public class ExitScene : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(keycode) || Input.GetButtonDown(buttonName))
         {
+            Debug.Log("Exit scene!");
             SceneManager.LoadScene(scene);
         }
 	}
