@@ -18,9 +18,14 @@ public class UITrigger : MonoBehaviour {
     [SerializeField]
     private string alternative = "Backward";
 
+    [SerializeField] private Color color;
+    [SerializeField] private Color hoverColor;
+
     private bool isTriggered = false;
     private void Start()
     {
+        color = GetComponent<TextMesh>().color;
+        hoverColor = new Color(color.r + 0.15f, color.g - 0.15f, color.b - 0.15f);
         triggerTimer = 0;
     }
 
@@ -36,6 +41,17 @@ public class UITrigger : MonoBehaviour {
             outsideTrigger = false;
         }
         isTriggered = false;
+
+        if(outsideTrigger)
+        {
+            GetComponent<TextMesh>().color = hoverColor;
+        }
+        else
+        {
+            GetComponent<TextMesh>().color = color;
+        }
+
+
         if(outsideTrigger &&
                (Input.GetKeyDown(input) || Input.GetButtonDown(alternative)))
         {
