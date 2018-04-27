@@ -139,6 +139,7 @@ MonoBehaviour:
   bigpointDurationLeft: 0
   ghostColor: {r: 0, g: 0, b: 0, a: 0}
   activationTime: 10
+  startingPosition: {x: 0, y: 0, z: 0}
   currentTravelDestination: {fileID: 0}
   setPosition: {x: 0, y: 0, z: 0}
 --- !u!195 &195156921005459302
