@@ -14,7 +14,8 @@ public class Point : MonoBehaviour {
             FindObjectOfType<PointManager>().AddPoints(points);
             Destroy(gameObject);
             // Todo: ParticleSystem oncollect
-            AudioSource.PlayClipAtPoint(source, transform.position);
+            if(source)
+                AudioSource.PlayClipAtPoint(source, transform.position);
         }
     }
 }

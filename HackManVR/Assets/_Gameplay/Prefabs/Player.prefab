@@ -734,6 +734,8 @@ MonoBehaviour:
   speed: 4
   bigpointSpeed: 6
   bigpointDuration: 5
+  getEatenByGhost: {fileID: 8300000, guid: 91499bf2bc3d96346a9cbab4f85e7444, type: 3}
+  eatGhost: {fileID: 8300000, guid: 7530cf92f78bf024cb2b23a406dbdf42, type: 3}
 --- !u!135 &135354089023178974
 SphereCollider:
   m_ObjectHideFlags: 1

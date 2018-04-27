@@ -21,7 +21,7 @@ public class Pacman : MonoBehaviour {
     [SerializeField] private AudioClip getEatenByGhost;
     [SerializeField] private AudioClip eatGhost;
 
-
+    private bool hasDied = false;
 
     private int currentBigpointDuration = 0;
 
@@ -35,6 +35,8 @@ public class Pacman : MonoBehaviour {
 
     void Update()
     {
+        if (hasDied) return;
+
         if (canMove)
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -87,9 +89,14 @@ public class Pacman : MonoBehaviour {
         {
             if (other.GetComponent<Ghost>().CanEatPlayer())
             {
-                AudioSource.PlayClipAtPoint(getEatenByGhost, transform.position);
-                Debug.Log("Got killed by: " + other.name);
-                Invoke("LoseExecution", getEatenByGhost.length);
+                if (!hasDied)
+                {
+                    AudioSource.PlayClipAtPoint(getEatenByGhost, transform.position);
+                    Debug.Log("Got killed by: " + other.name);
+                    Invoke("LoseExecution", getEatenByGhost.length);
+                    hasDied = true;
+
+                }
             }
             else
             {

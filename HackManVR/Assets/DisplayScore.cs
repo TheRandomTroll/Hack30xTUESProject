@@ -23,7 +23,7 @@ public class DisplayScore : MonoBehaviour {
             centerZ);
 
         transform.position = mapCenter;
-        transform.Translate(-transform.forward * centerX);
+        transform.Translate(transform.right * (centerZ + centerX));
     }
 
     public void UpdateScore(int score)
