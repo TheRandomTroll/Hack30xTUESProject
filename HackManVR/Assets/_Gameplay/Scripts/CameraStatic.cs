@@ -20,7 +20,8 @@ public class CameraStatic : MonoBehaviour {
         GroundMap map = FindObjectOfType<GroundMap>();
         float xCenter = (map.gridBounds.x + map.gridBounds.z);
         float zCenter = (map.gridBounds.y + map.gridBounds.w);
-        cameraHeight = ((xCenter * 2 * zCenter * 2) / staticCamera.fieldOfView / 2) + 5; //
+        cameraHeight = ((xCenter * 2 * zCenter * 2) / staticCamera.fieldOfView / 2); //
+        cameraHeight -= cameraHeight * 0.15f;
 
 
         Debug.Log("Map bounds: " + mapBounds);
@@ -36,7 +37,6 @@ public class CameraStatic : MonoBehaviour {
     {
         if(hasSetPosition)
         {
-            Debug.Log("Set position" + position);
             FindObjectOfType<CameraStatic>().transform.position = position;
         }
     }
