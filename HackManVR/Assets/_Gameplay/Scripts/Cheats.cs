@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cheats : MonoBehaviour {
-    
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.N) || (Input.GetButton("Left1") && Input.GetButton("Right1")))
+
+
+    private CustomInputManager inputManager;
+
+    private void Start()
+    {
+        inputManager = FindObjectOfType<CustomInputManager>();
+    }
+
+
+    void Update () {
+		if(Input.GetKeyDown(KeyCode.N) || (inputManager.GetLeftOne() && inputManager.GetRightOne()))
         {
             CollectAllPointsCheat();
         }

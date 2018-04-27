@@ -8,10 +8,16 @@ public class ExitScene : MonoBehaviour {
     [SerializeField] string scene;
     [SerializeField] string buttonName = "Back";
     [SerializeField] KeyCode keycode = KeyCode.Escape;
-	
-	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyDown(keycode) || Input.GetButtonDown(buttonName))
+
+    private CustomInputManager inputManager;
+
+    private void Start()
+    {
+        inputManager = FindObjectOfType<CustomInputManager>();
+    }
+    // Update is called once per frame
+    void Update () {
+		if(Input.GetKeyDown(keycode) || inputManager.GetBackDown())
         {
             Debug.Log("Exit scene!");
             SceneManager.LoadScene(scene);

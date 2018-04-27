@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb25f1677a1ff2e4a9bcfbb3a55c8668, type: 3}
-  m_Name: PC Input
+  m_Name: Mocute Input
   m_EditorClassIdentifier: 
-  right: d
-  left: a
-  top: w
-  down: s
-  leftOne: q
-  leftTwo: z
-  rightOne: e
-  rightTwo: c
-  backButton: escape
+  right: Alpha2
+  left: Alpha3
+  top: Alpha4
+  down: Alpha1
+  leftOne: Alpha6
+  leftTwo: Alpha8
+  rightOne: Alpha7
+  rightTwo: Alpha9
+  backButton: Alpha0

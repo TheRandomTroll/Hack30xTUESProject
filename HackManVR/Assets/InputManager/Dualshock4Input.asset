@@ -11,11 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb25f1677a1ff2e4a9bcfbb3a55c8668, type: 3}
   m_Name: Dualshock4Input
   m_EditorClassIdentifier: 
-  right: 
-  left: 
-  top: 
-  down: 
-  leftOne: 
-  leftTwo: 
-  rightOne: 
-  rightTwo: 
+  right: joystick button 13
+  left: joystick button 0
+  top: joystick button 2
+  down: joystick button 1
+  leftOne: joystick button 3
+  leftTwo: joystick button 4
+  rightOne: joystick button 14
+  rightTwo: joystick button 5
+  backButton: joystick button 12

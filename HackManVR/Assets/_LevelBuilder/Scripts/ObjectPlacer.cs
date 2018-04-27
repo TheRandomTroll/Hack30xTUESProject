@@ -38,6 +38,8 @@ public class ObjectPlacer : MonoBehaviour {
     private LevelEditorGrid levelGrid;
     private float yRotation = 0;
 
+    private CustomInputManager inputManager;
+
     private void Start()
     {
         worldGrid = FindObjectOfType<WorldGrid>();
@@ -45,6 +47,8 @@ public class ObjectPlacer : MonoBehaviour {
         if(currentItemSelection) currentItemSelection.SetAsActive();
         levelGrid = FindObjectOfType<LevelEditorGrid>();
         raycast = GetComponent<SharedRaycast>();
+
+        inputManager = FindObjectOfType<CustomInputManager>();
     }
 
 
@@ -63,12 +67,12 @@ public class ObjectPlacer : MonoBehaviour {
                 Mathf.RoundToInt(hit.transform.position.x),
                 Mathf.RoundToInt(hit.transform.position.z));
         
-        if (Input.GetKeyDown(rotateLeft) || Input.GetButtonDown(controllerRotateLeft))
+        if (Input.GetKeyDown(rotateLeft) || inputManager.GetLeftOneDown())
         {
             yRotation -= 90;
             Debug.Log("rotate left");
         }
-        if (Input.GetKeyDown(rotateRight) || Input.GetButtonDown(controllerRotateRight))
+        if (Input.GetKeyDown(rotateRight) || inputManager.GetRightOneDown())
         {
             Debug.Log("rotate right");
             yRotation += 90;
@@ -85,7 +89,7 @@ public class ObjectPlacer : MonoBehaviour {
         }
         else if(hit.transform.gameObject.tag == "ItemFrame")
         {
-            if (Input.GetKey(leftClick) || Input.GetButton("Left"))
+            if (Input.GetKey(leftClick) || inputManager.GetLeft())
             {
                 SetActiveItemFrame(hit);
             }
@@ -98,7 +102,7 @@ public class ObjectPlacer : MonoBehaviour {
             {
                 PlaceRemoveShadow(hit.transform.position);
             }
-            if (Input.GetKey(rightClick) || Input.GetButton("Right"))
+            if (Input.GetKey(rightClick) || inputManager.GetRight())
             {
                 RemoveItem(hit, gridPosition);
             }
@@ -149,9 +153,9 @@ public class ObjectPlacer : MonoBehaviour {
     {
         bool oneTapToPlace = currentItemSelection.GetOneTapToPlace();
         bool place = false;
-        if (!oneTapToPlace && (Input.GetButton(controllerLeft) || Input.GetKey(leftClick)))
+        if (!oneTapToPlace && (inputManager.GetLeft() || Input.GetKey(leftClick)))
             place = true;
-        if (oneTapToPlace && (Input.GetButtonDown(controllerLeft) || Input.GetKeyDown(leftClick)))
+        if (oneTapToPlace && (inputManager.GetLeftDown() || Input.GetKeyDown(leftClick)))
             place = true;
 
         if (place)

@@ -17,9 +17,17 @@ public class Pacman : MonoBehaviour {
     [SerializeField] private float speed = 4;
     [SerializeField] private float bigpointSpeed = 6;
     [SerializeField] private float bigpointDuration = 10;
+
     
     private int currentBigpointDuration = 0;
-    
+
+    private CustomInputManager inputManager;
+
+
+    private void Start()
+    {
+        inputManager = FindObjectOfType<CustomInputManager>();
+    }
 
     void Update()
     {
@@ -28,12 +36,12 @@ public class Pacman : MonoBehaviour {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        if (Input.GetButtonDown("Left") && rotateLeft)
+        if ((inputManager.GetLeftDown() || Input.GetKeyDown(KeyCode.A)) && rotateLeft)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
         }
 
-        if (Input.GetButtonDown("Right") && rotateRight)
+        if ((inputManager.GetRightDown() || Input.GetKeyDown(KeyCode.D)) && rotateRight)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
         }

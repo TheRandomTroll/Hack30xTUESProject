@@ -11,6 +11,8 @@ public class ChangeCamera : MonoBehaviour {
     public Camera staticCamera;
     public RawImage rawImage;
 
+    private CustomInputManager inputManager;
+
     private void Awake()
     {
         firstPersonCamera = GameObject.Find("First Person Camera").GetComponent<Camera>();
@@ -22,12 +24,16 @@ public class ChangeCamera : MonoBehaviour {
     void Start () {
         staticCamera.enabled = false;
         firstPersonCamera.enabled = true;
-        
+        inputManager = FindObjectOfType<CustomInputManager>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetButtonDown("Right2") || Input.GetKeyDown(KeyCode.Mouse1))
+        if(inputManager.GetRightTwoDown())
+        {
+            Debug.Log("Changing camera!");
+        }
+        if(inputManager.GetRightTwoDown() || Input.GetKeyDown(KeyCode.Mouse1))
         {
             staticCamera.enabled = !staticCamera.enabled;
             firstPersonCamera.enabled = !firstPersonCamera.enabled;

@@ -15,11 +15,11 @@ public class UITrigger : MonoBehaviour {
 
     [SerializeField]
     private KeyCode input = KeyCode.Mouse0;
-    [SerializeField]
-    private string alternative = "Backward";
 
     [SerializeField] private Color color;
     [SerializeField] private Color hoverColor;
+
+    private CustomInputManager inputManager;
 
     private bool isTriggered = false;
     private void Start()
@@ -27,6 +27,7 @@ public class UITrigger : MonoBehaviour {
         color = GetComponent<TextMesh>().color;
         hoverColor = new Color(color.r + 0.15f, color.g - 0.15f, color.b - 0.15f);
         triggerTimer = 0;
+        inputManager = FindObjectOfType<CustomInputManager>();
     }
 
 
@@ -53,7 +54,7 @@ public class UITrigger : MonoBehaviour {
 
 
         if(outsideTrigger &&
-               (Input.GetKeyDown(input) || Input.GetButtonDown(alternative)))
+               (Input.GetKeyDown(input) || inputManager.GetRightDown()))
         {
             isTriggered = true;
         }

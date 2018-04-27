@@ -13,4 +13,5 @@ public class Inputs : ScriptableObject {
     public string leftTwo;
     public string rightOne;
     public string rightTwo;
+    public string backButton;
 }
