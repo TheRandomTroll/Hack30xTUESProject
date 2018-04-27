@@ -45,6 +45,11 @@ public class Pacman : MonoBehaviour {
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 90, transform.eulerAngles.z);
         }
+
+        if((inputManager.GetBackwardDown() || Input.GetKeyDown(KeyCode.S)))
+        {
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
     }
 
 
