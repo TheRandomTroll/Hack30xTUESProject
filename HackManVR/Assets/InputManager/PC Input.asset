@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb25f1677a1ff2e4a9bcfbb3a55c8668, type: 3}
   m_Name: PC Input
   m_EditorClassIdentifier: 
-  right: d
-  left: a
-  top: w
-  down: s
+  right: \
+  left: \
+  top: \
+  down: \
   leftOne: q
   leftTwo: z
   rightOne: e

@@ -34,6 +34,7 @@ public class PointManager : MonoBehaviour {
     private void UpdatePointText()
     {
         text.text = "Points: " + points;
+        FindObjectOfType<DisplayScore>().UpdateScore(points);
     }
 
 

@@ -24,7 +24,7 @@ public class Ghost : MonoBehaviour {
     protected NavMeshAgent navAgent;
     protected GroundMap map;
 
-    private Vector3 startingPosition;
+    [SerializeField] private Vector3 startingPosition;
 
     [SerializeField] protected Waypoint currentTravelDestination;
 
@@ -94,6 +94,7 @@ public class Ghost : MonoBehaviour {
     private IEnumerator GetEatenRoutine()
     {
         GetComponent<Collider>().enabled = false;
+        navAgent.enabled = false;
         currentState = GhostState.NotActivated;
         transform.Translate(Vector3.down * 5);
         GetComponent<MeshRenderer>().enabled = false;
@@ -108,7 +109,7 @@ public class Ghost : MonoBehaviour {
         transform.position = startingPosition;
         currentTravelDestination = null;
         currentState = ghostBehaviours[currentStateIndex].state;
-
+        navAgent.enabled = true;
         GetComponent<Collider>().enabled = true;
     }
 
