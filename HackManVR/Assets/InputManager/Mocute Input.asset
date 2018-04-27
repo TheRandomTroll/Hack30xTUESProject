@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb25f1677a1ff2e4a9bcfbb3a55c8668, type: 3}
   m_Name: Mocute Input
   m_EditorClassIdentifier: 
-  right: Alpha2
-  left: Alpha3
-  top: Alpha4
-  down: Alpha1
-  leftOne: Alpha6
-  leftTwo: Alpha8
-  rightOne: Alpha7
-  rightTwo: Alpha9
-  backButton: Alpha0
+  right: 2
+  left: 3
+  top: 4
+  down: 1
+  leftOne: 6
+  leftTwo: 8
+  rightOne: 7
+  rightTwo: 9
+  backButton: 5
