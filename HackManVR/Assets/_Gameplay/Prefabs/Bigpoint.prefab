@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1000
+  source: {fileID: 8300000, guid: e3eabbc9fc9dfec48bfa60548a53d92b, type: 3}
 --- !u!135 &135898654701268782
 SphereCollider:
   m_ObjectHideFlags: 1
