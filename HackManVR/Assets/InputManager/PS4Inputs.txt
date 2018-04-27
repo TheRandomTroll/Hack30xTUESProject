@@ -1,0 +1,10 @@
+Square - JoystickButton0
+X - JoystickButton1
+Circle - JoystickButton13
+Triangle - JoystickButton2
+Left1 - JoystickButton3
+Left2 -JoystickButton4
+Right1 - JoystickButton14
+Right2 - JoystickButton6
+PS - JoystickButton12
+Options - JoystickButton7
