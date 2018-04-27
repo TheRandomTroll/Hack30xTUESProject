@@ -18,7 +18,11 @@ public class Pacman : MonoBehaviour {
     [SerializeField] private float bigpointSpeed = 6;
     [SerializeField] private float bigpointDuration = 10;
 
-    
+    [SerializeField] private AudioClip getEatenByGhost;
+    [SerializeField] private AudioClip eatGhost;
+
+
+
     private int currentBigpointDuration = 0;
 
     private CustomInputManager inputManager;
@@ -78,8 +82,9 @@ public class Pacman : MonoBehaviour {
         {
             if (other.GetComponent<Ghost>().CanEatPlayer())
             {
+                AudioSource.PlayClipAtPoint(getEatenByGhost, transform.position);
                 Debug.Log("Got killed by: " + other.name);
-                FindObjectOfType<WinLoseManager>().LoseExecution();
+                Invoke("LoseExecution", getEatenByGhost.length);
             }
             else
             {
@@ -92,7 +97,13 @@ public class Pacman : MonoBehaviour {
                 // :'(
                 other.GetComponent<Ghost>().GetEaten();
                 Debug.Log("Ate: " + other.name);
+                AudioSource.PlayClipAtPoint(eatGhost, transform.position);
             }
         }
+    }
+
+    private void LoseExecution()
+    {
+        FindObjectOfType<WinLoseManager>().LoseExecution();
     }
 }
