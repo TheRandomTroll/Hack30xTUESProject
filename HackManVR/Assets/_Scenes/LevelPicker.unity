@@ -531,24 +531,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 40.500015, y: 78.149414, z: 10}
   m_Center: {x: 20.250008, y: -39.074707, z: -2.877698e-13}
---- !u!1 &905273793 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1745560940117862, guid: 4709aadd58197344386bb9a8ebcadcf8,
-    type: 2}
-  m_PrefabInternal: {fileID: 2015748032}
---- !u!114 &905273794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 905273793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a8f6efd02f5a3948921092bf208583f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 1562691666}
-  speed: 20
 --- !u!1001 &1078762249
 Prefab:
   m_ObjectHideFlags: 0
@@ -758,11 +740,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &1562691666 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20420495941142888, guid: 4709aadd58197344386bb9a8ebcadcf8,
-    type: 2}
-  m_PrefabInternal: {fileID: 2015748032}
 --- !u!1001 &1602305818
 Prefab:
   m_ObjectHideFlags: 0
@@ -894,10 +871,6 @@ Prefab:
     - target: {fileID: 1745560940117862, guid: 4709aadd58197344386bb9a8ebcadcf8, type: 2}
       propertyPath: m_Name
       value: LevelBuilderCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 4128871321478680, guid: 4709aadd58197344386bb9a8ebcadcf8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 89
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4709aadd58197344386bb9a8ebcadcf8, type: 2}

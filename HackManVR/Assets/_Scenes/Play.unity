@@ -590,60 +590,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224747846004887294, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224747846004887294, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224747846004887294, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224747846004887294, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224747846004887294, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224747846004887294, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224747846004887294, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 141.70001
-      objectReference: {fileID: 0}
-    - target: {fileID: 224747846004887294, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224747846004887294, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1584396968105718, guid: e23a0491e46216a40b837549a2aed957, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114393872238279430, guid: e23a0491e46216a40b837549a2aed957,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e23a0491e46216a40b837549a2aed957, type: 2}
   m_IsPrefabParent: 0
@@ -922,23 +868,7 @@ Prefab:
       propertyPath: m_Name
       value: FP Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 20642337879951748, guid: bfb107428ccdbad44be7a79c79d2e113,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20890237346766798, guid: bfb107428ccdbad44be7a79c79d2e113,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20890237346766798, guid: bfb107428ccdbad44be7a79c79d2e113,
-        type: 2}
-      propertyPath: m_TargetEye
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114239360266289984, guid: bfb107428ccdbad44be7a79c79d2e113, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfb107428ccdbad44be7a79c79d2e113, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1659601040

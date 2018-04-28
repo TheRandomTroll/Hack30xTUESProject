@@ -17,7 +17,14 @@ public class ChangeCamera : MonoBehaviour {
     {
         firstPersonCamera = GameObject.Find("First Person Camera").GetComponent<Camera>();
         staticCamera = FindObjectOfType<CameraStatic>().GetComponentInChildren<Camera>();
-        rawImage = GameObject.Find("RawImage").GetComponent<RawImage>();
+        try
+        {
+            rawImage = GameObject.Find("RawImage").GetComponent<RawImage>();
+        }
+        catch (NullReferenceException)
+        {
+            Debug.Log("No raw image :)");
+        }
     }
 
     // Use this for initialization
@@ -37,7 +44,8 @@ public class ChangeCamera : MonoBehaviour {
         {
             staticCamera.enabled = !staticCamera.enabled;
             firstPersonCamera.enabled = !firstPersonCamera.enabled;
-            rawImage.enabled = !rawImage.enabled;
+            if(rawImage)
+                rawImage.enabled = !rawImage.enabled;
             staticCamera.transform.eulerAngles = new Vector3(90, 0, 0);
             //rawImage.enabled = !rawImage.enabled;
         }
